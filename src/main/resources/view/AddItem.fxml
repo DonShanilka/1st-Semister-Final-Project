@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddItemController">
+   <children>
+      <Pane prefHeight="557.0" prefWidth="761.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: white;" />
+            <TextField fx:id="txtSupplierId" layoutX="26.0" layoutY="141.0" prefHeight="25.0" prefWidth="201.0" promptText="Suppliyer id" style="-fx-background-color: white;" />
+            <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="126.0" layoutY="166.0" startX="-100.0" />
+            <TextField layoutX="588.0" layoutY="266.0" />
+            <TextField fx:id="txtItemPrice" layoutX="272.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Price" style="-fx-background-color: white;" />
+            <Line endX="100.0" layoutX="373.0" layoutY="124.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="373.0" layoutY="166.0" startX="-100.0" />
+            <TextField fx:id="txtWarrantyPeriod" layoutX="272.0" layoutY="140.0" prefHeight="25.0" prefWidth="201.0" promptText="Warranty Period" style="-fx-background-color: white;" />
+            <TextArea layoutX="26.0" layoutY="182.0" prefHeight="82.0" prefWidth="450.0" promptText="item Details" style="-fx-background-radius: 0;">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextArea>
+            <ScrollPane layoutX="26.0" layoutY="306.0" prefHeight="217.0" prefWidth="711.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" height="82.0" layoutX="500.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="237.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.3270142180094787" startY="0.895734597156398">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0660940557718277" green="0.27645793557167053" blue="0.46052631735801697" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.032224658876657486" green="0.032224658876657486" blue="0.30263158679008484" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Text fill="WHITE" layoutX="570.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Item">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

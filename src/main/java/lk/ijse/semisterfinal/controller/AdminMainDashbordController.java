@@ -1,0 +1,63 @@
+package lk.ijse.semisterfinal.controller;
+
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+import java.util.Objects;
+
+public class AdminMainDashbordController {
+    public JFXButton monthlyIncome;
+    public JFXButton item;
+    public JFXButton Employee;
+    public JFXButton supplier;
+    public JFXButton deliver;
+    public JFXButton customer;
+    public AnchorPane root;
+    public AnchorPane root1;
+
+    public void initialize() throws IOException {
+        monthlyIncomeOnAction(null);
+    }
+    void setForm(String form) throws IOException {
+        String[] formArray = {"/view/Customer.fxml","/view/Diliver.fxml", "/view/addEmployee.fxml", "/view/AddItem.fxml", "/view/Supplier.fxml", "/view/monthlyincome.fxml"};
+
+        JFXButton[] btnArray = {customer,deliver,Employee,item,supplier,monthlyIncome};
+        AnchorPane load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(form)));
+        root.getChildren().clear();
+        root.getChildren().add(load);
+        for (int i = 0; i < formArray.length; i++) {
+            btnArray[i].setStyle("-fx-background-color:  #ffffff; -fx-font-size: 12");
+
+            if (form.equals(formArray[i])){
+                btnArray[i].setStyle("-fx-background-color: #ffffff; -fx-text-fill: #040082");
+            }
+        }
+    }
+    public void monthlyIncomeOnAction(ActionEvent event) throws IOException {
+        setForm("/view/monthlyincome.fxml");
+    }
+
+    public void itemOnAction(ActionEvent event) throws IOException {
+        setForm("/view/AddItem.fxml");
+    }
+
+    public void EmployeeOnAction(ActionEvent event) throws IOException {
+        setForm("/view/addEmployee.fxml");
+    }
+
+    public void SupplierOnAction(ActionEvent event) throws IOException {
+        setForm("/view/Supplier.fxml");
+    }
+
+    public void DeliverOnAction(ActionEvent event) throws IOException {
+        setForm("/view/Diliver.fxml");
+    }
+
+    public void CustomerOnAction(ActionEvent event) throws IOException {
+        setForm("/view/Customer.fxml");
+    }
+    
+}

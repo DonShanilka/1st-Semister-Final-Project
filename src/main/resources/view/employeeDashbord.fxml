@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="550.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDashbordControlle">
+   <children>
+      <Pane prefHeight="559.0" prefWidth="120.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton layoutX="8.0" layoutY="212.0" onAction="#EmpItemOnAction" prefHeight="45.0" prefWidth="104.0" style="-fx-background-color: white;" text="item ">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="supplier" layoutX="8.0" layoutY="270.0" onAction="#EmpCustomerOnAction" prefHeight="45.0" prefWidth="104.0" style="-fx-background-color: white;" text="Customer">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="deliver" layoutX="8.0" layoutY="332.0" onAction="#EmpDeliverOnAction" prefHeight="45.0" prefWidth="104.0" style="-fx-background-color: white; -fx-background-radius: 100;" text="Deliver">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="customer" layoutX="-13.0" layoutY="396.0" onAction="#CustomerOnAction" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: white;" text="Customer" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="8.0" layoutY="153.0" onAction="#DashboardOnAction" prefHeight="45.0" prefWidth="104.0" style="-fx-background-color: white;" text="Dashboard">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="supplier1" layoutX="9.0" layoutY="384.0" onAction="#EmpSuppliersOnAction" prefHeight="45.0" prefWidth="104.0" style="-fx-background-color: white;" text="Suppliers">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="root" layoutX="120.0" prefHeight="559.0" prefWidth="745.0" style="-fx-background-color: #F2F2F2;">
+         <children>
+            <Group layoutX="18.0" layoutY="185.0">
+               <children>
+                  <Pane layoutY="23.0" prefHeight="234.0" prefWidth="708.0" style="-fx-background-color: D9D9D9;" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="26.0" stroke="#d9d9d9" strokeType="INSIDE" width="709.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" stroke="#d9d9d9" strokeType="INSIDE" width="85.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" layoutX="85.0" stroke="#d9d9d9" strokeType="INSIDE" width="186.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" layoutX="271.0" stroke="#d9d9d9" strokeType="INSIDE" width="127.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" layoutX="398.0" stroke="#d9d9d9" strokeType="INSIDE" width="49.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" layoutX="447.0" stroke="#d9d9d9" strokeType="INSIDE" width="91.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" layoutX="538.0" stroke="#d9d9d9" strokeType="INSIDE" width="135.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1481da" height="26.0" layoutX="673.0" stroke="#d9d9d9" strokeType="INSIDE" width="35.0" />
+                  <Text fill="WHITE" layoutX="31.0" layoutY="17.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text="Code">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="147.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="321.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="412.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="459.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount  %">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="591.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="688.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Group>
+            <TextField layoutX="19.0" layoutY="58.0" prefHeight="25.0" prefWidth="201.0" promptText="Code" style="-fx-background-color: white;" />
+            <Line endX="100.0" layoutX="121.0" layoutY="122.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="121.0" layoutY="86.0" startX="-100.0" />
+            <TextField layoutX="21.0" layoutY="96.0" prefHeight="25.0" prefWidth="201.0" promptText="Item Name" style="-fx-background-color: white;" />
+            <Line endX="100.0" layoutX="626.0" layoutY="84.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="376.0" layoutY="121.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="376.0" layoutY="85.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="626.0" layoutY="122.0" startX="-100.0" />
+            <TextField layoutX="276.0" layoutY="95.0" prefHeight="25.0" prefWidth="201.0" promptText="Qty" style="-fx-background-color: white;" />
+            <TextField layoutX="276.0" layoutY="58.0" prefHeight="25.0" prefWidth="201.0" promptText="Price" style="-fx-background-color: white;" />
+            <TextField layoutX="526.0" layoutY="58.0" prefHeight="25.0" prefWidth="201.0" promptText="Discount %" style="-fx-background-color: white;" />
+            <TextField layoutX="526.0" layoutY="95.0" prefHeight="25.0" prefWidth="201.0" promptText="Total" style="-fx-background-color: white;" />
+            <JFXButton layoutX="675.0" layoutY="134.0" style="-fx-background-color: #00FF38;" text="Add +" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.MonthlyincomeController">
+   <children>
+      <Label layoutX="298.0" layoutY="215.0" text="MOnthly">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
