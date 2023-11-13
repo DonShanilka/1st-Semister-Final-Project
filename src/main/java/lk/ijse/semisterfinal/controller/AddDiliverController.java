@@ -15,7 +15,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddDiliverController implements Initializable {
+public class AddDiliverController {
     public AnchorPane rootNode;
     public BorderPane borderPane;
     public AnchorPane sliderAnchor;
@@ -42,7 +42,7 @@ public class AddDiliverController implements Initializable {
     @FXML
     private Label get;
 
-    @Override
+    /*@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         borderpane.setTranslateX(-176);
 
@@ -79,7 +79,7 @@ public class AddDiliverController implements Initializable {
             });
 
         });
-    }
+    }*/
 
     public void OrderDeleteOnAction(ActionEvent event) {
     }

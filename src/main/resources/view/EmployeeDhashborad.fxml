@@ -8,16 +8,16 @@
 
 <AnchorPane fx:id="rootNode1" prefHeight="550.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDhashboradController">
    <children>
-      <Pane prefHeight="559.0" prefWidth="120.0" style="-fx-background-color: white;">
+      <Pane prefHeight="559.0" prefWidth="138.0" style="-fx-background-color: white;">
          <children>
-            <VBox fx:id="btnVBox" layoutX="10.0" layoutY="168.0" prefHeight="326.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="button" stylesheets="@style.css">
+            <VBox fx:id="btnVBox" layoutX="-4.0" layoutY="168.0" prefHeight="326.0" prefWidth="132.0" style="-fx-background-color: white;" styleClass="button" stylesheets="@style.css">
                <children>
                   <JFXButton fx:id="cashier" onAction="#CashierOnAction" prefHeight="45.0" prefWidth="105.0" text="Cashier">
                      <font>
                         <Font name="Segoe UI Semibold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="empCustomer" onAction="#CustomerOnAction" prefHeight="45.0" prefWidth="105.0" text="Customer">
+                  <JFXButton fx:id="empCustomer" onAction="#CustomerOnAction" prefHeight="45.0" prefWidth="97.0" text="Customer">
                      <font>
                         <Font name="Segoe UI Semibold" size="15.0" />
                      </font>
@@ -41,10 +41,6 @@
             </VBox>
          </children>
       </Pane>
-      <AnchorPane fx:id="rootNode2" layoutX="120.0" prefHeight="559.0" prefWidth="761.0" style="-fx-background-color: #F2F2F2;">
-         <children>
-            <Pane prefHeight="565.0" prefWidth="761.0" style="-fx-background-color: #e6e6e6;" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="root" layoutX="120.0" prefHeight="559.0" prefWidth="761.0" style="-fx-background-color: #F2F2F2;" />
    </children>
 </AnchorPane>

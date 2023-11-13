@@ -92,7 +92,7 @@ public class AddCustomerController {
                 clearField();
             }
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR,"already define customer Id").show();
         }
     }
 
