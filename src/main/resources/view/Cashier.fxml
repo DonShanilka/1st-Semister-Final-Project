@@ -43,7 +43,7 @@
             <Font name="Cambria Math" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="261.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Price :">
+      <Text layoutX="258.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Price :">
          <font>
             <Font name="Cambria Math" size="12.0" />
          </font>
@@ -51,7 +51,7 @@
       <Line endX="27.0" layoutX="191.0" layoutY="115.0" startX="-100.0" />
       <Line endX="27.0" layoutX="191.0" layoutY="159.0" startX="-100.0" />
       <TextField fx:id="txtdiscount" layoutX="90.0" layoutY="133.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
-      <Text layoutX="262.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty :">
+      <Text layoutX="258.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty :">
          <font>
             <Font name="Cambria Math" size="12.0" />
          </font>
@@ -61,8 +61,8 @@
             <Font name="Cambria Math" size="12.0" />
          </font>
       </Text>
-      <Line endX="27.0" layoutX="390.0" layoutY="74.0" startX="-100.0" />
-      <TextField fx:id="txtQty" layoutX="290.0" layoutY="48.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
+      <Line endX="27.0" layoutX="385.0" layoutY="66.0" startX="-100.0" />
+      <TextField fx:id="txtQty" layoutX="284.0" layoutY="40.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
       <Line endX="27.0" layoutX="423.0" layoutY="115.0" startX="-100.0" />
       <JFXButton fx:id="btnAddToBill" buttonType="RAISED" layoutX="628.0" layoutY="136.0" onAction="#btnAddToBillOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to Bill" textFill="WHITE">
          <graphic>

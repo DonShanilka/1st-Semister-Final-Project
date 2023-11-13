@@ -29,10 +29,10 @@ public class AdminMainDashbordController {
         root1.getChildren().clear();
         root1.getChildren().add(load);
         for (int i = 0; i < formArray.length; i++) {
-            btnArray[i].setStyle("-fx-background-color:  #ffffff; -fx-font-size: 12");
+            btnArray[i].setStyle("-fx-background-color:  #1032ff; -fx-font-size: 15; -fx-text-fill: #ffffff");
 
             if (form.equals(formArray[i])){
-                btnArray[i].setStyle("-fx-background-color: #ffffff; -fx-text-fill: #040082");
+                btnArray[i].setStyle("-fx-background-color: #ffffff; -fx-text-fill: #1032ff");
             }
         }
     }

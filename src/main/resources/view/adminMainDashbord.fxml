@@ -9,45 +9,45 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AdminMainDashbordController">
+<AnchorPane prefHeight="565.0" prefWidth="920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AdminMainDashbordController">
    <children>
-      <Pane prefHeight="559.0" prefWidth="120.0" style="-fx-background-color: white;">
+      <Pane prefHeight="565.0" prefWidth="179.0" style="-fx-background-color: #1032FF;">
          <children>
-            <JFXButton fx:id="item" layoutX="8.0" layoutY="221.0" onAction="#itemOnAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: white;" text="item ">
+            <JFXButton fx:id="item" layoutX="-7.0" layoutY="221.0" onAction="#itemOnAction" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white;" text="item ">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="Employee" layoutX="8.0" layoutY="273.0" onAction="#EmployeeOnAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: white;" text="Employee">
+            <JFXButton fx:id="Employee" layoutX="-7.0" layoutY="273.0" onAction="#EmployeeOnAction" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white;" text="Employee">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="supplier" layoutX="8.0" layoutY="325.0" onAction="#SupplierOnAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: whitw;" text="Supplier">
+            <JFXButton fx:id="supplier" layoutX="-7.0" layoutY="324.0" onAction="#SupplierOnAction" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white;" text="Supplier">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="deliver" layoutX="8.0" layoutY="377.0" onAction="#DeliverOnAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: white;" text="Deliver">
+            <JFXButton fx:id="deliver" layoutX="-6.0" layoutY="377.0" onAction="#DeliverOnAction" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white;" text="Deliver">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="customer" layoutX="8.0" layoutY="429.0" onAction="#CustomerOnAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: white;" text="Customer">
+            <JFXButton fx:id="customer" layoutX="-7.0" layoutY="429.0" onAction="#CustomerOnAction" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white;" text="Customer">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="monthlyIncome" layoutX="8.0" layoutY="169.0" onAction="#monthlyIncomeOnAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: white;" text="income" textAlignment="CENTER">
+            <JFXButton fx:id="monthlyIncome" layoutX="-7.0" layoutY="169.0" onAction="#monthlyIncomeOnAction" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white;" text="income" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root1" layoutX="120.0" prefHeight="559.0" prefWidth="761.0" style="-fx-background-color: #F2F2F2;">
+      <AnchorPane fx:id="root1" layoutX="179.0" prefHeight="565.0" prefWidth="768.0" style="-fx-background-color: #F2F2F2;">
          <children>
-            <Pane prefHeight="565.0" prefWidth="761.0" style="-fx-background-color: #e6e6e6;">
+            <Pane prefHeight="565.0" prefWidth="799.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="129.0" text="Dashboard">
                      <font>
@@ -68,7 +68,9 @@
                   </Pane>
                   <Pane layoutX="28.0" layoutY="339.0" prefHeight="200.0" prefWidth="358.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
                   <Pane layoutX="439.0" layoutY="339.0" prefHeight="200.0" prefWidth="276.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-               </children></Pane>
-         </children></AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
