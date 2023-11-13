@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.DiliverController">
    <children>
@@ -13,11 +17,58 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <TableView layoutX="14.0" layoutY="208.0" prefHeight="200.0" prefWidth="734.0">
+      <TableView layoutX="14.0" layoutY="190.0" prefHeight="200.0" prefWidth="734.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="68.0" text="Item id" />
+          <TableColumn prefWidth="176.0" text="Item Name" />
+            <TableColumn prefWidth="154.0" text="Item Price" />
+            <TableColumn prefWidth="45.0" text="Qty" />
+            <TableColumn prefWidth="119.0" text="Discount %" />
+            <TableColumn prefWidth="171.0" text="Total" />
         </columns>
       </TableView>
+      <Line endX="41.0" layoutX="175.0" layoutY="66.0" startX="-100.0" />
+      <TextField layoutX="75.0" layoutY="40.0" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: white;" />
+      <Text layoutX="28.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item id :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="28.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="28.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Price :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <Line endX="27.0" layoutX="191.0" layoutY="115.0" startX="-100.0" />
+      <TextField layoutX="90.0" layoutY="89.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
+      <Line endX="27.0" layoutX="191.0" layoutY="159.0" startX="-100.0" />
+      <TextField layoutX="90.0" layoutY="133.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
+      <Text layoutX="262.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="262.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="262.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <Line endX="27.0" layoutX="390.0" layoutY="74.0" startX="-100.0" />
+      <TextField layoutX="290.0" layoutY="48.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
+      <Line endX="27.0" layoutX="417.0" layoutY="114.0" startX="-100.0" />
+      <Line endX="27.0" layoutX="398.0" layoutY="158.0" startX="-100.0" />
+      <TextField layoutX="317.0" layoutY="88.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
+      <TextField layoutX="298.0" layoutY="132.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: white;" />
+      <JFXButton layoutX="663.0" layoutY="129.0" prefHeight="36.0" prefWidth="84.0" text="Add to Bill" />
    </children>
 </AnchorPane>
