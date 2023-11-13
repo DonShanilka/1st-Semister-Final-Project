@@ -43,7 +43,7 @@
       </Pane>
       <AnchorPane fx:id="rootNode2" layoutX="120.0" prefHeight="559.0" prefWidth="761.0" style="-fx-background-color: #F2F2F2;">
          <children>
-            <Pane fx:id="root" prefHeight="565.0" prefWidth="761.0" style="-fx-background-color: #e6e6e6;" />
+            <Pane prefHeight="565.0" prefWidth="761.0" style="-fx-background-color: #e6e6e6;" />
          </children>
       </AnchorPane>
    </children>
