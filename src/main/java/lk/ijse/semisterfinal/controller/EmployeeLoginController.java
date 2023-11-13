@@ -60,16 +60,17 @@ public class EmployeeLoginController {
             }
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/employeeDashbord.fxml"));
+                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/EmployeeDhashborad.fxml"));
                 Scene scene = new Scene(rootNode);
                 Stage primaryStage = (Stage) this.anroodNode.getScene().getWindow();
                 primaryStage.setScene(scene);
-                primaryStage.setTitle("Admin Dashboard");
+                primaryStage.setTitle("Dashboard");
             } else {
                 new Alert(Alert.AlertType.ERROR, "oops! credentials are wrong!").show();
                 clearField();
             }
         } catch (SQLException | IOException e) {
+            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             clearField();
         }

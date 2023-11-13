@@ -1,5 +1,4 @@
-package lk.ijse.semisterfinal.dto;
-
+package lk.ijse.semisterfinal.Tm;
 
 import lombok.*;
 
@@ -8,13 +7,13 @@ import lombok.*;
 @ToString
 @Getter
 @Setter
-
-public class CusromerDTO {
+public class CustomerTm {
     private String txtCustId;
     private String txtCustName;
     private String txtCustAddress;
     private String txtCustMobile;
     private String txtCustPayment;
     private String txtCustitemId;
+
 
 }

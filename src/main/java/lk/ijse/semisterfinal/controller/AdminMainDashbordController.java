@@ -22,12 +22,12 @@ public class AdminMainDashbordController {
         monthlyIncomeOnAction(null);
     }
     void setForm(String form) throws IOException {
-        String[] formArray = {"/view/Customer.fxml","/view/Diliver.fxml", "/view/addEmployee.fxml", "/view/AddItem.fxml", "/view/Supplier.fxml", "/view/monthlyincome.fxml"};
+        String[] formArray = {"/view/AddCustomer.fxml","/view/Diliver.fxml", "/view/addEmployee.fxml", "/view/AddItem.fxml", "/view/AddSupplier.fxml", "/view/monthlyincome.fxml"};
 
         JFXButton[] btnArray = {customer,deliver,Employee,item,supplier,monthlyIncome};
         AnchorPane load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(form)));
-        root.getChildren().clear();
-        root.getChildren().add(load);
+        root1.getChildren().clear();
+        root1.getChildren().add(load);
         for (int i = 0; i < formArray.length; i++) {
             btnArray[i].setStyle("-fx-background-color:  #ffffff; -fx-font-size: 12");
 
@@ -49,7 +49,7 @@ public class AdminMainDashbordController {
     }
 
     public void SupplierOnAction(ActionEvent event) throws IOException {
-        setForm("/view/Supplier.fxml");
+        setForm("/view/AddSupplier.fxml");
     }
 
     public void DeliverOnAction(ActionEvent event) throws IOException {
@@ -57,7 +57,7 @@ public class AdminMainDashbordController {
     }
 
     public void CustomerOnAction(ActionEvent event) throws IOException {
-        setForm("/view/Customer.fxml");
+        setForm("/view/AddCustomer.fxml");
     }
     
 }

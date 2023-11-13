@@ -2,9 +2,9 @@ package lk.ijse.semisterfinal;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 
 public class Launcher extends Application {
     public static void main(String[] args) {
@@ -14,11 +14,9 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/selectroll.fxml"));
-        Scene scene = new Scene(rootNode);
-        stage.setTitle("Select Roll");
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/selectroll.fxml"))));
         stage.centerOnScreen();
-        stage.setScene(scene);
+        stage.setTitle("DashBoard");
 
         stage.show();
     }
