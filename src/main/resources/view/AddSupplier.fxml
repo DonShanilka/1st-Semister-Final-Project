@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.semisterfinal.controller.AddSupplierControlller"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="559.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddSupplierControlller">
+   <children>
+      <TableView layoutX="13.0" layoutY="80.0" prefHeight="238.0" prefWidth="735.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Label layoutX="13.0" layoutY="339.0" text="Supplier id :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="392.0" text="Suppler Name :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="441.0" text="Item Name :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="199.0" layoutY="360.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="199.0" layoutY="462.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="223.0" layoutY="414.0" startX="-100.0" />
+      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="510.0" onAction="#addSupplierOnAction" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #2ecc71;" text="Add Supplier" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../thogakade-mvc/src/main/resources/icon/new.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtSupName" layoutX="123.0" layoutY="388.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtSupId" layoutX="99.0" layoutY="334.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtsupItemName" layoutX="99.0" layoutY="436.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: white;" />
+   </children>
 </AnchorPane>

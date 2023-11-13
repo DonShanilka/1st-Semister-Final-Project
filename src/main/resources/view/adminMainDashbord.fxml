@@ -45,7 +45,7 @@
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root1" layoutX="179.0" prefHeight="565.0" prefWidth="768.0" style="-fx-background-color: #F2F2F2;">
+      <AnchorPane fx:id="root1" layoutX="171.0" prefHeight="565.0" prefWidth="807.0" style="-fx-background-color: #F2F2F2;">
          <children>
             <Pane prefHeight="565.0" prefWidth="799.0" style="-fx-background-color: white;">
                <children>
