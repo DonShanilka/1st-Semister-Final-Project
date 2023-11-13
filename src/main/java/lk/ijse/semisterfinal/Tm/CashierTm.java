@@ -11,11 +11,11 @@ import lombok.*;
 
 public class CashierTm {
 
-    private String code;
-    private String description;
+    private String itemId;
+    private String itemName;
     private int qty;
     private double unitPrice;
-    private double tot;
+    private double Total;
     private Button btn;
 
 }

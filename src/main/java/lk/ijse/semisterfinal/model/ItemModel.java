@@ -5,7 +5,10 @@ import lk.ijse.semisterfinal.dto.ItemDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemModel {
     public static boolean addItem(ItemDTO dto) throws SQLException {
@@ -17,11 +20,34 @@ public class ItemModel {
 
         ptm.setString(1, dto.getItemCode());
         ptm.setString(2, dto.getItemDetails());
-        ptm.setString(3, dto.getItemPrice());
+        ptm.setDouble(3, dto.getItemPrice());
         ptm.setString(4, dto.getSupplierId());
         ptm.setString(5, dto.getWarrantyPeriod());
 
 
         return ptm.executeUpdate()>0;
     }
+
+    public static List<ItemDTO> loadAllItems() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT * FROM item";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        List<ItemDTO> itemList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+        while (resultSet.next()) {
+            itemList.add(new ItemDTO(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getDouble(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            ));
+        }
+
+        return itemList;
+    }
+
 }

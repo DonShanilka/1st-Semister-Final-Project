@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,14 +14,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.DiliverController">
+<AnchorPane fx:id="root" prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
    <children>
       <Label layoutX="620.0" layoutY="14.0" text="Create Bile">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <TableView layoutX="14.0" layoutY="190.0" prefHeight="200.0" prefWidth="734.0">
+      <TableView fx:id="tbCashiyer" layoutX="14.0" layoutY="190.0" prefHeight="200.0" prefWidth="734.0">
         <columns>
           <TableColumn fx:id="colItemId" prefWidth="68.0" text="Item id" />
           <TableColumn fx:id="colItemName" prefWidth="176.0" text="Item Name" />
@@ -107,5 +108,21 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Label layoutX="16.0" layoutY="482.0" text="Order Id:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="101.0" layoutY="481.0" textFill="#278d7f">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Text layoutX="256.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id :">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmbCustomerId" layoutX="328.0" layoutY="126.0" onAction="#cmbCustomerOnAction" prefHeight="33.0" prefWidth="128.0" />
    </children>
 </AnchorPane>
