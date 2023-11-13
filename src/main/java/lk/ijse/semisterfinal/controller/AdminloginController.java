@@ -21,9 +21,6 @@ import java.util.Objects;
 
 
 public class AdminloginController {
-    public Connection connection;
-    //private DbConnetion dbConnetion;
-
     public AnchorPane anroot;
     public TextField txtname;
     public TextField txtpassword;
@@ -40,11 +37,16 @@ public class AdminloginController {
         txtpassword.setText("");
     }
 
+    public void HyperOnAction(ActionEvent event) throws IOException {
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/adminregister.fxml"));
+        anroot.getChildren().clear();
+        anroot.getChildren().add(load);
+    }
 
-    @FXML
-    void AdminLoginOnaction(MouseEvent event) throws IOException, SQLException{
+    public void AdminLoginOnAction(ActionEvent event) throws SQLException {
         String username = txtname.getText();
         String password = txtpassword.getText();
+
         Connection connection = DbConnetion.getInstance().getConnection();
         String sql = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
         try {
@@ -67,19 +69,10 @@ public class AdminloginController {
                 new Alert(Alert.AlertType.ERROR, "oops! credentials are wrong!").show();
                 clearField();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            e.printStackTrace();
             clearField();
         }
-    }
-
-
-    public void HyperOnAction(ActionEvent event) throws IOException {
-        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/adminregister.fxml"));
-        anroot.getChildren().clear();
-        anroot.getChildren().add(load);
-    }
-
-    public void AdminLoginOnAction(ActionEvent event) {
     }
 }

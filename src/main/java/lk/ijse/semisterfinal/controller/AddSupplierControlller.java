@@ -1,5 +1,4 @@
 package lk.ijse.semisterfinal.controller;
 
-public class SupplierControlller {
-
+public class AddSupplierControlller {
 }

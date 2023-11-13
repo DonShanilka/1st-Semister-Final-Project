@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode1" prefHeight="550.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDhashboradController">
+   <children>
+      <Pane prefHeight="559.0" prefWidth="120.0" style="-fx-background-color: white;">
+         <children>
+            <VBox fx:id="btnVBox" layoutX="10.0" layoutY="168.0" prefHeight="326.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="button" stylesheets="@style.css">
+               <children>
+                  <JFXButton fx:id="cashier" onAction="#CashierOnAction" prefHeight="45.0" prefWidth="105.0" text="Cashier">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="empCustomer" onAction="#CustomerOnAction" prefHeight="45.0" prefWidth="105.0" text="Customer">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="empItem" onAction="#itemOnActionEmp" prefHeight="45.0" prefWidth="105.0" text="Item">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="empDeliver" onAction="#empDelierOnAction" prefHeight="45.0" prefWidth="105.0" text="Deliver">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="empSupplier" onAction="#empSupplierOnAction" prefHeight="45.0" prefWidth="105.0" text="Supplier">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="rootNode2" layoutX="120.0" prefHeight="559.0" prefWidth="761.0" style="-fx-background-color: #F2F2F2;">
+         <children>
+            <Pane prefHeight="565.0" prefWidth="761.0" style="-fx-background-color: #e6e6e6;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
