@@ -9,5 +9,6 @@ public class AddSupplierControlller {
     public TextField txtsupItemName;
 
     public void addSupplierOnAction(ActionEvent event) {
+
     }
 }
