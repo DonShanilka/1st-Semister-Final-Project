@@ -3,14 +3,14 @@ package lk.ijse.semisterfinal.dto;
 import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
 @ToString
 
 public class SupplierDTO {
-    private String SupName;
     private String SupId;
+    private String SupName;
     private String supItemName;
 
 }

@@ -40,7 +40,7 @@ public class EmployeeDhashboradController {
     }
 
     public void empSupplierOnAction(ActionEvent event) throws IOException {
-        setForm("/view/viewSuppler.fxml");
+        setForm("/view/AddSupplier.fxml");
     }
 
     public void empDelierOnAction(ActionEvent event) throws IOException {
