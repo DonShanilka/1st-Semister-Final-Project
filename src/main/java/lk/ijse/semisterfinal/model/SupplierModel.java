@@ -1,5 +1,6 @@
 package lk.ijse.semisterfinal.model;
 
+import javafx.scene.control.DatePicker;
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
 
@@ -14,12 +15,15 @@ public class SupplierModel {
     public static boolean addSuppliers(SupplierDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "INSERT INTO supplier VALUES(?,?,?)";
+        String sql = "INSERT INTO supplier VALUES(?,?,?,?,?,?)";
         PreparedStatement ptm = connection.prepareStatement(sql);
 
         ptm.setString(1, dto.getSupId());
         ptm.setString(2, dto.getSupName());
         ptm.setString(3, dto.getSupItemName());
+        ptm.setString(4, dto.getSupqty());
+        ptm.setString(5, String.valueOf(dto.getSupdate()));
+        ptm.setString(6, dto.getSupMobile());
 
         return ptm.executeUpdate()>0;
 
@@ -38,7 +42,10 @@ public class SupplierModel {
             supidlist.add(new SupplierDTO(
                     resultSet.getString(1),
                     resultSet.getString(2),
-                    resultSet.getString(3)
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getDate(5).toLocalDate(),
+                    resultSet.getString(6)
 
             ));
         }

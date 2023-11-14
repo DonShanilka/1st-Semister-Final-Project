@@ -9,6 +9,8 @@ import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class AddSupplierControlller {
     public TextField txtSupName;
@@ -29,8 +31,11 @@ public class AddSupplierControlller {
             String id = txtSupId.getText();
             String name = txtSupName.getText();
             String itemName = txtsupItemName.getText();
+            String itemQty = txtSupQty.getText();
+            LocalDate date = txtSupDate.getValue();
+            String mobile = txtSupMobile.getText();
 
-            var dto = new SupplierDTO(id,name,itemName);
+            var dto = new SupplierDTO(id,name,itemName,itemQty,date,mobile);
 
             try {
                 boolean addSup= SupplierModel.addSuppliers(dto);
@@ -48,6 +53,9 @@ public class AddSupplierControlller {
         txtSupId.setText("");
         txtSupName.setText("");
         txtsupItemName.setText("");
+        txtSupQty.setText("");
+        txtSupDate.setValue(LocalDate.parse(""));
+        txtSupMobile.setText("");
 
     }
 
