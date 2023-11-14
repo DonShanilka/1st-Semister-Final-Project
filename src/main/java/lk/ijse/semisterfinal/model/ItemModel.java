@@ -14,18 +14,17 @@ public class ItemModel {
     public static boolean addItem(ItemDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-
         String sql = "INSERT INTO item VALUES(?,?,?,?,?)";
-        PreparedStatement ptm = connection.prepareStatement(sql);
 
+        PreparedStatement ptm = connection.prepareStatement(sql);
         ptm.setString(1, dto.getItemCode());
         ptm.setString(2, dto.getItemDetails());
         ptm.setDouble(3, dto.getItemPrice());
         ptm.setString(4, dto.getSupplierId());
         ptm.setString(5, dto.getWarrantyPeriod());
 
-
-        return ptm.executeUpdate()>0;
+        boolean isSaved = ptm.executeUpdate()>0;
+        return isSaved;
     }
 
     public static List<ItemDTO> loadAllItems() throws SQLException {

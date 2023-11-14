@@ -12,13 +12,16 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="559.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddSupplierControlller">
    <children>
       <TableView layoutX="13.0" layoutY="80.0" prefHeight="238.0" prefWidth="735.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="tmSupId" prefWidth="69.0" text="Supplier id" />
+          <TableColumn fx:id="tmSupName" prefWidth="161.0" text="Supplier Name" />
+            <TableColumn fx:id="supItemName" minWidth="6.0" prefWidth="188.0" text="Item Name" />
+            <TableColumn prefWidth="69.0" text="Qty" />
+            <TableColumn prefWidth="133.0" text="Date" />
+            <TableColumn prefWidth="114.0" text="Mobile" />
         </columns>
       </TableView>
       <Label layoutX="13.0" layoutY="339.0" text="Supplier id :">

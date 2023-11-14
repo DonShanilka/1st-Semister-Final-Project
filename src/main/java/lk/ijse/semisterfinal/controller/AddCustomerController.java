@@ -96,46 +96,6 @@ public class AddCustomerController {
         }
     }
 
-    /*@Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        sliderAnchor.setTranslateX(-176);
-
-        newCustomer.setOnMouseClicked(mouseEvent -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(sliderAnchor);
-
-            slide.setToX(0);
-            slide.play();
-
-            sliderAnchor.setTranslateX(-176);
-
-            slide.setOnFinished((ActionEvent e) -> {
-                newCustomer.setVisible(false);
-                newCustomerBack.setVisible(true);
-            });
-
-        });
-
-        newCustomerBack.setOnMouseClicked(mouseEvent -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(sliderAnchor);
-
-            slide.setToX(-176);
-            slide.play();
-
-            sliderAnchor.setTranslateX(0);
-
-            slide.setOnFinished((ActionEvent e) -> {
-                newCustomer.setVisible(true);
-                newCustomerBack.setVisible(false);
-            });
-
-        });
-
-    }*/
 
     public void initialize() {
         setCellValueFactory();

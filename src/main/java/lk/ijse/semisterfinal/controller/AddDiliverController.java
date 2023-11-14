@@ -42,45 +42,6 @@ public class AddDiliverController {
     @FXML
     private Label get;
 
-    /*@Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        borderpane.setTranslateX(-176);
-
-        get.setOnMouseClicked(mouseEvent -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(borderpane);
-
-            slide.setToX(0);
-            slide.play();
-
-            borderpane.setTranslateX(-176);
-
-            slide.setOnFinished((ActionEvent e)-> {
-                get.setVisible(false);
-                back.setVisible(true);
-            });
-
-        });
-
-        back.setOnMouseClicked(mouseEvent -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(borderpane);
-
-            slide.setToX(-176);
-            slide.play();
-
-            borderpane.setTranslateX(0);
-
-            slide.setOnFinished((ActionEvent e)-> {
-                get.setVisible(true);
-                back.setVisible(false);
-            });
-
-        });
-    }*/
-
     public void OrderDeleteOnAction(ActionEvent event) {
     }
 

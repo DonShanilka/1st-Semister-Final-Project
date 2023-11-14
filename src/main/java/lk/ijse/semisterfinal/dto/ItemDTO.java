@@ -1,12 +1,11 @@
 package lk.ijse.semisterfinal.dto;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
+
 
 public class ItemDTO {
     private String ItemCode;
@@ -15,6 +14,23 @@ public class ItemDTO {
     private String WarrantyPeriod;
     private String itemDetails;
 
-    public ItemDTO(String code, String details, String itemPrice, String supplierid, String warranty) {
+    public ItemDTO(String itemCode, double itemPrice, String supplierId, String warrantyPeriod, String itemDetails) {
+        ItemCode = itemCode;
+        ItemPrice = itemPrice;
+        SupplierId = supplierId;
+        WarrantyPeriod = warrantyPeriod;
+        this.itemDetails = itemDetails;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ItemDTO{" +
+                "ItemCode='" + ItemCode + '\'' +
+                ", ItemPrice=" + ItemPrice +
+                ", SupplierId='" + SupplierId + '\'' +
+                ", WarrantyPeriod='" + WarrantyPeriod + '\'' +
+                ", itemDetails='" + itemDetails + '\'' +
+                '}';
     }
 }

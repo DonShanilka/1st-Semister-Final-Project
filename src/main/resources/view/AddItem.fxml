@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -19,7 +20,6 @@
       <Pane prefHeight="557.0" prefWidth="761.0" style="-fx-background-color: white;">
          <children>
             <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: white;" />
-            <TextField fx:id="txtSupplierId" layoutX="26.0" layoutY="141.0" prefHeight="25.0" prefWidth="201.0" promptText="Suppliyer id" style="-fx-background-color: white;" />
             <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
             <Line endX="100.0" layoutX="126.0" layoutY="166.0" startX="-100.0" />
             <TextField layoutX="26.0" layoutY="44.0" />
@@ -61,6 +61,8 @@
                </font>
             </Text>
             <JFXButton layoutX="500.0" layoutY="228.0" onAction="#AddItemOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="+ Add" />
+            <ComboBox fx:id="comsupid" layoutX="98.0" layoutY="139.0" onAction="#cmbsupidOnAction" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white;" />
+            <Text fill="#0000006a" layoutX="26.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier id" />
          </children>
       </Pane>
    </children>
