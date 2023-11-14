@@ -2,6 +2,7 @@ package lk.ijse.semisterfinal.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import lk.ijse.semisterfinal.dto.EmployeeLogDTO;
@@ -18,6 +19,9 @@ public class AddSupplierControlller {
     public TableColumn tmSupId;
     public TableColumn tmSupName;
     public TableColumn supItemName;
+    public TextField txtSupQty;
+    public TextField txtSupMobile;
+    public DatePicker txtSupDate;
 
 
     public void addSupplierOnAction(ActionEvent event) {
