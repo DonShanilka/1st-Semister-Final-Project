@@ -21,9 +21,9 @@
           <TableColumn fx:id="tmSupId" prefWidth="76.0" text="Supplier id" />
           <TableColumn fx:id="tmSupName" prefWidth="163.0" text="Supplier Name" />
             <TableColumn fx:id="supItemName" minWidth="6.0" prefWidth="200.0" text="Item Name" />
-            <TableColumn prefWidth="56.0" text="tmQty" />
-            <TableColumn prefWidth="131.0" text="tmDate" />
-            <TableColumn prefWidth="108.0" text="tmSupMobile" />
+            <TableColumn fx:id="tmqty" prefWidth="56.0" text="Qty" />
+            <TableColumn fx:id="tmDate" prefWidth="131.0" text="tmDate" />
+            <TableColumn fx:id="tmSupMobile" prefWidth="108.0" text="tmSupMobile" />
         </columns>
       </TableView>
       <Label layoutX="13.0" layoutY="339.0" text="Supplier id :">

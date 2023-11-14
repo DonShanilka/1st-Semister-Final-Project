@@ -5,9 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import lk.ijse.semisterfinal.dto.EmployeeLogDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
-import lk.ijse.semisterfinal.model.EmployeeLogModel;
 import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.sql.SQLException;
@@ -22,6 +20,9 @@ public class AddSupplierControlller {
     public TextField txtSupQty;
     public TextField txtSupMobile;
     public DatePicker txtSupDate;
+    public TableColumn tmqty;
+    public TableColumn tmDate;
+    public TableColumn tmSupMobile;
 
 
     public void addSupplierOnAction(ActionEvent event) {
