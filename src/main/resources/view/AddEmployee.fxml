@@ -12,7 +12,7 @@
    <children>
       <TableView layoutX="15.0" layoutY="76.0" prefHeight="185.0" prefWidth="732.0">
         <columns>
-          <TableColumn prefWidth="61.0" text="id" />
+          <TableColumn fx:id="tmid" prefWidth="61.0" text="id" />
           <TableColumn prefWidth="138.0" text="Employee Name" />
             <TableColumn prefWidth="75.0" text="Gender" />
             <TableColumn prefWidth="85.0" text="Phone" />
@@ -47,11 +47,6 @@
          </font>
       </JFXButton>
       <JFXButton layoutX="254.0" layoutY="500.0" onAction="#EmployeeDeleteOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="Delete">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="655.0" layoutY="267.0" onAction="#EmployeeClearOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="Clear">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

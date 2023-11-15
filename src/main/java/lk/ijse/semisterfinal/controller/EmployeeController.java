@@ -1,6 +1,7 @@
 package lk.ijse.semisterfinal.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 public class EmployeeController {
@@ -13,6 +14,7 @@ public class EmployeeController {
     public TextField txtAddress;
     public TextField txtStsrtDate;
     public TextField txtPossition;
+    public TableColumn tmid;
 
     public void EmployeeAddOnAction(ActionEvent event) {
     }
