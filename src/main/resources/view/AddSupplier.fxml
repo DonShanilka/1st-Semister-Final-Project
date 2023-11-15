@@ -85,7 +85,7 @@
       <DatePicker fx:id="txtSupDate" layoutX="425.0" layoutY="386.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: white;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#11569a" height="31.0" layoutX="508.0" layoutY="38.0" stroke="#11569a" strokeType="INSIDE" width="240.0" />
       <TextField layoutX="510.0" layoutY="40.0" prefHeight="27.0" prefWidth="236.0" style="-fx-background-color: white;" />
-      <JFXButton buttonType="RAISED" layoutX="661.0" layoutY="463.0" onAction="#updateSupplierOnAction" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="560.0" layoutY="510.0" onAction="#updateSupplierOnAction" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

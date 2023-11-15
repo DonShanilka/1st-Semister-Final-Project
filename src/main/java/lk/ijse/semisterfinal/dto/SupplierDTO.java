@@ -2,6 +2,8 @@ package lk.ijse.semisterfinal.dto;
 
 import lombok.*;
 
+import java.time.LocalDate;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,5 +17,6 @@ public class SupplierDTO {
     private String supItemName;
     private int supqty;
     private String supMobile;
+    private LocalDate supDate;
 
 }
