@@ -10,15 +10,15 @@
 
 <AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeController">
    <children>
-      <TableView layoutX="15.0" layoutY="76.0" prefHeight="185.0" prefWidth="732.0">
+      <TableView fx:id="EmployeeTm" layoutX="15.0" layoutY="76.0" prefHeight="185.0" prefWidth="732.0">
         <columns>
           <TableColumn fx:id="tmid" prefWidth="61.0" text="id" />
-          <TableColumn prefWidth="138.0" text="Employee Name" />
-            <TableColumn prefWidth="75.0" text="Gender" />
-            <TableColumn prefWidth="85.0" text="Phone" />
-            <TableColumn prefWidth="194.0" text="Address" />
-            <TableColumn prefWidth="86.0" text="Start Date" />
-            <TableColumn prefWidth="92.0" text="Possition" />
+          <TableColumn fx:id="tmEmpName" prefWidth="138.0" text="Employee Name" />
+            <TableColumn fx:id="tmEmpGender" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="tmEmpMobile" prefWidth="85.0" text="Phone" />
+            <TableColumn fx:id="tmEmpAddress" prefWidth="194.0" text="Address" />
+            <TableColumn fx:id="tmStartDate" prefWidth="86.0" text="Start Date" />
+            <TableColumn fx:id="tmEmpPossition" prefWidth="92.0" text="Possition" />
         </columns>
       </TableView>
       <Line endX="100.0" layoutX="116.0" layoutY="323.0" startX="-100.0" />
