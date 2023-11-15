@@ -45,7 +45,7 @@ public class AddSupplierControlller {
             var dto = new SupplierDTO(id,name,itemName,itemQty,mobile,date);
 
             try {
-                boolean addSup= SupplierModel.addSuppliers(dto);
+                boolean addSup = SupplierModel.addSuppliers(dto);
                 if (addSup) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added").show();
                     clearField();
