@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -34,7 +35,6 @@
       <TextField fx:id="txtEmployeeGender" layoutX="16.0" layoutY="373.0" prefHeight="25.0" prefWidth="201.0" promptText="Gender" style="-fx-background-color: white;" />
       <TextField fx:id="txtEmployeePhone" layoutX="16.0" layoutY="411.0" prefHeight="25.0" prefWidth="201.0" promptText="Phone" style="-fx-background-color: white;" />
       <TextField fx:id="txtAddress" layoutX="263.0" layoutY="372.0" prefHeight="25.0" prefWidth="201.0" promptText="Address" style="-fx-background-color: white;" />
-      <TextField fx:id="txtStsrtDate" layoutX="263.0" layoutY="295.0" prefHeight="25.0" prefWidth="201.0" promptText="Job Start Date" style="-fx-background-color: white;" />
       <TextField fx:id="txtPossition" layoutX="263.0" layoutY="334.0" prefHeight="25.0" prefWidth="201.0" promptText="Possition" style="-fx-background-color: white;" />
       <JFXButton layoutX="16.0" layoutY="500.0" onAction="#EmployeeAddOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="+ Add">
          <font>
@@ -51,5 +51,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <DatePicker fx:id="empDate" layoutX="261.0" layoutY="295.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>
