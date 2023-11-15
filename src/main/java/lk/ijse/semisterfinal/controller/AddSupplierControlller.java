@@ -1,31 +1,37 @@
 package lk.ijse.semisterfinal.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.semisterfinal.Tm.CustomerTm;
+import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
+import lk.ijse.semisterfinal.model.CustomerModel;
 import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 public class AddSupplierControlller {
     public TextField txtSupName;
     public TextField txtSupId;
     public TextField txtsupItemName;
-    public TableColumn tmSupId;
-    public TableColumn tmSupName;
-    public TableColumn supItemName;
+    public TableColumn <?,?> tmSupId;
+    public TableColumn <?,?> tmSupName;
+    public TableColumn <?,?> supItemName;
     public TextField txtSupQty;
     public TextField txtSupMobile;
     public DatePicker txtSupDate;
-    public TableColumn tmqty;
-    public TableColumn tmDate;
-    public TableColumn tmSupMobile;
+    public TableColumn <?,?> tmqty;
+    public TableColumn <?,?> tmDate;
+    public TableColumn <?,?> tmSupMobile;
     public AnchorPane rood;
 
 
@@ -94,6 +100,33 @@ public class AddSupplierControlller {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private void loadAllCustomer() {
+        var model = new CustomerModel();
+
+        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<CusromerDTO> dtoList = model.getAllCustomer();
+
+            for (CusromerDTO dto : dtoList) {
+                obList.add(
+                        new CustomerTm(
+                                dto.getTxtCustId(),
+                                dto.getTxtCustName(),
+                                dto.getTxtCustAddress(),
+                                dto.getTxtCustMobile(),
+                                dto.getTxtCustPayment(),
+                                dto.getTxtCustitemId()
+                        )
+                );
+            }
+
+            CustomerAddTable.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

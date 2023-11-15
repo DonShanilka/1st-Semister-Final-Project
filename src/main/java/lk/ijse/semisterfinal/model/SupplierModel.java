@@ -1,6 +1,7 @@
 package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
+import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
 
 import java.sql.*;
@@ -61,8 +62,6 @@ public class SupplierModel {
     }
 
 
-
-
     public static boolean updateSupplier(SupplierDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
@@ -72,7 +71,31 @@ public class SupplierModel {
         pstm.setString(2, dto.getSupName());
         pstm.setInt(3, dto.getSupqty());
 
-
         return pstm.executeUpdate() > 0;
+    }
+
+    public static List<SupplierDTO> getAllSupplier() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT * FROM supplier";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<SupplierDTO> dtoList = new ArrayList<>();
+
+        while(resultSet.next()) {
+            dtoList.add(
+                    new SupplierDTO(
+                            resultSet.getString(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getInt(4),
+                            resultSet.getString(5),
+                            resultSet.getDate(6).toLocalDate()
+
+                    )
+            );
+        }
+        return dtoList;
     }
 }

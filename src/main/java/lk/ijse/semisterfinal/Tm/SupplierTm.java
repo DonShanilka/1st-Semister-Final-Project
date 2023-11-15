@@ -2,6 +2,8 @@ package lk.ijse.semisterfinal.Tm;
 
 import lombok.*;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -9,8 +11,11 @@ import lombok.*;
 @ToString
 
 public class SupplierTm {
-    private String tmSupId;
-    private String tmSupName;
-    private String tmSupItemName;
+    private String SupId;
+    private String SupName;
+    private String supItemName;
+    private int supqty;
+    private String supMobile;
+    private LocalDate supDate;
 
 }

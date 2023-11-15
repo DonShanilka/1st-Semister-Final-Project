@@ -3,6 +3,8 @@ package lk.ijse.semisterfinal.dto;
 
 import lombok.*;
 
+import java.sql.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
