@@ -43,6 +43,39 @@ public class AdminloginController {
         anroot.getChildren().add(load);
     }
 
+    public void AdminLoginOnaction(ActionEvent event) throws SQLException {
+        String username = txtname.getText();
+        String password = txtpassword.getText();
+
+        Connection connection = DbConnetion.getInstance().getConnection();
+        String sql = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            if(username.isEmpty() || password.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR,"Empty").show();
+                return;
+            }
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Parent rootNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/adminMainDashbord.fxml")));
+                Scene scene = new Scene(rootNode);
+                Stage primaryStage = (Stage) this.anroot.getScene().getWindow();
+                primaryStage.setScene(scene);
+                primaryStage.setTitle("Admin Dashboard");
+            } else {
+                new Alert(Alert.AlertType.ERROR, "oops! credentials are wrong!").show();
+                clearField();
+            }
+        } catch (SQLException | IOException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            e.printStackTrace();
+            clearField();
+        }
+    }
+
     public void AdminLoginOnAction(ActionEvent event) throws SQLException {
         String username = txtname.getText();
         String password = txtpassword.getText();
@@ -75,4 +108,6 @@ public class AdminloginController {
             clearField();
         }
     }
+
+
 }

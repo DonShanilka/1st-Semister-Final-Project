@@ -21,8 +21,7 @@ public class SupplierModel {
         ptm.setString(1, dto.getSupId());
         ptm.setString(2, dto.getSupName());
         ptm.setString(3, dto.getSupItemName());
-        ptm.setString(4, dto.getSupqty());
-        ptm.setString(5, String.valueOf(dto.getSupdate()));
+        ptm.setString(4, String.valueOf(dto.getSupqty()));
         ptm.setString(6, dto.getSupMobile());
 
         return ptm.executeUpdate()>0;
@@ -43,9 +42,8 @@ public class SupplierModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getDate(5).toLocalDate(),
-                    resultSet.getString(6)
+                    resultSet.getInt(4),
+                    resultSet.getString(5)
 
             ));
         }

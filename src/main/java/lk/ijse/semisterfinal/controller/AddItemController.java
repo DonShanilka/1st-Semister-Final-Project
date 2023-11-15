@@ -41,7 +41,7 @@ public class AddItemController {
         String code = txtItemCode.getText();
         double itemPrice = Double.parseDouble(txtItemPrice.getText());
         String details = txtitemDetails.getText();
-        String supplierid = txtSupplierId.getText();
+        String supplierid = (String) comsupid.getValue();
         String warranty = txtWarrantyPeriod.getText();
 
 

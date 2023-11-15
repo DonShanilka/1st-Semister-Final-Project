@@ -31,11 +31,10 @@ public class AddSupplierControlller {
             String id = txtSupId.getText();
             String name = txtSupName.getText();
             String itemName = txtsupItemName.getText();
-            String itemQty = txtSupQty.getText();
-            LocalDate date = txtSupDate.getValue();
+            int itemQty = Integer.parseInt(txtSupQty.getText());
             String mobile = txtSupMobile.getText();
 
-            var dto = new SupplierDTO(id,name,itemName,itemQty,date,mobile);
+            var dto = new SupplierDTO(id,name,itemName,itemQty,mobile);
 
             try {
                 boolean addSup= SupplierModel.addSuppliers(dto);
@@ -59,5 +58,10 @@ public class AddSupplierControlller {
 
     }
 
+    public void deleteSupplierOnAction(ActionEvent event) {
     }
+
+    public void updateSupplierOnAction(ActionEvent event) {
+    }
+}
 
