@@ -53,7 +53,7 @@ public class AddSupplierControlller {
         txtSupName.setText("");
         txtsupItemName.setText("");
         txtSupQty.setText("");
-        txtSupDate.setValue(LocalDate.parse(""));
+        //txtSupDate.setValue(LocalDate.parse(""));
         txtSupMobile.setText("");
 
     }
