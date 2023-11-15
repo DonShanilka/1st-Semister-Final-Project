@@ -3,12 +3,10 @@ package lk.ijse.semisterfinal.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CustomerTm;
+import lk.ijse.semisterfinal.Tm.SupplierTm;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.CustomerModel;
@@ -33,6 +31,7 @@ public class AddSupplierControlller {
     public TableColumn <?,?> tmDate;
     public TableColumn <?,?> tmSupMobile;
     public AnchorPane rood;
+    public TableView <SupplierTm> supplierAddTable;
 
 
     public void addSupplierOnAction(ActionEvent event) {
@@ -103,15 +102,15 @@ public class AddSupplierControlller {
         }
     }
 
-    private void loadAllCustomer() {
+    private void loadAllSupplier() {
         var model = new CustomerModel();
 
-        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+        ObservableList<SupplierTm> obList = FXCollections.observableArrayList();
 
         try {
-            List<CusromerDTO> dtoList = model.getAllCustomer();
+            List<SupplierDTO> dtoList = model getAllSupplier.getall();
 
-            for (CusromerDTO dto : dtoList) {
+            for (SupplierDTO dto : dtoList) {
                 obList.add(
                         new CustomerTm(
                                 dto.getTxtCustId(),
@@ -124,7 +123,7 @@ public class AddSupplierControlller {
                 );
             }
 
-            CustomerAddTable.setItems(obList);
+            supplierAddTable.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
