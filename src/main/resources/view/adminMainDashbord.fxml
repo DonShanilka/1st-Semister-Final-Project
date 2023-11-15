@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="565.0" prefWidth="920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AdminMainDashbordController">
+<AnchorPane prefHeight="750.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AdminMainDashbordController">
    <children>
-      <Pane prefHeight="565.0" prefWidth="175.0" style="-fx-background-color: #0b1442;">
+      <Pane prefHeight="757.0" prefWidth="216.0" style="-fx-background-color: #0b1442;">
          <children>
             <JFXButton fx:id="item" layoutX="24.0" layoutY="217.0" onAction="#itemOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="item ">
                <font>
@@ -45,16 +45,16 @@
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root1" layoutX="171.0" prefHeight="565.0" prefWidth="807.0" style="-fx-background-color: #F2F2F2;">
+      <AnchorPane fx:id="root1" layoutX="215.0" prefHeight="750.0" prefWidth="1127.0" style="-fx-background-color: #F2F2F2;">
          <children>
-            <Pane prefHeight="565.0" prefWidth="799.0" style="-fx-background-color: white;">
+            <Pane layoutY="64.0" prefHeight="687.0" prefWidth="1171.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="129.0" text="Dashboard">
                      <font>
                         <Font name="Arial Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="28.0" layoutY="83.0" prefHeight="232.0" prefWidth="517.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                  <Pane layoutX="46.0" layoutY="80.0" prefHeight="232.0" prefWidth="517.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                      <children>
                         <LineChart layoutY="11.0" prefHeight="210.0" prefWidth="500.0">
                           <xAxis>
@@ -66,7 +66,7 @@
                         </LineChart>
                      </children>
                   </Pane>
-                  <Pane layoutX="28.0" layoutY="339.0" prefHeight="200.0" prefWidth="358.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <Pane layoutX="79.0" layoutY="351.0" prefHeight="200.0" prefWidth="358.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
                   <Pane layoutX="439.0" layoutY="339.0" prefHeight="200.0" prefWidth="276.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
                </children>
             </Pane>
