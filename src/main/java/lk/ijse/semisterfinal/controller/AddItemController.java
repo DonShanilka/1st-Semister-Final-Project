@@ -30,7 +30,7 @@ public class AddItemController {
 
     private void clearField() {
         txtItemCode.setText("");
-        txtSupplierId.setText("");
+        comsupid.setValue("");
         txtItemPrice.setText("");
         txtWarrantyPeriod.setText("");
         txtitemDetails.setText("");
@@ -38,14 +38,14 @@ public class AddItemController {
     }
 
     public void AddItemOnAction(ActionEvent event) {
-        String code = txtItemCode.getText();
-        double itemPrice = Double.parseDouble(txtItemPrice.getText());
-        String details = txtitemDetails.getText();
-        String supplierid = (String) comsupid.getValue();
-        String warranty = txtWarrantyPeriod.getText();
+        String ItemCode = txtItemCode.getText();
+        String ItemName = txtitemDetails.getText();
+        double ItemPrice = Double.parseDouble(txtItemPrice.getText());
+        String SupplierId = (String) comsupid.getValue();
+        String WarrantyPeriod = txtWarrantyPeriod.getText();
 
 
-        var dto = new ItemDTO(code,itemPrice,details,supplierid,warranty);
+        var dto = new ItemDTO(ItemCode,ItemName,ItemPrice,SupplierId,WarrantyPeriod);
 
         try {
             boolean isaddite = ItemModel.addItem(dto);

@@ -39,8 +39,8 @@ public class ItemModel {
         while (resultSet.next()) {
             itemList.add(new ItemDTO(
                     resultSet.getString(1),
-                    resultSet.getDouble(2),
-                    resultSet.getString(3),
+                    resultSet.getString(2),
+                    resultSet.getDouble(3),
                     resultSet.getString(4),
                     resultSet.getString(5)
             ));
