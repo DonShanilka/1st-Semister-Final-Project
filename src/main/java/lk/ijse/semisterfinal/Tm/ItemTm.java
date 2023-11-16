@@ -2,9 +2,11 @@ package lk.ijse.semisterfinal.Tm;
 
 import lombok.*;
 
+@Getter
+@Setter
+@ToString
+
 public class ItemTm {
-    @Getter
-    @Setter
 
         private String ItemCode;
         private String itemDetails;
@@ -20,17 +22,6 @@ public class ItemTm {
         WarrantyPeriod = warrantyPeriod;
     }
 
-
-    @Override
-    public String toString() {
-        return "ItemTm{" +
-                "ItemCode='" + ItemCode + '\'' +
-                ", itemDetails='" + itemDetails + '\'' +
-                ", ItemPrice=" + ItemPrice +
-                ", SupplierId='" + SupplierId + '\'' +
-                ", WarrantyPeriod='" + WarrantyPeriod + '\'' +
-                '}';
-    }
 }
 
 

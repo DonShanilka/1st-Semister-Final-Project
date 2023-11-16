@@ -7,16 +7,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.semisterfinal.Tm.ItemTm;
-import lk.ijse.semisterfinal.Tm.SupplierTm;
-import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.ItemDTO;
-import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.ItemModel;
-import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AddItemController {
     public TextField txtItemCode;
@@ -24,17 +19,34 @@ public class AddItemController {
     public TextField txtWarrantyPeriod;
     public TextArea txtitemDetails;
     public ComboBox comsupid;
+
     public Pane root;
-    public TableView ItemTm;
-    public TableColumn tmItemCode;
-    public TableColumn tmItemDetails;
-    public TableColumn tmItemPrice;
-    public TableColumn tmSupplierId;
-    public TableColumn tmWarranty;
+    public TableView<lk.ijse.semisterfinal.Tm.ItemTm> ItemTm;
+    public TableColumn <?,?> tmItemCode;
+    public TableColumn <?,?> tmItemDetails;
+    public TableColumn <?,?> tmItemPrice;
+    public TableColumn <?,?> tmSupplierId;
+    public TableColumn <?,?> tmWarranty;
 
     public void initialize() {
-        //loadSupplier();
         setCellValueFactory();
+        tableListener();
+        loadAllItem();
+    }
+
+    private void tableListener() {
+        ItemTm.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+
+        });
+    }
+
+    private void setData(ItemTm row) {
+        txtItemCode.setText(row.getItemCode());
+        txtitemDetails.setText(row.getItemDetails());
+        txtItemPrice.setText(String.valueOf(row.getItemPrice()));
+        comsupid.setValue(row.getSupplierId());
+        txtWarrantyPeriod.setText(row.getWarrantyPeriod());
     }
 
     private void clearField() {
@@ -71,19 +83,6 @@ public class AddItemController {
 
     }
 
-   /* private void loadSupplier() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-        try {
-            List<SupplierDTO> itemDtos = SupplierModel.loadAllSupplier();
-
-            for (SupplierDTO dto : itemDtos) {
-                obList.add(dto.getSupId());
-            }
-            comsupid.setItems(obList);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
 
     private void loadAllItem() {
 

@@ -64,7 +64,7 @@ public class ItemModel {
     public static ArrayList<ItemDTO> getAllItem() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "SELECT * FROM supplier";
+        String sql = "SELECT * FROM Item";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();

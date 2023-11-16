@@ -42,7 +42,6 @@ public class AddSupplierControlller {
 
     private void tableListener() {
         supplierAddTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-//            System.out.println(newValue);
             setData(newValue);
         });
     }
