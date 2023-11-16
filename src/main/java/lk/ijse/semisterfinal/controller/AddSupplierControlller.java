@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CustomerTm;
 import lk.ijse.semisterfinal.Tm.SupplierTm;
@@ -14,6 +15,7 @@ import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,21 +30,40 @@ public class AddSupplierControlller {
     public TextField txtSupMobile;
     public DatePicker txtSupDate;
     public TableColumn <?,?> tmqty;
-    public TableColumn <?,?> tmDate;
     public TableColumn <?,?> tmSupMobile;
     public AnchorPane rood;
     public TableView <SupplierTm> supplierAddTable;
 
 
-    public void addSupplierOnAction(ActionEvent event) {
-            String id = txtSupId.getText();
-            String name = txtSupName.getText();
-            String itemName = txtsupItemName.getText();
-            int itemQty = Integer.parseInt(txtSupQty.getText());
-            String mobile = txtSupMobile.getText();
-            LocalDate date = txtSupDate.getValue();
+    public void initialize() {
+        setCellValueFactory();
+        loadAllSupplier();
+        tableListener();
+    }
 
-            var dto = new SupplierDTO(id,name,itemName,itemQty,mobile,date);
+    private void tableListener() {
+        supplierAddTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+//            System.out.println(newValue);
+            setData(newValue);
+        });
+    }
+
+    private void setData(SupplierTm row) {
+        txtSupId.setText(row.getSupId());
+        txtSupName.setText(row.getSupName());
+        txtsupItemName.setText(row.getSupItemName());
+        txtSupQty.setText(String.valueOf(row.getSupqty()));
+        txtSupMobile.setText(String.valueOf(row.getSupMobile()));
+    }
+
+    public void addSupplierOnAction(ActionEvent event) {
+            String supId = txtSupId.getText();
+            String supName = txtSupName.getText();
+            String supItemName = txtsupItemName.getText();
+            int supqty = Integer.parseInt(txtSupQty.getText());
+            String supMobile = txtSupMobile.getText();
+
+            var dto = new SupplierDTO(supId,supName,supItemName,supqty,supMobile);
 
             try {
                 boolean addSup = SupplierModel.addSuppliers(dto);
@@ -61,7 +82,6 @@ public class AddSupplierControlller {
         txtSupName.setText("");
         txtsupItemName.setText("");
         txtSupQty.setText("");
-        txtSupDate.setValue(LocalDate.parse(""));
         txtSupMobile.setText("");
 
     }
@@ -87,14 +107,15 @@ public class AddSupplierControlller {
         String itemName = txtsupItemName.getText();
         int itemQty = Integer.parseInt(txtSupQty.getText());
         String mobile = txtSupMobile.getText();
-        LocalDate date = txtSupDate.getValue();
 
-        var dto = new SupplierDTO(id,name,itemName,itemQty,mobile,date);
+        var dto = new SupplierDTO(id,name,itemName,itemQty,mobile);
 
         try {
             boolean isUpdated = SupplierModel.updateSupplier(dto);
             if(isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Supplier updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION,"Supplier Add").show();
+                setCellValueFactory();
+                loadAllSupplier();
                 clearField();
             }
         } catch (SQLException e) {
@@ -102,23 +123,31 @@ public class AddSupplierControlller {
         }
     }
 
+    private void setCellValueFactory() {
+        tmSupId.setCellValueFactory(new PropertyValueFactory<>("SupId"));
+        tmSupName.setCellValueFactory(new PropertyValueFactory<>("SupName"));
+        supItemName.setCellValueFactory(new PropertyValueFactory<>("SupItemName"));
+        tmqty.setCellValueFactory(new PropertyValueFactory<>("supqty"));
+        tmSupMobile.setCellValueFactory(new PropertyValueFactory<>("supMobile"));
+
+    }
+
     private void loadAllSupplier() {
-        var model = new CustomerModel();
 
         ObservableList<SupplierTm> obList = FXCollections.observableArrayList();
 
         try {
-            List<SupplierDTO> dtoList = model getAllSupplier.getall();
+            ArrayList<SupplierDTO> dtoList = SupplierModel.getAllSupplier();
 
             for (SupplierDTO dto : dtoList) {
                 obList.add(
-                        new CustomerTm(
-                                dto.getTxtCustId(),
-                                dto.getTxtCustName(),
-                                dto.getTxtCustAddress(),
-                                dto.getTxtCustMobile(),
-                                dto.getTxtCustPayment(),
-                                dto.getTxtCustitemId()
+                        new SupplierTm(
+                                dto.getSupId(),
+                                dto.getSupName(),
+                                dto.getSupItemName(),
+                                dto.getSupqty(),
+                                dto.getSupMobile()
+
                         )
                 );
             }

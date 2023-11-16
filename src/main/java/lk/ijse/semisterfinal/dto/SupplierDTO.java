@@ -17,6 +17,5 @@ public class SupplierDTO {
     private String supItemName;
     private int supqty;
     private String supMobile;
-    private LocalDate supDate;
 
 }

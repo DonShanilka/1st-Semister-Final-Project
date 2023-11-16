@@ -1,7 +1,6 @@
 package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
-import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
 
 import java.sql.*;
@@ -12,7 +11,7 @@ public class SupplierModel {
     public static boolean addSuppliers(SupplierDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "INSERT INTO supplier VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO supplier VALUES(?,?,?,?,?)";
         PreparedStatement ptm = connection.prepareStatement(sql);
 
         ptm.setString(1, dto.getSupId());
@@ -20,7 +19,6 @@ public class SupplierModel {
         ptm.setString(3, dto.getSupItemName());
         ptm.setString(4, String.valueOf(dto.getSupqty()));
         ptm.setString(5, dto.getSupMobile());
-        ptm.setDate(6, Date.valueOf(dto.getSupDate()));
 
         return ptm.executeUpdate()>0;
 
@@ -41,8 +39,7 @@ public class SupplierModel {
                     resultSet.getString(2),
                     resultSet.getString(3),
                     resultSet.getInt(4),
-                    resultSet.getString(5),
-                    resultSet.getDate(6).toLocalDate()
+                    resultSet.getString(5)
 
             ));
         }
@@ -74,10 +71,11 @@ public class SupplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static List<SupplierDTO> getAllSupplier() throws SQLException {
+    public static ArrayList<SupplierDTO> getAllSupplier() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
         String sql = "SELECT * FROM supplier";
+
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
 
@@ -90,12 +88,11 @@ public class SupplierModel {
                             resultSet.getString(2),
                             resultSet.getString(3),
                             resultSet.getInt(4),
-                            resultSet.getString(5),
-                            resultSet.getDate(6).toLocalDate()
-
+                            resultSet.getString(5)
                     )
             );
         }
         return dtoList;
+
     }
 }

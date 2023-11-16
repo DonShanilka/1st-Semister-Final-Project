@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -19,11 +18,10 @@
       <TableView fx:id="supplierAddTable" layoutX="13.0" layoutY="80.0" prefHeight="238.0" prefWidth="735.0">
         <columns>
           <TableColumn fx:id="tmSupId" prefWidth="76.0" text="Supplier id" />
-          <TableColumn fx:id="tmSupName" prefWidth="163.0" text="Supplier Name" />
-            <TableColumn fx:id="supItemName" minWidth="6.0" prefWidth="200.0" text="Item Name" />
-            <TableColumn fx:id="tmqty" prefWidth="56.0" text="Qty" />
-            <TableColumn fx:id="tmDate" prefWidth="131.0" text="Date" />
-            <TableColumn fx:id="tmSupMobile" prefWidth="108.0" text="Mobile" />
+          <TableColumn fx:id="tmSupName" prefWidth="191.0" text="Supplier Name" />
+            <TableColumn fx:id="supItemName" minWidth="6.0" prefWidth="276.0" text="Item Name" />
+            <TableColumn fx:id="tmqty" prefWidth="66.0" text="Qty" />
+            <TableColumn fx:id="tmSupMobile" prefWidth="125.0" text="Mobile" />
         </columns>
       </TableView>
       <Label layoutX="13.0" layoutY="339.0" text="Supplier id :">
@@ -67,22 +65,15 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="381.0" layoutY="392.0" text="Date :">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="381.0" layoutY="441.0" text="Mobile :">
+      <Label layoutX="369.0" layoutY="392.0" text="Mobile :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="txtSupQty" layoutX="423.0" layoutY="334.0" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: white;" />
       <Line endX="-27.0" layoutX="522.0" layoutY="357.0" startX="-100.0" />
-      <Line endX="29.0" layoutX="530.0" layoutY="413.0" startX="-100.0" />
-      <Line endX="33.0" layoutX="545.0" layoutY="461.0" startX="-100.0" />
-      <TextField fx:id="txtSupMobile" layoutX="445.0" layoutY="435.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: white;" />
-      <DatePicker fx:id="txtSupDate" layoutX="425.0" layoutY="386.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: white;" />
+      <Line endX="33.0" layoutX="529.0" layoutY="413.0" startX="-100.0" />
+      <TextField fx:id="txtSupMobile" layoutX="429.0" layoutY="385.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: white;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#11569a" height="31.0" layoutX="508.0" layoutY="38.0" stroke="#11569a" strokeType="INSIDE" width="240.0" />
       <TextField layoutX="510.0" layoutY="40.0" prefHeight="27.0" prefWidth="236.0" style="-fx-background-color: white;" />
       <JFXButton buttonType="RAISED" layoutX="560.0" layoutY="510.0" onAction="#updateSupplierOnAction" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="WHITE">
