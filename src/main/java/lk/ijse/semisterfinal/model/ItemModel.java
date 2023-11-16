@@ -2,6 +2,7 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.ItemDTO;
+import lk.ijse.semisterfinal.dto.SupplierDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +28,17 @@ public class ItemModel {
         return isSaved;
     }
 
+    public static boolean deleteSupplier(String id) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "DELETE FROM item WHERE item_code = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
     public static List<ItemDTO> loadAllItems() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
@@ -47,6 +59,31 @@ public class ItemModel {
         }
 
         return itemList;
+    }
+
+    public static ArrayList<ItemDTO> getAllItem() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT * FROM supplier";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<ItemDTO> dtoList = new ArrayList<>();
+
+        while(resultSet.next()) {
+            dtoList.add(
+                    new ItemDTO(
+                            resultSet.getString(1),
+                            resultSet.getString(2),
+                            resultSet.getDouble(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5)
+                    )
+            );
+        }
+        return dtoList;
+
     }
 
 }

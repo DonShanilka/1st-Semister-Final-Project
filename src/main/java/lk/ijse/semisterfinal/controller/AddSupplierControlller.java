@@ -28,7 +28,6 @@ public class AddSupplierControlller {
     public TableColumn <?,?> supItemName;
     public TextField txtSupQty;
     public TextField txtSupMobile;
-    public DatePicker txtSupDate;
     public TableColumn <?,?> tmqty;
     public TableColumn <?,?> tmSupMobile;
     public AnchorPane rood;

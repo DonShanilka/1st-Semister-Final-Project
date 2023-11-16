@@ -2,7 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
 
 <AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddItemController">
    <children>
-      <Pane prefHeight="557.0" prefWidth="761.0" style="-fx-background-color: white;">
+      <Pane fx:id="root" prefHeight="557.0" prefWidth="761.0" style="-fx-background-color: white;">
          <children>
             <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: white;" />
             <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
@@ -32,12 +33,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextArea>
-            <ScrollPane layoutX="26.0" layoutY="306.0" prefHeight="217.0" prefWidth="711.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
-            </ScrollPane>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="82.0" layoutX="500.0" layoutY="85.0" stroke="#000590" strokeType="INSIDE" width="237.0">
+            <Rectangle arcHeight="30.0" arcWidth="30.0" height="82.0" layoutX="506.0" layoutY="28.0" stroke="#000590" strokeType="INSIDE" width="237.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="0.3270142180094787" startY="0.895734597156398">
                      <stops>
@@ -55,7 +51,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Text fill="WHITE" layoutX="570.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Item">
+            <Text fill="WHITE" layoutX="576.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Item">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -63,6 +59,17 @@
             <JFXButton layoutX="500.0" layoutY="228.0" onAction="#AddItemOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="+ Add" />
             <ComboBox fx:id="comsupid" layoutX="98.0" layoutY="139.0" onAction="#cmbsupidOnAction" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white;" />
             <Text fill="#0000006a" layoutX="26.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier id" />
+            <JFXButton layoutX="651.0" layoutY="228.0" onAction="#UpdateOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="Update" />
+            <TableView fx:id="ItemTm" layoutX="25.0" layoutY="279.0" prefHeight="200.0" prefWidth="712.0">
+              <columns>
+                <TableColumn fx:id="tmItemCode" prefWidth="70.0" text="Item Code" />
+                <TableColumn fx:id="tmItemDetails" prefWidth="358.0" text="Item Details" />
+                  <TableColumn fx:id="tmItemPrice" prefWidth="107.0" text="Item Price" />
+                  <TableColumn fx:id="tmSupplierId" prefWidth="77.0" text="Supplier Id" />
+                  <TableColumn fx:id="tmWarranty" prefWidth="99.0" text="Warranty Priod" />
+              </columns>
+            </TableView>
+            <JFXButton layoutX="651.0" layoutY="496.0" onAction="#deleteOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="Delete" />
          </children>
       </Pane>
    </children>
