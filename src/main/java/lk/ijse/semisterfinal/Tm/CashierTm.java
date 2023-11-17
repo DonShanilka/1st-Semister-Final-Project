@@ -10,12 +10,11 @@ import lombok.*;
 @Setter
 
 public class CashierTm {
-
-    private String itemId;
-    private String itemName;
+    private String code;
+    private String description;
     private int qty;
     private double unitPrice;
-    private double Total;
+    private double tot;
     private Button btn;
 
 }
