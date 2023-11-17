@@ -12,3 +12,21 @@
     -fx-background-color: rgba(63, 60, 107, 0.62);
     -fx-background-radius: 5 5 5 5;
 }
+
+* {
+    -fx-primary-color: #007acc;
+    -fx-secondary-color: #4B6EAF;
+    -fx-grey-color: #051a2e;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-grey-color, white;
+    -fx-background-insets: 0, 0 0 2 0;
+    -fx-background-radius: 0;
+}
+.text-field:focused {
+    -fx-background-color: -fx-primary-color, white;
+}

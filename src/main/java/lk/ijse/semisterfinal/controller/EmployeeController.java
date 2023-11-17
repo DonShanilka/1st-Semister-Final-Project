@@ -31,12 +31,12 @@ public class EmployeeController {
 
     private void clearField() {
         txtemployeeId.setText("");
-        txtEmployeeGender.setText("");
         txtEmployeeName.setText("");
+        txtAddress.setText("");
         txtEmployeePhone.setText("");
         empDate.setValue(LocalDate.parse(""));
+        txtEmployeeGender.setText("");
         txtPossition.setText("");
-        txtAddress.setText("");
 
     }
 
@@ -45,7 +45,7 @@ public class EmployeeController {
         String name = txtEmployeeName.getText();
         String address = txtAddress.getText();
         int tele = Integer.parseInt(txtEmployeePhone.getText());
-        LocalDate date = empDate.getValue();
+        String date = String.valueOf(empDate.getValue());
         String gender = txtEmployeeGender.getText();
         String position = txtPossition.getText();
 
@@ -58,7 +58,7 @@ public class EmployeeController {
                 clearField();
             }
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,"Try Again").show();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 

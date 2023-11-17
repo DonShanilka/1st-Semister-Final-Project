@@ -2,9 +2,6 @@ package lk.ijse.semisterfinal.dto;
 
 import lombok.*;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -14,12 +11,10 @@ import java.util.Date;
 public class AddEmployeeDTO {
     private String employeeId;
     private String EmployeeName;
-    private String EmployeeGender;
-    private int EmployeePhone;
     private String EmpAddress;
-    private LocalDate empDate;
+    private int EmployeePhone;
+    private String empDate;
+    private String EmployeeGender;
     private String empPosition;
 
-    public AddEmployeeDTO(String id, String name, String address, int tele, LocalDate date, String gender, String position) {
-    }
 }

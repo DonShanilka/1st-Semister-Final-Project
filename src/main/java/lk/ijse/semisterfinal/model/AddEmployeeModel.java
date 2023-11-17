@@ -4,7 +4,6 @@ import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -19,9 +18,9 @@ public class AddEmployeeModel {
         ptm.setString(2, dto.getEmployeeName());
         ptm.setString(3, dto.getEmpAddress());
         ptm.setInt(4, dto.getEmployeePhone());
-        ptm.setDate(5, Date.valueOf(dto.getEmpDate()));
+        ptm.setString(5, dto.getEmpDate());
         ptm.setString(6, dto.getEmployeeGender());
-        ptm.setString(6, dto.getEmpPosition());
+        ptm.setString(7, dto.getEmpPosition());
 
         return ptm.executeUpdate()>0;
 
