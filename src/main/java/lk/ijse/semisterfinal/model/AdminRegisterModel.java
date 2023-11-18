@@ -19,7 +19,7 @@ public class AdminRegisterModel {
         ptm.setString(2, dto.getUserName());
         ptm.setString(3, dto.getPassword());
 
-
         return ptm.executeUpdate()>0;
+
     }
 }

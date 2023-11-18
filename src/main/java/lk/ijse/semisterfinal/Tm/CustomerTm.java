@@ -1,19 +1,68 @@
 package lk.ijse.semisterfinal.Tm;
 
-import lombok.*;
+/*
+    @author DanujaV
+    @created 10/23/23 - 12:01 PM   
+*/
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Getter
-@Setter
 public class CustomerTm {
-    private String txtCustId;
-    private String txtCustName;
-    private String txtCustAddress;
-    private String txtCustMobile;
-    private String txtCustPayment;
-    private String txtCustitemId;
+    private String id;
+    private String name;
+    private String address;
+    private String tel;
 
+    public CustomerTm() {
+    }
 
+    public CustomerTm(String id, String name, String address, String tel) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.tel = tel;
+    }
+
+    public CustomerTm(String txtCustId, String txtCustName, String txtCustAddress, String txtCustMobile, String txtCustPayment, String txtCustitemId) {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerTm{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", tel='" + tel + '\'' +
+                '}';
+    }
 }

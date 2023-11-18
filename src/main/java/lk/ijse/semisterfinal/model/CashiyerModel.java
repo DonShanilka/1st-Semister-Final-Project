@@ -2,6 +2,8 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.CashiyerDTO;
+import lk.ijse.semisterfinal.dto.ItemDTO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,26 +13,24 @@ import java.util.List;
 
 public class CashiyerModel {
 
-    public static List<CashiyerDTO> getAllCustomer() throws SQLException {
+    public static List<ItemDTO> getAllCustomer() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "SELECT customer_id,customer_name,customer_address,customer_mobile,payment,item_id FROM customer";
+        String sql = "SELECT * FROM item";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
 
-        ArrayList<CashiyerDTO> dtoList = new ArrayList<>();
+        ArrayList<ItemDTO> dtoList = new ArrayList<>();
 
         while(resultSet.next()) {
             dtoList.add(
-                    new CashiyerDTO(
+                    new ItemDTO(
                             resultSet.getString(1),
                             resultSet.getString(2),
-                            resultSet.getString(3),
+                            resultSet.getDouble(3),
                             resultSet.getString(4),
-                            resultSet.getString(5),
-                            resultSet.getString(6)
-                    )
-            );
+                            resultSet.getString(5)
+                    ));
         }
         return dtoList;
     }
