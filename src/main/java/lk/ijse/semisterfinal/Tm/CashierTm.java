@@ -1,6 +1,19 @@
 package lk.ijse.semisterfinal.Tm;
 
-public class CashierTm {
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+
+public class CashierTm {
+    private String ItemPrice;
+    private String ItemName;
+    private String billDate;
+    private String txtQty;
+    private String btnAddToBill;
+    private String comItemId;
 
 }

@@ -9,6 +9,11 @@ import lombok.*;
 @ToString
 
 public class CashiyerDTO {
-
+    private String ItemPrice;
+    private String ItemName;
+    private String billDate;
+    private String txtQty;
+    private String btnAddToBill;
+    private String comItemId;
 
 }

@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="687.0" prefWidth="1171.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeController">
    <children>
-      <TableView fx:id="EmployeeTm" layoutX="15.0" layoutY="76.0" prefHeight="185.0" prefWidth="732.0">
+      <TableView fx:id="EmployeeTm" layoutX="15.0" layoutY="76.0" prefHeight="204.0" prefWidth="732.0">
         <columns>
           <TableColumn fx:id="tmid" prefWidth="61.0" text="id" />
           <TableColumn fx:id="tmEmpName" prefWidth="138.0" text="Employee Name" />

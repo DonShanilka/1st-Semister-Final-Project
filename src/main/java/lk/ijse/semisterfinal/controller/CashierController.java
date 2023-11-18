@@ -16,8 +16,10 @@ public class CashierController {
     public JFXButton btnAddToBill;
     public ComboBox comItemId;
 
+
+
     public void btnAddToBillOnAction(ActionEvent event) {
 
-    }
 
+    }
 }
