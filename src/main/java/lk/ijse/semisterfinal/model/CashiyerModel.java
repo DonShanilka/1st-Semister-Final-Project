@@ -2,8 +2,6 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.CashiyerDTO;
-import lk.ijse.semisterfinal.dto.CusromerDTO;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
