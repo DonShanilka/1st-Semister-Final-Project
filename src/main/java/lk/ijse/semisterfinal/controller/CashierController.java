@@ -30,8 +30,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class CashierController {
-    @FXML
-    private JFXButton btnAddToCart;
+
     @FXML
     private JFXComboBox<String> cmbCustomerId;
 
@@ -56,8 +55,6 @@ public class CashierController {
     @FXML
     private TableColumn<?, ?> colUnitPrice;
 
-    @FXML
-    private Label lblCustomerName;
 
     @FXML
     private Label lblDescription;
@@ -68,8 +65,6 @@ public class CashierController {
     @FXML
     private Label lblOrderId;
 
-    @FXML
-    private Label lblQtyOnHand;
 
     @FXML
     private Label lblUnitPrice;
@@ -148,7 +143,7 @@ public class CashierController {
     }
 
     private void setDate() {
-//        LocalDate now = LocalDate.now();
+        LocalDate now = LocalDate.now();
         lblOrderDate.setText(String.valueOf(LocalDate.now()));
     }
 
