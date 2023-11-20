@@ -55,7 +55,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="176.0" text="Code:">
+      <Label layoutX="14.0" layoutY="176.0" text="Item Code">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

@@ -50,7 +50,7 @@ public class CashierController{
         //generateNextOrderId();
         setDate();
         loadCustomerId();
-        loadServiceId();
+        //loadServiceId();
         setCellValueFactory();
         // loadAllservice();
     }
@@ -64,7 +64,7 @@ public class CashierController{
         colTotal.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("remove"));
     }
-    private <ObservableList> void loadServiceId() {
+    /*private <ObservableList> void loadServiceId() {
         ObservableList obList = (ObservableList) FXCollections.observableArrayList();
 
         try {
@@ -74,19 +74,19 @@ public class CashierController{
                 obList.add(dto.getItemCode());
             }
 
-            cmbItemCode.setItems(obList);
+            cmbItemCode.setItems((javafx.collections.ObservableList) obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
     private void loadCustomerId() {
         ObservableList<String>obList = FXCollections.observableArrayList();
 
         try {
-            List<CusromerDTO> idList = customerModel.();
+            List<CusromerDTO> idList = CustomerModel.getAllCustomer();
             for (CusromerDTO dto : idList){
                 obList.add(dto.getTxtCustId());
             }
@@ -111,8 +111,8 @@ public class CashierController{
         String id = (String) cmbCustomerId.getValue();
 
         try {
-            CusromerDTO guardianDto = CustomerModel.getAllCustomer(id);
-            lblCustomerName.setText(guardianDto.getTxtCustName());
+            boolean guardianDto = CustomerModel.getAllCustomer().remove(id);
+            lblCustomerName.setText(String.valueOf(guardianDto));
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -166,7 +166,7 @@ public class CashierController{
 //            cartTmList.add(cartTm);
 //        }
 
-        var orderDto = new ItemDTO(cmbItemCode.getValue().toString(), lblOrderDate.getText(), cmbItemCode.getValue());
+        /*var orderDto = new ItemDTO(cmbItemCode.getValue().toString(), lblOrderDate.getText(), cmbItemCode.getValue());
         var oService = new CusromerDTO(cmbCustomerId.getValue(), lblOrderDate.getText(), cmbCustomerId.getValue());
 
         try {
@@ -175,7 +175,7 @@ public class CashierController{
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     public void cmbItemOnAction(ActionEvent event) {
