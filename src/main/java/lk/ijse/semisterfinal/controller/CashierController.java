@@ -31,6 +31,8 @@ import java.util.Optional;
 
 public class CashierController {
 
+    public Label lblCustomerName;
+    public Label lblQtyOnHand;
     @FXML
     private JFXComboBox<String> cmbCustomerId;
 
@@ -95,7 +97,7 @@ public class CashierController {
     }
 
     private void setCellValueFactory() {
-        colItemCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("comItemId"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
@@ -130,7 +132,7 @@ public class CashierController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<CusromerDTO> idList = customerModel.getAllCustomer();
+            List<CusromerDTO> idList = CustomerModel.getAllCustomer();
 
             for (CusromerDTO dto : idList) {
                 obList.add(dto.getTxtCustId());
