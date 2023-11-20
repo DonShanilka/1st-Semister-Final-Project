@@ -3,9 +3,14 @@ package lk.ijse.semisterfinal.model;
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.CashiyerDTO;
 import java.sql.*;
+import java.util.List;
 
 public class CashiyerModel {
-    public String generateNextOrderId() throws SQLException {
+    public static List<CashiyerDTO> loadAllService() {
+
+    }
+
+    public static String generateNextOrderId() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
         String sql = "SELECT item_code FROM item ORDER BY item_code DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
