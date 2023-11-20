@@ -98,9 +98,9 @@ public class CashierController {
 
     private void setCellValueFactory() {
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("comItemId"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("ItemName"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("txtQty"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("ItemPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("tot"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
