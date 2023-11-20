@@ -86,4 +86,26 @@ public class ItemModel {
 
     }
 
+    public static ItemDTO searchItemId(String id) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT * FROM item WHERE item_code = ? ";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        ItemDTO dto = null;
+
+        if (resultSet.next()){
+            String item_code = resultSet.getString(1);
+            String item_name = resultSet.getString(2);
+            double item_price = Double.parseDouble(resultSet.getString(3));
+            String sup_id = resultSet.getString(4);
+            String warranty = resultSet.getString(5);
+
+            dto = new ItemDTO(item_code,item_name,item_price,sup_id,warranty);
+        }
+        return dto;
+    }
 }

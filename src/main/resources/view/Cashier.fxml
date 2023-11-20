@@ -34,11 +34,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderDate" layoutX="636.0" layoutY="61.0" textFill="#278d7f">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
       <Label layoutX="14.0" layoutY="122.0" text="Customer Id:">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -50,11 +45,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblCustomerName" layoutX="637.0" layoutY="118.0" textFill="#278d7f">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
       <Label layoutX="14.0" layoutY="176.0" text="Item Code">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -64,11 +54,6 @@
       <Label layoutX="263.0" layoutY="180.0" text="Item Name">
          <font>
             <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblItemName" layoutX="232.0" layoutY="216.0" prefHeight="26.0" prefWidth="13.0" textFill="#278d7f">
-         <font>
-            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
       <Label layoutX="426.0" layoutY="179.0" text="Unit Price:">
@@ -128,5 +113,8 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <Label fx:id="lblItemName" layoutX="263.0" layoutY="229.0" />
+      <Label fx:id="lblOrderDate" layoutX="609.0" layoutY="64.0" />
+      <Label fx:id="lblCustomerName" layoutX="597.0" layoutY="123.0" />
    </children>
 </AnchorPane>

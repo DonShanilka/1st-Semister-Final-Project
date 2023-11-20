@@ -17,6 +17,12 @@ public class CusromerDTO {
     private String txtCustPayment;
     private String txtCustitemId;
 
-    public CusromerDTO(Object value, String text, Object value1) {
+
+    public CusromerDTO(String custId, String custAddress, String custName, String custMobile, String payment) {
+        txtCustId = custId;
+        txtCustName = custName;
+        txtCustAddress = custAddress;
+        txtCustMobile = custMobile;
+        txtCustPayment = payment;
     }
 }

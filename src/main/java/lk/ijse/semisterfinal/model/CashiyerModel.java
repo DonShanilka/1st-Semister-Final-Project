@@ -36,7 +36,7 @@ public class CashiyerModel {
     public boolean saveOrder(CashiyerDTO orderDto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Orders VALUES (?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO bill VALUES (?,?,?,?,?,?,?,?)");
         pstm.setString(1, orderDto.getBillId());
         pstm.setString(2, orderDto.getItemId());
         pstm.setString(3, orderDto.getItemName());
