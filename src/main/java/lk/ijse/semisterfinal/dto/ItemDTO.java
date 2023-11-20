@@ -16,4 +16,7 @@ public class ItemDTO {
     private String SupplierId;
     private String WarrantyPeriod;
 
+    public ItemDTO(String text, String text1, Object value) {
+
+    }
 }

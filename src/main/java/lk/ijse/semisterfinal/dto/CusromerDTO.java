@@ -3,8 +3,6 @@ package lk.ijse.semisterfinal.dto;
 
 import lombok.*;
 
-import java.sql.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -19,4 +17,6 @@ public class CusromerDTO {
     private String txtCustPayment;
     private String txtCustitemId;
 
+    public CusromerDTO(Object value, String text, Object value1) {
+    }
 }

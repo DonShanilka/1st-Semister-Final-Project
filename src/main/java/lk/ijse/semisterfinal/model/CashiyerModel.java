@@ -6,9 +6,9 @@ import java.sql.*;
 import java.util.List;
 
 public class CashiyerModel {
-    public static List<CashiyerDTO> loadAllService() {
+    /*public static List<CashiyerDTO> loadAllService() {
 
-    }
+    }*/
 
     public static String generateNextOrderId() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
@@ -22,7 +22,7 @@ public class CashiyerModel {
         return spiltOrderId(null);
     }
 
-    private String spiltOrderId(String currentOrderId) {
+    private static String spiltOrderId(String currentOrderId) {
         if (currentOrderId != null ){
             String[] spilt = currentOrderId.split("O0");
             int id = Integer.parseInt(spilt[1]);

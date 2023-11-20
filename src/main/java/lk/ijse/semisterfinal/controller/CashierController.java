@@ -33,7 +33,7 @@ public class CashierController{
     public Label lblUnitPrice;
     public Label lblQtyOnHand;
     public TextField txtQty;
-    public TableView <?> tblOrderCart;
+    public TableView <Object> tblOrderCart;
     public TableColumn <?,?> colItemCode;
     public TableColumn <?,?> colDescription;
     public TableColumn <?,?> colUnitPrice;
@@ -86,7 +86,7 @@ public class CashierController{
         ObservableList<String>obList = FXCollections.observableArrayList();
 
         try {
-            List<CusromerDTO> idList = customerModel.get();
+            List<CusromerDTO> idList = customerModel.();
             for (CusromerDTO dto : idList){
                 obList.add(dto.getTxtCustId());
             }
@@ -119,23 +119,12 @@ public class CashierController{
         }
     }
 
-    public void cmbServiceOnAction(ActionEvent actionEvent) {
-        String id = cmbService_id.getValue();
-
-        try {
-            ServiceDto serviceDto = serviceModel.searchService(id);
-            lblService_name.setText(serviceDto.getName());
-            lblAmount.setText(String.valueOf(serviceDto.getAmount()));
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
 
     public void btnAddToCartOnAction(ActionEvent actionEvent) {
 
-        String service_id  = cmbService_id.getValue();
-        String service_name = lblService_name.getText();
-        double amount = Double.parseDouble(lblAmount.getText());
+        String item_id  = (String) cmbItemCode.getValue();
+        String item_name = lblItemName.getText();
+        double amount = Double.parseDouble(lblUnitPrice.getText());
 
        /* Button btn = new Button("Remove");
         setRemoveBtnAction(btn);
@@ -143,28 +132,26 @@ public class CashierController{
 
 
         if (!obList.isEmpty()) {
-            for (int i = 0; i < tblOrder.getItems().size(); i++) {
-                if (colSer_Id.getCellData(i).equals(service_id)) {
-                    double S_amount = (double) colAmount.getCellData(i);
+            for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+                if (colItemCode.getCellData(i).equals(lblOrderId)) {
+                    double S_amount = (double) colUnitPrice.getCellData(i);
 
-                    tblOrder.refresh();
+                    tblOrderCart.refresh();
                     return;
                 }
             }
         }
-        var cartTm = new CartTm(service_id,service_name,amount);
+        var cartTm = new CashierTm(item_id,item_name, (int) amount);
         obList.add(cartTm);
         calcTotal();
-        tblOrder.setItems(obList);
+        tblOrderCart.setItems(obList);
     }
     private void calcTotal(){
         double total = 0;
-        for (int i = 0 ; i < tblOrder.getItems().size();i++){
-            total +=(double)colAmount.getCellData(i);
+        for (int i = 0 ; i < tblOrderCart.getItems().size();i++){
+            total +=(double)colTotal.getCellData(i);
         }
-        lblFullAmount.setText(String.valueOf(total));
-    }
-    private void setRemoveBtnAction(Button btn) {
+        lblNetTotal.setText(String.valueOf(total));
     }
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
@@ -179,11 +166,11 @@ public class CashierController{
 //            cartTmList.add(cartTm);
 //        }
 
-        var orderDto = new OrderDto(txtOrderId.getText(), lblOrderDate.getText(), cmbGuardian_Id.getValue());
-        var oService = new OrderServiceDto(txtOrderId.getText(), lblOrderDate.getText(), cmbService_id.getValue());
+        var orderDto = new ItemDTO(cmbItemCode.getValue().toString(), lblOrderDate.getText(), cmbItemCode.getValue());
+        var oService = new CusromerDTO(cmbCustomerId.getValue(), lblOrderDate.getText(), cmbCustomerId.getValue());
 
         try {
-            if (placeOrder.placeAOrder(orderDto, oService)) {
+            if (CashiyerModel.(orderDto, oService)) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order saved!!").show();
             }
         } catch (SQLException e) {
@@ -197,6 +184,5 @@ public class CashierController{
     public void txtQtyOnAction(ActionEvent event) {
     }
 
-    //public void btnAddToCartOnAction(ActionEvent event) {
-    //}
+
 }
