@@ -2,36 +2,45 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.CashiyerDTO;
-import lk.ijse.semisterfinal.dto.ItemDTO;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
 
 public class CashiyerModel {
+    public String generateNextOrderId() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+        String sql = "SELECT item_code FROM item ORDER BY item_code DESC LIMIT 1";
+        PreparedStatement pstm = connection.prepareStatement(sql);
 
-    public static List<ItemDTO> getAllCustomer() throws SQLException {
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            return spiltOrderId(resultSet.getString(1));
+        }
+        return spiltOrderId(null);
+    }
+
+    private String spiltOrderId(String currentOrderId) {
+        if (currentOrderId != null ){
+            String[] spilt = currentOrderId.split("O0");
+            int id = Integer.parseInt(spilt[1]);
+            id++;
+            return "O00"+id;
+        }else {
+            return "O001";
+        }
+    }
+
+    public boolean saveOrder(CashiyerDTO orderDto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "SELECT * FROM item";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        ResultSet resultSet = pstm.executeQuery();
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Orders VALUES (?,?,?,?,?,?,?,?)");
+        pstm.setString(1, orderDto.getBillId());
+        pstm.setString(2, orderDto.getItemId());
+        pstm.setString(3, orderDto.getItemName());
+        pstm.setInt(4, orderDto.getQty());
+        pstm.setDouble(5, orderDto.getItemPrice());
+        pstm.setDouble(6, orderDto.getDiscount());
+        pstm.setDouble(7, orderDto.getTotal());
+        pstm.setDate(8, Date.valueOf(orderDto.getDate()));
 
-        ArrayList<ItemDTO> dtoList = new ArrayList<>();
-
-        while(resultSet.next()) {
-            dtoList.add(
-                    new ItemDTO(
-                            resultSet.getString(1),
-                            resultSet.getString(2),
-                            resultSet.getDouble(3),
-                            resultSet.getString(4),
-                            resultSet.getString(5)
-                    ));
-        }
-        return dtoList;
+        return pstm.executeUpdate() > 0;
     }
 }

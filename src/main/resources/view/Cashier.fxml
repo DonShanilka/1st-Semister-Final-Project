@@ -61,12 +61,12 @@
          </font>
       </Label>
       <JFXComboBox fx:id="cmbItemCode" layoutX="14.0" layoutY="204.0" onAction="#cmbItemOnAction" prefHeight="33.0" prefWidth="183.0" />
-      <Label layoutX="263.0" layoutY="180.0" text="Description:">
+      <Label layoutX="263.0" layoutY="180.0" text="Item Name">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblDescription" layoutX="232.0" layoutY="216.0" textFill="#278d7f">
+      <Label fx:id="lblItemName" layoutX="232.0" layoutY="216.0" prefHeight="26.0" prefWidth="13.0" textFill="#278d7f">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -99,12 +99,11 @@
       <TextField fx:id="txtQty" layoutX="683.0" layoutY="201.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" />
       <TableView fx:id="tblOrderCart" layoutX="14.0" layoutY="297.0" prefHeight="200.0" prefWidth="747.0">
          <columns>
-            <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Item Code" />
-            <TableColumn fx:id="colDescription" prefWidth="191.0" text="Name" />
-            <TableColumn fx:id="colQty" prefWidth="81.0" text="Qty" />
-            <TableColumn fx:id="colUnitPrice" prefWidth="172.0" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="144.0" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="83.0" text="Action" />
+            <TableColumn fx:id="colItemCode" prefWidth="81.0" text="Item Code" />
+            <TableColumn fx:id="colDescription" prefWidth="242.0" text="Item Name" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="174.0" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="160.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="89.0" text="Action" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="641.0" layoutY="247.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to cart" textFill="WHITE">
