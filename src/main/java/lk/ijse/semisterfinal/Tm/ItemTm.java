@@ -23,6 +23,9 @@ public class ItemTm {
         WarrantyPeriod = warrantyPeriod;
     }
 
+    public ItemTm(String supId) {
+        SupplierId = supId;
+    }
 }
 
 

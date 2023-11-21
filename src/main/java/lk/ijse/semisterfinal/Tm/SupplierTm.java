@@ -17,4 +17,11 @@ public class SupplierTm {
     private int supqty;
     private String supMobile;
 
+    public SupplierTm(String supId, String supName, String supItemName, String supMobile, int supqty) {
+        SupId = supId;
+        SupName = supName;
+        this.supItemName = supItemName;
+        this.supMobile = supMobile;
+        this.supqty = supqty;
+    }
 }

@@ -7,8 +7,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.semisterfinal.Tm.ItemTm;
+import lk.ijse.semisterfinal.Tm.SupplierTm;
 import lk.ijse.semisterfinal.dto.ItemDTO;
+import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.ItemModel;
+import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class AddItemController {
         setCellValueFactory();
         tableListener();
         loadAllItem();
+       // loadAllSupId();
     }
 
     private void tableListener() {
@@ -109,6 +113,28 @@ public class AddItemController {
         }
     }
 
+    /*private void loadAllSupId() {
+        ObservableList<SupplierTm> obList = FXCollections.observableArrayList();
+
+        try {
+            ArrayList<SupplierDTO> dtoList = SupplierModel.getAllSupplier();
+
+            for (SupplierDTO dto : dtoList) {
+                obList.add(
+                        new SupplierTm(
+                                dto.getSupId(),
+                                dto.getSupName(),
+                                dto.getSupItemName(),
+                                dto.getSupMobile(),
+                                dto.getSupqty()
+                        ));
+            }
+            SupplierTm.
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }*/
+
     private void setCellValueFactory() {
         tmItemCode.setCellValueFactory(new PropertyValueFactory<>("ItemCode"));
         tmItemDetails.setCellValueFactory(new PropertyValueFactory<>("itemDetails"));
@@ -119,9 +145,22 @@ public class AddItemController {
     }
 
     public void UpdateOnAction(ActionEvent event) {
+
     }
 
     public void deleteOnAction(ActionEvent event) {
+        String id = txtItemCode.getText();
+
+        try {
+            boolean isDeleted = ItemModel.deleteItem(id);
+            if(isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Item has deleted!").show();
+            } else {
+                new Alert(Alert.AlertType.CONFIRMATION, "Item not deleted!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 }
 

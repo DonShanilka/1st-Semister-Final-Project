@@ -28,7 +28,7 @@ public class ItemModel {
         return isSaved;
     }
 
-    public static boolean deleteSupplier(String id) throws SQLException {
+    public static boolean deleteItem(String id) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
         String sql = "DELETE FROM item WHERE item_code = ?";
@@ -83,7 +83,6 @@ public class ItemModel {
             );
         }
         return dtoList;
-
     }
 
     public static ItemDTO searchItemId(String id) throws SQLException {
