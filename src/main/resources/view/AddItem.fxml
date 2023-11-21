@@ -20,7 +20,7 @@
 
 <AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddItemController">
    <children>
-      <Pane fx:id="root" prefHeight="769.0" prefWidth="1124.0" style="-fx-background-color: #eed5ff;">
+      <Pane fx:id="root" prefHeight="769.0" prefWidth="1140.0" style="-fx-background-color: #eed5ff;">
          <children>
             <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: #eed5ff;" />
             <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
@@ -62,12 +62,12 @@
             <ComboBox fx:id="comsupid" layoutX="98.0" layoutY="139.0" onAction="#cmbsupidOnAction" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #eed5ff;" />
             <Text fill="#0000006a" layoutX="26.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier id" />
             <JFXButton layoutX="651.0" layoutY="228.0" onAction="#UpdateOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="Update" />
-            <ImageView fitHeight="397.0" fitWidth="383.0" layoutX="735.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="397.0" fitWidth="383.0" layoutX="744.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/AddItem.png" />
                </image>
             </ImageView>
-            <TableView fx:id="ItemTm" layoutX="25.0" layoutY="384.0" prefHeight="322.0" prefWidth="701.0" style="-fx-background-color: #f6e8ff;">
+            <TableView fx:id="ItemTm" layoutX="23.0" layoutY="364.0" prefHeight="322.0" prefWidth="701.0" style="-fx-background-color: #f6e8ff;">
               <columns>
                 <TableColumn fx:id="tmItemCode" prefWidth="70.0" text="Item Code" />
                 <TableColumn fx:id="tmItemDetails" prefWidth="325.0" text="Item Details" />
@@ -76,7 +76,7 @@
                   <TableColumn fx:id="tmWarranty" prefWidth="95.0" text="Warranty Priod" />
               </columns>
             </TableView>
-            <JFXButton layoutX="640.0" layoutY="719.0" onAction="#deleteOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: #ff6600;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton layoutX="640.0" layoutY="709.0" onAction="#deleteOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: #ff6600;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></JFXButton>

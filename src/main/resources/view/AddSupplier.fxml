@@ -15,34 +15,39 @@
 
 <AnchorPane prefHeight="740.0" prefWidth="1127.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddSupplierControlller">
    <children>
-      <TableView fx:id="supplierAddTable" layoutX="13.0" layoutY="80.0" prefHeight="238.0" prefWidth="735.0">
+      <ImageView fitHeight="350.0" fitWidth="357.0" layoutX="752.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/AddSup.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="supplierAddTable" layoutX="26.0" layoutY="101.0" prefHeight="287.0" prefWidth="1076.0">
         <columns>
-          <TableColumn fx:id="tmSupId" prefWidth="76.0" text="Supplier id" />
-          <TableColumn fx:id="tmSupName" prefWidth="191.0" text="Supplier Name" />
-            <TableColumn fx:id="supItemName" minWidth="6.0" prefWidth="276.0" text="Item Name" />
-            <TableColumn fx:id="tmqty" prefWidth="66.0" text="Qty" />
-            <TableColumn fx:id="tmSupMobile" prefWidth="125.0" text="Mobile" />
+          <TableColumn fx:id="tmSupId" prefWidth="113.0" text="Supplier id" />
+          <TableColumn fx:id="tmSupName" prefWidth="315.0" text="Supplier Name" />
+            <TableColumn fx:id="supItemName" minWidth="6.0" prefWidth="381.0" text="Item Name" />
+            <TableColumn fx:id="tmqty" prefWidth="97.0" text="Qty" />
+            <TableColumn fx:id="tmSupMobile" prefWidth="169.0" text="Mobile" />
         </columns>
       </TableView>
-      <Label layoutX="13.0" layoutY="339.0" text="Supplier id :">
+      <Label layoutX="26.0" layoutY="450.0" text="Supplier id :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="13.0" layoutY="392.0" text="Suppler Name :">
+      <Label layoutX="26.0" layoutY="509.0" text="Suppler Name :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="12.0" layoutY="441.0" text="Item Name :">
+      <Label layoutX="26.0" layoutY="573.0" text="Item Name :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Line endX="100.0" layoutX="199.0" layoutY="360.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="199.0" layoutY="462.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="223.0" layoutY="414.0" startX="-100.0" />
-      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="510.0" onAction="#addSupplierOnAction" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #2ecc71;" text="Add Supplier" textFill="WHITE">
+      <Line endX="100.0" layoutX="213.0" layoutY="471.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="213.0" layoutY="594.0" startX="-100.0" />
+      <Line endX="101.0" layoutX="238.0" layoutY="531.0" startX="-100.0" />
+      <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="687.0" onAction="#addSupplierOnAction" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #2ecc71;" text="Add Supplier" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -57,26 +62,26 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSupName" layoutX="123.0" layoutY="388.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
-      <TextField fx:id="txtSupId" layoutX="99.0" layoutY="334.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
-      <TextField fx:id="txtsupItemName" layoutX="99.0" layoutY="436.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
-      <Label layoutX="381.0" layoutY="339.0" text="Qty :">
+      <TextField fx:id="txtSupName" layoutX="136.0" layoutY="505.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtSupId" layoutX="112.0" layoutY="445.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtsupItemName" layoutX="113.0" layoutY="568.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
+      <Label layoutX="393.0" layoutY="450.0" text="Qty :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="369.0" layoutY="392.0" text="Mobile :">
+      <Label layoutX="393.0" layoutY="511.0" text="Mobile :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupQty" layoutX="423.0" layoutY="334.0" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #eed5ff;" />
-      <Line endX="-27.0" layoutX="522.0" layoutY="357.0" startX="-100.0" />
-      <Line endX="33.0" layoutX="529.0" layoutY="413.0" startX="-100.0" />
-      <TextField fx:id="txtSupMobile" layoutX="429.0" layoutY="385.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtSupQty" layoutX="430.0" layoutY="444.0" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #eed5ff;" />
+      <Line endX="-27.0" layoutX="528.0" layoutY="472.0" startX="-100.0" />
+      <Line endX="33.0" layoutX="555.0" layoutY="534.0" startX="-100.0" />
+      <TextField fx:id="txtSupMobile" layoutX="455.0" layoutY="507.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: #eed5ff;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#11569a" height="31.0" layoutX="508.0" layoutY="38.0" stroke="#11569a" strokeType="INSIDE" width="240.0" />
       <TextField layoutX="510.0" layoutY="40.0" prefHeight="27.0" prefWidth="236.0" style="-fx-background-color: white;" />
-      <JFXButton buttonType="RAISED" layoutX="247.0" layoutY="510.0" onAction="#updateSupplierOnAction" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="687.0" onAction="#updateSupplierOnAction" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -84,7 +89,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="356.0" layoutY="510.0" onAction="#deleteSupplierOnAction" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #2ecc71;" text="Delete" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="387.0" layoutY="687.0" onAction="#deleteSupplierOnAction" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #2ecc71;" text="Delete" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -92,10 +97,5 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="408.0" fitWidth="397.0" layoutX="629.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/AddSuppliers.jpg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
