@@ -25,9 +25,9 @@ public class CashierController {
     public AnchorPane pane;
     public Label lblOrderId;
     public Label lblOrderDate;
-    public JFXComboBox<String> cmbCustomerId;
+    public JFXComboBox <String> cmbCustomerId;
     public Label lblCustomerName;
-    public JFXComboBox<String> cmbItemCode;
+    public JFXComboBox <String> cmbItemCode;
     public Label lblItemName;
     public Label lblUnitPrice;
     public Label lblQtyOnHand;

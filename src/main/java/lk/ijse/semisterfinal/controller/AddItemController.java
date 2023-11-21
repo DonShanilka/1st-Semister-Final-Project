@@ -111,7 +111,7 @@ public class AddItemController {
 
     private void setCellValueFactory() {
         tmItemCode.setCellValueFactory(new PropertyValueFactory<>("ItemCode"));
-        tmItemDetails.setCellValueFactory(new PropertyValueFactory<>("ItemName"));
+        tmItemDetails.setCellValueFactory(new PropertyValueFactory<>("itemDetails"));
         tmItemPrice.setCellValueFactory(new PropertyValueFactory<>("ItemPrice"));
         tmSupplierId.setCellValueFactory(new PropertyValueFactory<>("SupplierId"));
         tmWarranty.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
