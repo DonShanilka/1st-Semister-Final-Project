@@ -7,11 +7,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.semisterfinal.Tm.ItemTm;
-import lk.ijse.semisterfinal.Tm.SupplierTm;
 import lk.ijse.semisterfinal.dto.ItemDTO;
-import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.ItemModel;
-import lk.ijse.semisterfinal.model.SupplierModel;
+
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ public class AddItemController {
     public TextField txtItemPrice;
     public TextField txtWarrantyPeriod;
     public TextArea txtitemDetails;
-    public ComboBox comsupid;
+    public ComboBox  comsupid;
 
     public Pane root;
     public TableView<lk.ijse.semisterfinal.Tm.ItemTm> ItemTm;
@@ -30,6 +28,7 @@ public class AddItemController {
     public TableColumn <?,?> tmItemPrice;
     public TableColumn <?,?> tmSupplierId;
     public TableColumn <?,?> tmWarranty;
+    public TextField txtQty;
 
     public void initialize() {
         setCellValueFactory();
@@ -51,6 +50,8 @@ public class AddItemController {
         txtItemPrice.setText(String.valueOf(row.getItemPrice()));
         comsupid.setValue(row.getSupplierId());
         txtWarrantyPeriod.setText(row.getWarrantyPeriod());
+        //txtQty.setText(row.get());
+
     }
 
     private void clearField() {
@@ -68,9 +69,10 @@ public class AddItemController {
         double ItemPrice = Double.parseDouble(txtItemPrice.getText());
         String SupplierId = (String) comsupid.getValue();
         String WarrantyPeriod = txtWarrantyPeriod.getText();
+        int qty  = Integer.parseInt(txtQty.getText());
 
 
-        var dto = new ItemDTO(ItemCode,ItemName,ItemPrice,SupplierId,WarrantyPeriod);
+        var dto = new ItemDTO(ItemCode,ItemName,ItemPrice,SupplierId,WarrantyPeriod,qty);
 
         try {
             boolean isaddite = ItemModel.addItem(dto);
@@ -102,7 +104,8 @@ public class AddItemController {
                                 dto.getItemDetails(),
                                 dto.getItemPrice(),
                                 dto.getSupplierId(),
-                                dto.getWarrantyPeriod()
+                                dto.getWarrantyPeriod(),
+                                dto.getItemQty()
 
                         ));
             }

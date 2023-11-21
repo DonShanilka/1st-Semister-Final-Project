@@ -2,8 +2,6 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.ItemDTO;
-import lk.ijse.semisterfinal.dto.SupplierDTO;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +13,7 @@ public class ItemModel {
     public static boolean addItem(ItemDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "INSERT INTO item VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO item VALUES(?,?,?,?,?,?)";
 
         PreparedStatement ptm = connection.prepareStatement(sql);
         ptm.setString(1, dto.getItemCode());
@@ -23,6 +21,7 @@ public class ItemModel {
         ptm.setDouble(3, dto.getItemPrice());
         ptm.setString(4, dto.getSupplierId());
         ptm.setString(5, dto.getWarrantyPeriod());
+        ptm.setString(6, String.valueOf(dto.getItemQty()));
 
         boolean isSaved = ptm.executeUpdate()>0;
         return isSaved;
@@ -54,7 +53,8 @@ public class ItemModel {
                     resultSet.getString(2),
                     resultSet.getDouble(3),
                     resultSet.getString(4),
-                    resultSet.getString(5)
+                    resultSet.getString(5),
+                    resultSet.getInt(6)
             ));
         }
 
@@ -78,7 +78,8 @@ public class ItemModel {
                             resultSet.getString(2),
                             resultSet.getDouble(3),
                             resultSet.getString(4),
-                            resultSet.getString(5)
+                            resultSet.getString(5),
+                            resultSet.getInt(6)
                     )
             );
         }
@@ -102,8 +103,9 @@ public class ItemModel {
             double item_price = Double.parseDouble(resultSet.getString(3));
             String sup_id = resultSet.getString(4);
             String warranty = resultSet.getString(5);
+            String qty = String.valueOf(resultSet.getInt(6));
 
-            dto = new ItemDTO(item_code,item_name,item_price,sup_id,warranty);
+            dto = new ItemDTO(item_code,item_name,item_price,sup_id,warranty,qty);
         }
         return dto;
     }

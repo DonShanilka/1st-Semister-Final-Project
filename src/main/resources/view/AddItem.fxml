@@ -35,7 +35,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextArea>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="82.0" layoutX="506.0" layoutY="28.0" stroke="#000590" strokeType="INSIDE" width="237.0">
+            <Rectangle arcHeight="30.0" arcWidth="30.0" height="82.0" layoutX="817.0" layoutY="44.0" stroke="#000590" strokeType="INSIDE" width="237.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="0.3270142180094787" startY="0.895734597156398">
                      <stops>
@@ -53,7 +53,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Text fill="WHITE" layoutX="576.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Item">
+            <Text fill="WHITE" layoutX="887.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Item">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -80,6 +80,13 @@
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></JFXButton>
+            <Line endX="100.0" layoutX="602.0" layoutY="165.0" startX="-100.0" />
+            <TextField fx:id="txtQty" layoutX="501.0" layoutY="139.0" prefHeight="25.0" prefWidth="201.0" promptText="Item Qty" style="-fx-background-color: #eed5ff;" />
+            <ImageView fitHeight="397.0" fitWidth="383.0" layoutX="973.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/AddItem.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

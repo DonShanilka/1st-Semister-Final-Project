@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CartTm;
@@ -40,17 +41,20 @@ public class CashierController {
     public TableColumn<?, ?> colAction;
     public JFXButton btnAddToCart;
     public Label lblNetTotal;
+    public TableColumn colQty;
 
     private SortedList<Object> obList = FXCollections.observableArrayList().sorted();
     private ItemModel itemModel = new ItemModel();
     private CustomerModel customerModel = new CustomerModel();
     private CashiyerModel cashiyerModel = new CashiyerModel();
 
-    private ObservableList<CashierTm> observableList = FXCollections.observableArrayList();
+    private ObservableList<CartTm> observableList = FXCollections.observableArrayList();
 
     public void initialize() {
+        setDate();
         loadItemId();
         loadCustomerId();
+        //generateNextOrderId();
         //cmbItemCode();
         //cmbCustomerId();
     }
@@ -142,53 +146,62 @@ public class CashierController {
             ItemDTO dto = ItemModel.searchItemId(id);
             lblItemName.setText(dto.getItemDetails());
             lblUnitPrice.setText(String.valueOf(dto.getItemPrice()));
-            //lblQtyOnHand.setText(dto.get());
+            //lblQtyOnHand.setText(String.valueOf(dto.getItemQty()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void txtQtyOnAction(ActionEvent event) {
+
     }
 
 
     public void btnAddToCartOnAction(ActionEvent actionEvent) {
+        String code = cmbItemCode.getValue();
+        String description = lblItemName.getText();
+        int qty = Integer.parseInt(txtQty.getText());
+        double unitPrice = Double.parseDouble(lblUnitPrice.getText());
+        double tot = unitPrice * qty;
+        Button btn = new Button("Remove");
 
-        String item_code = cmbItemCode.getValue();
-        String item_name = lblItemName.getText();
-        String unitPrice = lblUnitPrice.getText();
-        String total = lblNetTotal.getText();
-        // double amount = Double.parseDouble(lblAmount.getText());
-
-        //* Button btn = new Button("Remove");
-        //setRemoveBtnAction(btn);
-        // btn.setCursor(Cursor.HAND);*//*
+        setRemoveBtnAction(btn);
+        btn.setCursor(Cursor.HAND);
 
 
-        double tot = 0;
         if (!obList.isEmpty()) {
             for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-                if (colItemCode.getCellData(i).equals(item_code)) {
-                    tot = (double) colTotal.getCellData(i);
+                if (colItemCode.getCellData(i).equals(code)) {
+                    int col_qty = (int) colQty.getCellData(i);
+                    qty += col_qty;
+                    tot = unitPrice * qty;
 
+                    //obList.get(i).set(qty);
+                    //obList.get(i).setTot(tot);
+
+                    //calculateTotal();
                     tblOrderCart.refresh();
                     return;
                 }
             }
         }
-        var cartTm = new CartTm(item_code, item_name, unitPrice, tot);
+        var cartTm = new CartTm(code, description, qty, unitPrice, tot);
+
         obList.add(cartTm);
-        // calcTotal();
+
         tblOrderCart.setItems(obList);
+        calculateTotal();
+        txtQty.clear();
     }
 
-    /*private void calcTotal(){
+
+    private void calculateTotal() {
         double total = 0;
-        for (int i = 0 ; i < tblOrderCart.getItems().size();i++){
-            total +=tot.getCellData(i);
+        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            total += (double) colTotal.getCellData(i);
         }
-        lblFullAmount.setText(String.valueOf(total));
-    }*/
+        lblNetTotal.setText(String.valueOf(total));
+    }
     private void setRemoveBtnAction(Button btn) {
     }
 

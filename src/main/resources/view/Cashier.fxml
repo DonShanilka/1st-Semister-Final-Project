@@ -82,13 +82,14 @@
          </font>
       </Label>
       <TextField fx:id="txtQty" layoutX="694.0" layoutY="199.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: white;" />
-      <TableView fx:id="tblOrderCart" layoutX="14.0" layoutY="318.0" prefHeight="200.0" prefWidth="746.0">
+      <TableView fx:id="tblOrderCart" layoutX="14.0" layoutY="318.0" prefHeight="200.0" prefWidth="831.0">
          <columns>
             <TableColumn fx:id="colItemCode" prefWidth="81.0" text="Item Code" />
             <TableColumn fx:id="colDescription" prefWidth="242.0" text="Item Name" />
             <TableColumn fx:id="colUnitPrice" prefWidth="174.0" text="Unit Price" />
             <TableColumn fx:id="colTotal" prefWidth="160.0" text="Total" />
             <TableColumn fx:id="colAction" prefWidth="89.0" text="Action" />
+            <TableColumn fx:id="colQty" prefWidth="89.0" text="Qty" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="640.0" layoutY="260.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to cart" textFill="WHITE">
