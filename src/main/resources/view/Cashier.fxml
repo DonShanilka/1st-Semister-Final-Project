@@ -61,7 +61,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblUnitPrice" layoutX="437.0" layoutY="215.0" textFill="#278d7f">
+      <Label fx:id="lblUnitPrice" layoutX="437.0" layoutY="215.0" textFill="#00127e">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -71,7 +71,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblQtyOnHand" layoutX="585.0" layoutY="215.0" textFill="#278d7f">
+      <Label fx:id="lblQtyOnHand" layoutX="585.0" layoutY="215.0" textFill="#00127e">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

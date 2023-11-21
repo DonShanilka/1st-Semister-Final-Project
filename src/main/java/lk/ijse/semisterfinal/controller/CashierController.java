@@ -8,6 +8,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CartTm;
 import lk.ijse.semisterfinal.Tm.CashierTm;
@@ -19,6 +20,7 @@ import lk.ijse.semisterfinal.model.ItemModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CashierController {
@@ -26,9 +28,9 @@ public class CashierController {
     public AnchorPane pane;
     public Label lblOrderId;
     public Label lblOrderDate;
-    public JFXComboBox <String> cmbCustomerId;
+    public JFXComboBox<String> cmbCustomerId;
     public Label lblCustomerName;
-    public JFXComboBox <String> cmbItemCode;
+    public JFXComboBox<String> cmbItemCode;
     public Label lblItemName;
     public Label lblUnitPrice;
     public Label lblQtyOnHand;
@@ -36,27 +38,36 @@ public class CashierController {
     public TableView<Object> tblOrderCart;
     public TableColumn<?, ?> colItemCode;
     public TableColumn<?, ?> colDescription;
-    public TableColumn<?, ?> colUnitPrice;
+    public TableColumn <?, ?> colUnitPrice;
     public TableColumn<?, ?> colTotal;
     public TableColumn<?, ?> colAction;
     public JFXButton btnAddToCart;
     public Label lblNetTotal;
-    public TableColumn colQty;
+    public TableColumn <?,?> colQty;
 
-    private SortedList<Object> obList = FXCollections.observableArrayList().sorted();
+    private SortedList<Object> ObList = FXCollections.observableArrayList().sorted();
     private ItemModel itemModel = new ItemModel();
     private CustomerModel customerModel = new CustomerModel();
     private CashiyerModel cashiyerModel = new CashiyerModel();
 
-    private ObservableList<CartTm> observableList = FXCollections.observableArrayList();
+    private ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
         setDate();
         loadItemId();
         loadCustomerId();
         //generateNextOrderId();
-        //cmbItemCode();
-        //cmbCustomerId();
+        setCellValueFactory();
+        generateNextOrderId();
+    }
+
+    private void setCellValueFactory() {
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("item_code"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("item_name"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
 
@@ -92,7 +103,7 @@ public class CashierController {
 
     private void generateNextOrderId() {
         try {
-            String orderId = cashiyerModel.generateNextOrderId();
+            String orderId = CashiyerModel.generateNextOrderId();
             lblOrderId.setText(orderId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -122,7 +133,7 @@ public class CashierController {
             ItemDTO itemDTO = itemModel.searchItemId(id);
             lblItemName.setText(itemDTO.getItemDetails());
             lblUnitPrice.setText(String.valueOf(itemDTO.getItemPrice()));
-            //lblQtyOnHand.setText(itemDTO.);
+            lblQtyOnHand.setText(String.valueOf(itemDTO.getItemQty()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -146,14 +157,14 @@ public class CashierController {
             ItemDTO dto = ItemModel.searchItemId(id);
             lblItemName.setText(dto.getItemDetails());
             lblUnitPrice.setText(String.valueOf(dto.getItemPrice()));
-            //lblQtyOnHand.setText(String.valueOf(dto.getItemQty()));
+            lblQtyOnHand.setText(String.valueOf(dto.getItemQty()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void txtQtyOnAction(ActionEvent event) {
-
+        btnAddToCartOnAction(event);
     }
 
 
@@ -176,20 +187,20 @@ public class CashierController {
                     qty += col_qty;
                     tot = unitPrice * qty;
 
-                    //obList.get(i).set(qty);
-                    //obList.get(i).setTot(tot);
+                    obList.get(i).setQty(qty);
+                    obList.get(i).setTotal(tot);
 
-                    //calculateTotal();
+                    calculateTotal();
                     tblOrderCart.refresh();
                     return;
                 }
             }
         }
-        var cartTm = new CartTm(code, description, qty, unitPrice, tot);
+        var cartTm = new CartTm(code, description, qty, unitPrice, tot, btn);
 
         obList.add(cartTm);
 
-        tblOrderCart.setItems(obList);
+        tblOrderCart.setItems(ObList);
         calculateTotal();
         txtQty.clear();
     }
@@ -202,22 +213,22 @@ public class CashierController {
         }
         lblNetTotal.setText(String.valueOf(total));
     }
+
     private void setRemoveBtnAction(Button btn) {
     }
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
-//        String orderId = lblOrderId.getText();
-//        LocalDate date = LocalDate.parse(lblOrderDate.getText());
-//        String service_id = cmbService_id.getValue();
-//
-//        List<CartTm> cartTmList = new ArrayList<>();
-//        for (int i = 0; i < tblOrder.getItems().size(); i++) {
-//            CartTm cartTm = obList.get(i);
-//
-//            cartTmList.add(cartTm);
-//        }
+        String orderId = lblOrderId.getText();
+        LocalDate date = LocalDate.parse(lblOrderDate.getText());
+        String item_id = cmbItemCode.getValue();
 
-       /* var orderDto = new OrderDto(txtOrderId.getText(), lblOrderDate.getText(), cmbGuardian_Id.getValue());
+        List<CartTm> cartTmList = new ArrayList<>();
+        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            CartTm cartTm = obList.get(i);
+            cartTmList.add(cartTm);
+        }
+
+       /*var orderDto = new OrderDto(txtOrderId.getText(), lblOrderDate.getText(), cmbGuardian_Id.getValue());
         var oService = new OrderServiceDto(txtOrderId.getText(), lblOrderDate.getText(), cmbService_id.getValue());
 
         try {
