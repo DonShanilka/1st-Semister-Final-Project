@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CashierController {
 
@@ -58,7 +59,7 @@ public class CashierController {
         loadCustomerId();
         //generateNextOrderId();
         setCellValueFactory();
-        generateNextOrderId();
+        //generateNextOrderId();
     }
 
     private void setCellValueFactory() {
@@ -171,7 +172,9 @@ public class CashierController {
     public void btnAddToCartOnAction(ActionEvent actionEvent) {
         String code = cmbItemCode.getValue();
         String description = lblItemName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
+        int  qty = Integer.
+
+                parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
         double tot = unitPrice * qty;
         Button btn = new Button("Remove");
@@ -215,7 +218,22 @@ public class CashierController {
     }
 
     private void setRemoveBtnAction(Button btn) {
-    }
+            btn.setOnAction((e) -> {
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+                if (type.orElse(no) == yes) {
+                    int focusedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
+
+                    obList.remove(focusedIndex);
+                    tblOrderCart.refresh();
+                    calculateTotal();
+                }
+            });
+        }
+
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
         String orderId = lblOrderId.getText();
@@ -238,6 +256,7 @@ public class CashierController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }*/
 
 

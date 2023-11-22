@@ -3,12 +3,8 @@ package lk.ijse.semisterfinal.model;
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.CashiyerDTO;
 import java.sql.*;
-import java.util.List;
 
 public class CashiyerModel {
-    /*public static List<CashiyerDTO> loadAllService() {
-
-    }*/
 
     public static String generateNextOrderId() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
