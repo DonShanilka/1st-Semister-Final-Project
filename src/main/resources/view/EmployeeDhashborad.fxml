@@ -5,37 +5,37 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode1" prefHeight="550.0" prefWidth="920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDhashboradController">
+<AnchorPane fx:id="rootNode1" prefHeight="750.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDhashboradController">
    <children>
-      <Pane prefHeight="559.0" prefWidth="175.0" style="-fx-background-color: #1032FF;">
+      <Pane prefHeight="769.0" prefWidth="227.0" style="-fx-background-color: #50394c;">
          <children>
-            <JFXButton fx:id="cashier" layoutX="14.0" layoutY="261.0" onAction="#CashierOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Cashier">
+            <JFXButton fx:id="cashier" layoutX="29.0" layoutY="261.0" onAction="#CashierOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Cashier">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empCustomer" layoutX="14.0" layoutY="214.0" onAction="#CustomerOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Customer">
+            <JFXButton fx:id="empCustomer" layoutX="29.0" layoutY="214.0" onAction="#CustomerOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Customer">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empItem" layoutX="14.0" layoutY="167.0" onAction="#itemOnActionEmp" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Item">
+            <JFXButton fx:id="empItem" layoutX="29.0" layoutY="167.0" onAction="#itemOnActionEmp" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Item">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empDeliver" layoutX="14.0" layoutY="308.0" onAction="#empDelierOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Deliver">
+            <JFXButton fx:id="empDeliver" layoutX="29.0" layoutY="310.0" onAction="#empDelierOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Deliver">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empSupplier" layoutX="14.0" layoutY="356.0" onAction="#empSupplierOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Supplier">
+            <JFXButton fx:id="empSupplier" layoutX="29.0" layoutY="358.0" onAction="#empSupplierOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Supplier">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root" layoutX="159.0" prefHeight="559.0" prefWidth="761.0" style="-fx-background-color: #F2F2F2;" />
+      <AnchorPane fx:id="root" layoutX="226.0" prefHeight="769.0" prefWidth="1124.0" style="-fx-background-color: #eed5ff;" />
    </children>
 </AnchorPane>

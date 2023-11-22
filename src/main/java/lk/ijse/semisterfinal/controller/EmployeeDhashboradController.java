@@ -17,6 +17,7 @@ public class EmployeeDhashboradController {
     public JFXButton cashier;
     public AnchorPane rootNode1;
     public JFXButton empItem;
+
     public AnchorPane root;
 
 

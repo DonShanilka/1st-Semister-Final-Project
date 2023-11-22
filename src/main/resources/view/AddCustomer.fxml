@@ -7,15 +7,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="740.0" prefWidth="1127.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddCustomerController">
+<AnchorPane fx:id="rootNode" prefHeight="740.0" prefWidth="1113.0" style="-fx-background-color: #eed5ff;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddCustomerController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="192.0" prefWidth="761.0">
          <center>
             <AnchorPane prefHeight="337.0" prefWidth="1127.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="CustomerAddTable" layoutX="14.0" layoutY="89.0" prefHeight="315.0" prefWidth="1090.0">
+                  <TableView fx:id="CustomerAddTable" layoutX="9.0" layoutY="116.0" prefHeight="279.0" prefWidth="1090.0">
                     <columns>
                       <TableColumn fx:id="tbCid" prefWidth="106.0" text="Customer id" />
                       <TableColumn fx:id="tbCname" prefWidth="94.0" text="Item id" />
@@ -39,9 +40,9 @@
             </AnchorPane>
          </center>
          <bottom>
-            <AnchorPane fx:id="sliderAnchor" prefHeight="138.0" prefWidth="761.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="sliderAnchor" prefHeight="177.0" prefWidth="1104.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtCustId" layoutX="51.0" layoutY="69.0" prefHeight="25.0" prefWidth="158.0" />
+                  <TextField fx:id="txtCustId" layoutX="51.0" layoutY="69.0" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: #eed5ff;" />
                   <Label layoutX="18.0" layoutY="79.0" text="Id -">
                      <font>
                         <Font name="Candara Bold" size="13.0" />
@@ -52,32 +53,38 @@
                         <Font name="Candara Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCustMobile" layoutX="68.0" layoutY="118.0" prefHeight="25.0" prefWidth="144.0" />
+                  <TextField fx:id="txtCustMobile" layoutX="68.0" layoutY="118.0" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #eed5ff;" />
                   <Label layoutX="257.0" layoutY="79.0" text="Name -">
                      <font>
                         <Font name="Candara Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCustName" layoutX="304.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" />
+                  <TextField fx:id="txtCustName" layoutX="304.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #eed5ff;" />
                   <Label layoutX="256.0" layoutY="129.0" text="Payment - ">
                      <font>
                         <Font name="Candara Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCustPayment" layoutX="314.0" layoutY="118.0" prefHeight="25.0" prefWidth="139.0" />
-                  <JFXButton layoutX="1026.0" layoutY="14.0" onAction="#CustomerDeleteOnAction" prefHeight="33.0" prefWidth="78.0" style="-fx-background-color: yellow;" text="Delete" />
+                  <TextField fx:id="txtCustPayment" layoutX="314.0" layoutY="118.0" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #eed5ff;" />
+                  <JFXButton layoutX="1019.0" layoutY="14.0" onAction="#CustomerDeleteOnAction" prefHeight="33.0" prefWidth="78.0" style="-fx-background-color: yellow;" text="Delete" />
                   <Label layoutX="509.0" layoutY="76.0" text="Address - ">
                      <font>
                         <Font name="Candara Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCustAddress" layoutX="563.0" layoutY="66.0" prefHeight="25.0" prefWidth="168.0" />
+                  <TextField fx:id="txtCustAddress" layoutX="563.0" layoutY="66.0" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #eed5ff;" />
                   <Label layoutX="507.0" layoutY="134.0" text="Item id - ">
                      <font>
                         <Font name="Candara Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCustitemId" layoutX="560.0" layoutY="122.0" prefHeight="25.0" prefWidth="194.0" />
+                  <TextField fx:id="txtCustitemId" layoutX="566.0" layoutY="122.0" prefHeight="25.0" prefWidth="166.0" style="-fx-background-color: #eed5ff;" />
+                  <Line endX="100.0" layoutX="111.0" layoutY="97.0" startX="-62.0" />
+                  <Line endX="100.0" layoutX="360.0" layoutY="97.0" startX="-62.0" />
+                  <Line endX="100.0" layoutX="628.0" layoutY="94.0" startX="-62.0" />
+                  <Line endX="100.0" layoutX="628.0" layoutY="147.0" startX="-62.0" />
+                  <Line endX="75.0" layoutX="378.0" layoutY="146.0" startX="-62.0" />
+                  <Line endX="90.0" layoutX="123.0" layoutY="145.0" startX="-62.0" />
                </children>
             </AnchorPane>
          </bottom>
