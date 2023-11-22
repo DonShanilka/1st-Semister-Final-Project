@@ -87,9 +87,9 @@
             <TableColumn fx:id="colItemCode" prefWidth="81.0" text="Item Code" />
             <TableColumn fx:id="colDescription" prefWidth="242.0" text="Item Name" />
             <TableColumn fx:id="colUnitPrice" prefWidth="174.0" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="160.0" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="89.0" text="Action" />
-            <TableColumn fx:id="colQty" prefWidth="89.0" text="Qty" />
+            <TableColumn fx:id="colTotal" prefWidth="62.0" text="Qty" />
+            <TableColumn fx:id="colAction" prefWidth="176.0" text="Total" />
+            <TableColumn fx:id="colQty" prefWidth="100.0" text="Action" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="640.0" layoutY="260.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to cart" textFill="WHITE">
@@ -117,5 +117,17 @@
       <Label fx:id="lblItemName" layoutX="263.0" layoutY="229.0" />
       <Label fx:id="lblOrderDate" layoutX="633.0" layoutY="125.0" />
       <Label fx:id="lblCustomerName" layoutX="592.0" layoutY="620.0" />
+      <JFXButton buttonType="RAISED" layoutX="725.0" layoutY="533.0" onAction="#btnPlaceOrderOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #34495e;" text="Place Order" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../thogakade-mvc1111/src/main/resources/icon/make_order.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

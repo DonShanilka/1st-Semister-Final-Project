@@ -58,6 +58,7 @@ public class CustomerModel {
                             resultSet.getString(6)
                     )
             );
+
         }
         return dtoList;
     }

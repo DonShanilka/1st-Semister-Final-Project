@@ -1,12 +1,19 @@
 package lk.ijse.semisterfinal.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.SupplierModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -28,6 +35,7 @@ public class EmployeeController {
     public TableColumn <?, ?>  tmStartDate;
     public TableColumn <?, ?>  tmEmpPossition;
     public TableView < ? >  EmployeeTm;
+    public AnchorPane root;
 
     private void clearField() {
         txtemployeeId.setText("");
@@ -62,8 +70,17 @@ public class EmployeeController {
         }
     }
 
-    public void EmployeeUpdateOnAction(ActionEvent event) {
-
+    public void EmployeeUpdateOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/UpdateEmployee.fxml"))));
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                //loadAllEmployee();
+            }
+        });
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void EmployeeDeleteOnAction(ActionEvent event) {

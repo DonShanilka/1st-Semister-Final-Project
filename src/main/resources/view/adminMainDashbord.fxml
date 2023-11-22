@@ -45,6 +45,11 @@
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
+            <JFXButton fx:id="customer1" layoutX="24.0" layoutY="454.0" onAction="#CustomerOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="Cashiyer">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </JFXButton>
          </children>
       </Pane>
       <AnchorPane fx:id="root1" layoutX="215.0" prefHeight="768.0" prefWidth="1138.0" style="-fx-background-color: #50394c;">

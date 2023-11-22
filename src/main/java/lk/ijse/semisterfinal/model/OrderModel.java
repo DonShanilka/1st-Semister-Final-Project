@@ -43,7 +43,7 @@ public class OrderModel {
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, orderId);
         pstm.setString(2, customerId);
-        pstm.setDate(3, Date.valueOf(date));
+        pstm.setString(3, String.valueOf(date));
 
         return pstm.executeUpdate() > 0;
     }

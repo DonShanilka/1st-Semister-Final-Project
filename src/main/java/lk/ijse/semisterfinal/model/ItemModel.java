@@ -1,6 +1,8 @@
 package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
+import lk.ijse.semisterfinal.Tm.CartTm;
+import lk.ijse.semisterfinal.Tm.CashierTm;
 import lk.ijse.semisterfinal.dto.ItemDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,14 +50,15 @@ public class ItemModel {
 
         ResultSet resultSet = pstm.executeQuery();
         while (resultSet.next()) {
-            itemList.add(new ItemDTO(
+            var dto =new ItemDTO(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getDouble(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
                     resultSet.getInt(6)
-            ));
+            );
+            itemList.add(dto);
         }
 
         return itemList;
@@ -109,4 +112,27 @@ public class ItemModel {
         }
         return dto;
     }
+
+    public boolean updateItem(List<CashierTm> cartTmList) throws SQLException {
+        for(CashierTm tm : cartTmList) {
+            System.out.println("Item: " + tm);
+            if(!updateQty(tm.getComItemId(), Integer.parseInt(tm.getTxtQty()))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean updateQty(String code, int qty) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "UPDATE item SET qty_on_hand = qty - ? WHERE item_code = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setInt(1, qty);
+        pstm.setString(2, code);
+
+        return pstm.executeUpdate() > 0;
+    }
+
 }

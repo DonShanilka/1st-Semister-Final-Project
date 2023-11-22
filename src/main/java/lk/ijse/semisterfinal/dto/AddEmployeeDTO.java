@@ -17,4 +17,6 @@ public class AddEmployeeDTO {
     private String EmployeeGender;
     private String empPosition;
 
+    public AddEmployeeDTO(String id, String name, String address, String contact, String date, String gender, String job) {
+    }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -65,5 +66,7 @@
       <Line endX="24.0" layoutX="403.0" layoutY="144.0" startX="-100.0" stroke="#300440" />
       <Line endX="24.0" layoutX="401.0" layoutY="237.0" startX="-100.0" stroke="#300440" />
       <TextField fx:id="updateEmpPosition" layoutX="300.0" layoutY="210.0" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #eed5ff;" />
+      <JFXButton layoutX="632.0" layoutY="558.0" onAction="#BackOnAction" prefHeight="36.0" prefWidth="77.0" text="Back" />
+      <JFXButton buttonType="RAISED" layoutX="507.0" layoutY="558.0" onAction="#EmployeeSaveOnAction" prefHeight="36.0" prefWidth="77.0" text="Save" />
    </children>
 </AnchorPane>
