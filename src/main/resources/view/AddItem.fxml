@@ -82,11 +82,6 @@
                </font></JFXButton>
             <Line endX="100.0" layoutX="602.0" layoutY="165.0" startX="-100.0" />
             <TextField fx:id="txtQty" layoutX="501.0" layoutY="139.0" prefHeight="25.0" prefWidth="201.0" promptText="Item Qty" style="-fx-background-color: #eed5ff;" />
-            <ImageView fitHeight="397.0" fitWidth="383.0" layoutX="973.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/AddItem.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
    </children>
