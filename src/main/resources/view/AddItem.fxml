@@ -76,6 +76,7 @@
                   <TableColumn fx:id="tmWarranty" prefWidth="95.0" text="Warranty Priod" />
               </columns>
             </TableView>
+
             <JFXButton layoutX="640.0" layoutY="709.0" onAction="#deleteOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: #ff6600;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />

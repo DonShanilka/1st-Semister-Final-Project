@@ -78,6 +78,7 @@ public class AddItemController {
             boolean isaddite = ItemModel.addItem(dto);
             if (isaddite) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
+                loadAllItem();
                 clearField();
             }
         } catch (SQLException e) {
@@ -158,6 +159,7 @@ public class AddItemController {
             boolean isDeleted = ItemModel.deleteItem(id);
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item has deleted!").show();
+                loadAllItem();
             } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item not deleted!").show();
             }

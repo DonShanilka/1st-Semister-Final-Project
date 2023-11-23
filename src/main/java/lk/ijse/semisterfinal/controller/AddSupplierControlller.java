@@ -67,6 +67,7 @@ public class AddSupplierControlller {
                 boolean addSup = SupplierModel.addSuppliers(dto);
                 if (addSup) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added").show();
+                    loadAllSupplier();
                     clearField();
                 }
             } catch (SQLException e) {
@@ -91,6 +92,7 @@ public class AddSupplierControlller {
             boolean isDeleted = SupplierModel.deleteSupplier(id);
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier has deleted!").show();
+                loadAllSupplier();
             } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier not deleted!").show();
             }

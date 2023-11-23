@@ -69,6 +69,7 @@ public class AddCustomerController {
             boolean isDelete = CustomerModel.deleteCustomer(id);
             if (isDelete){
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer deleted").show();
+                loadAllCustomer();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -89,6 +90,7 @@ public class AddCustomerController {
             boolean isadd= CustomerModel.AddCustomer(dto);
             if (isadd) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
+                loadAllCustomer();
                 clearField();
             }
         } catch (SQLException e) {

@@ -9,25 +9,27 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
-
+import org.controlsfx.control.Notifications;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class UpdateEmployeeController {
 
-    public ComboBox <?> updateEmpId;
+    public ComboBox <String> updateEmpId;
     public TextField updateEmpaddress;
     public TextField updateEmpName;
     public TextField updateEmpMobile;
     public DatePicker updateEmpDate;
-    public ComboBox <?> updateEmpGender;
+    public ComboBox <String> updateEmpGender;
     public TextField updateEmpPosition;
 
-   /* private AddEmployeeModel employeeModel = new AddEmployeeModel();
+   private AddEmployeeModel employeeModel = new AddEmployeeModel();
 
     public void initialize() {
         setValue();
+
     }
 
     private void setValue() {
@@ -45,7 +47,69 @@ public class UpdateEmployeeController {
         }
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
+
+    private boolean validateEmployee() {
+        boolean isValidate = true;
+        boolean name = Pattern.matches("[A-Za-z]{5,}", updateEmpId.getValue());
+        if (!name){
+            showErrorNotification("Invalid Customer Name", "The customer name you entered is invalid");
+            isValidate = false;
+        }
+        boolean con = Pattern.matches("[0-9]{10,}",updateEmpName.getText());
+        if (!con){
+            showErrorNotification("Invalid Contact Number", "The contact number you entered is invalid");
+            isValidate = false;
+        }
+        boolean NIC = Pattern.matches("^([0-9]{9}|[0-9]{12})$",updateEmpMobile.getText());
+        if (!NIC){
+            showErrorNotification("Invalid NIC", "The NUC Number you entered is invalid");
+            isValidate = false;
+
+        }
+        boolean Job = Pattern.matches("[A-Za-z]{5,}",updateEmpPosition.getText());
+        if (!Job){
+            showErrorNotification("Invalid job type", "The job type you entered is invalid");
+            isValidate = false;
+        }
+        return isValidate;
+    }
+
+   private void showErrorNotification(String title, String text) {
+        Notifications.create()
+                .title(title)
+                .text(text)
+                .showError();
+    }
+
+    private void clearFileds() {
+        updateEmpId.setValue("");
+        updateEmpName.setText("");
+        updateEmpaddress.setText("");
+        updateEmpMobile.setText("");
+        updateEmpDate.setValue(LocalDate.parse(""));
+        updateEmpGender.setValue("");
+        updateEmpPosition.setText("");
+    }
+
+
+    public void comboEmployee_idOnAction(ActionEvent actionEvent) {
+        String id = updateEmpId.getValue();
+
+        try{
+            AddEmployeeDTO dto = AddEmployeeModel.searchEmployee(id);
+            updateEmpName.setText(dto.getEmployeeName());
+            updateEmpMobile.setText(String.valueOf(dto.getEmployeePhone()));
+            updateEmpaddress.setText(dto.getEmpAddress());
+            updateEmpPosition.setText(dto.getEmpPosition());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void BackOnAction(ActionEvent event) {
+    }
+
+    public void EmployeeSaveOnAction(ActionEvent event) {
         String id = (String) updateEmpId.getValue();
         String name = updateEmpName.getText();
         String address = updateEmpaddress.getText();
@@ -69,61 +133,4 @@ public class UpdateEmployeeController {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
-
-    private boolean validateEmployee() {
-        boolean isValidate = true;
-        boolean name = Pattern.matches("[A-Za-z]{5,}", txtName.getText());
-        if (!name){
-            showErrorNotification("Invalid Customer Name", "The customer name you entered is invalid");
-            isValidate = false;
-        }
-        boolean con = Pattern.matches("[0-9]{10,}",txtContact.getText());
-        if (!con){
-            showErrorNotification("Invalid Contact Number", "The contact number you entered is invalid");
-            isValidate = false;
-        }
-        boolean NIC = Pattern.matches("^([0-9]{9}|[0-9]{12})$",txtNic.getText());
-        if (!NIC){
-            showErrorNotification("Invalid NIC", "The NUC Number you entered is invalid");
-            isValidate = false;
-
-        }
-        boolean Job = Pattern.matches("[A-Za-z]{5,}",txtJob.getText());
-        if (!Job){
-            showErrorNotification("Invalid job type", "The job type you entered is invalid");
-            isValidate = false;
-        }
-        return isValidate;
-    }
-
-    private void showErrorNotification(String title, String text) {
-        Notifications.create()
-                .title(title)
-                .text(text)
-                .showError();
-    }
-
-    private void clearFileds() {
-        comboEmployee_id.setValue("");
-        txtName.setText("");
-        txtContact.setText("");
-        txtNic.setText("");
-        txtJob.setText("");
-    }
-
-
-    public void comboEmployee_idOnAction(ActionEvent actionEvent) {
-        String id = comboEmployee_id.getValue();
-
-        try{
-            EmployeeDto dto = employeeModel.searchEmployee(id);
-            txtName.setText(dto.getName());
-            txtContact.setText(dto.getContact());
-            txtNic.setText(dto.getNic());
-            txtJob.setText(dto.getJob());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-*/
 }
