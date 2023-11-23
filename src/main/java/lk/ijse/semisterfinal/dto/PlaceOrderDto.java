@@ -1,10 +1,7 @@
 package lk.ijse.semisterfinal.dto;
 
 import lk.ijse.semisterfinal.Tm.CartTm;
-import lk.ijse.semisterfinal.Tm.CashierTm;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -17,12 +14,16 @@ public class PlaceOrderDto {
     private String orderId;
     private LocalDate date;
     private String customerId;
-    private List<CashierTm> cartTmList = new ArrayList<>();
+    private List<CartTm> cartTmList = new ArrayList<>();
 
     public PlaceOrderDto() {
     }
 
     public PlaceOrderDto(String orderId, LocalDate date, String customerId, List<CartTm> cartTmList) {
+        this.orderId = orderId;
+        this.date = date;
+        this.customerId = customerId;
+        this.cartTmList = cartTmList;
     }
 
 
@@ -38,7 +39,7 @@ public class PlaceOrderDto {
         this.customerId = customerId;
     }
 
-    public void setCartTmList(List<CashierTm> cartTmList) {
+    public void setCartTmList(List<CartTm> cartTmList) {
         this.cartTmList = cartTmList;
     }
 

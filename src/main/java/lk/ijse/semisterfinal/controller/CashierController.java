@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
@@ -15,10 +14,8 @@ import lk.ijse.semisterfinal.Tm.CartTm;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.ItemDTO;
 import lk.ijse.semisterfinal.dto.PlaceOrderDto;
-import lk.ijse.semisterfinal.model.BillModel;
-import lk.ijse.semisterfinal.model.CashiyerModel;
-import lk.ijse.semisterfinal.model.CustomerModel;
-import lk.ijse.semisterfinal.model.ItemModel;
+import lk.ijse.semisterfinal.model.*;
+
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -72,15 +69,16 @@ public class CashierController {
     private ItemModel itemModel = new ItemModel();
     private CustomerModel customerModel = new CustomerModel();
     private CashiyerModel cashiyerModel = new CashiyerModel();
+    private OrderModel orderModel = new OrderModel();
     private BillModel billModel = new BillModel();
 
-    private final ObservableList<CartTm> obList = FXCollections.observableArrayList();
+    private ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
         setDate();
         loadItemId();
         loadCustomerId();
-        //generateNextOrderId();
+        generateNextOrderId();
         setCellValueFactory();
 
     }
@@ -88,10 +86,10 @@ public class CashierController {
     private void setCellValueFactory() {
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("item_code"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("item_name"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        //colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("Total"));
+        //b.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
 
     }
 
@@ -127,13 +125,28 @@ public class CashierController {
     }
 
     private void generateNextOrderId() {
+        System.out.println("in generate next id ");
+        String orderId;
         try {
-            String orderId = CashiyerModel.generateNextOrderId();
+            String lastId = orderModel.getLastId();
+            System.out.println("Last id is : " + lastId);
+            if (lastId == null) {
+                orderId = "O0001";
+            } else {
+                String[] ar = lastId.split("[O]");
+                int digits = Integer.parseInt(ar[1]);
+                digits++;
+                String newId = String.format("O%04d", digits);
+                orderId = newId;
+            }
+            System.out.println("Order id : " + orderId);
             lblOrderId.setText(orderId);
+
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
 
     private void setDate() {
         lblOrderDate.setText(String.valueOf(LocalDate.now()));
@@ -197,38 +210,37 @@ public class CashierController {
 
         String code = cmbItemCode.getValue();
         String description = lblItemName.getText();
-        int  qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
-        double tot = qty * unitPrice;
+        int  qty = Integer.parseInt(txtQty.getText());
+        double tot = (double)qty * unitPrice;
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);
         btn.setCursor(Cursor.HAND);
 
+        System.out.println(obList.toString());
 
         if (!obList.isEmpty()) {
             System.out.println("in list");
             for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-                if (colItemCode.getCellData(i).equals(i)) {
+                if (colItemCode.getCellData(i).equals(code)) {
                     int col_qty = (int) colQty.getCellData(i);
                     qty += col_qty;
                     tot = unitPrice * qty;
-                    System.out.println("test");
+                    System.out.println("Shanilka");
                     obList.get(i).setQty(qty);
                     obList.get(i).setTotal(tot);
 
-
-                    tblOrderCart.refresh();
                     calculateTotal();
+                    tblOrderCart.refresh();
                     return;
                 }
             }
         }
 
+        obList.add(new CartTm(code, description,unitPrice, qty, tot, btn));
 
-        obList.add(new CartTm(code, description, qty, unitPrice, tot, btn));
-
-        tblOrderCart.setItems(ObList);
+        tblOrderCart.setItems(obList);
         calculateTotal();
     }
 
@@ -261,20 +273,22 @@ public class CashierController {
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
         String orderId = lblOrderId.getText();
+        System.out.println("Order id : " + orderId);
         LocalDate date = LocalDate.parse(lblOrderDate.getText());
         String customerId = cmbCustomerId.getValue();
-
         List<CartTm> cartTmList = new ArrayList<>();
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
             CartTm cartTm = obList.get(i);
-
             cartTmList.add(cartTm);
         }
 
         System.out.println("Place order form controller: " + cartTmList);
-        var placeOrderDto = new PlaceOrderDto(orderId, date, customerId, cartTmList);
+        PlaceOrderDto placeOrderDto = new PlaceOrderDto(orderId, date, customerId, cartTmList);
+        System.out.println("new place order id : " + placeOrderDto.getOrderId());
+        System.out.println("new place order customer id : " + placeOrderDto.getCustomerId());
+
         try {
-            boolean isSuccess = billModel.placeOrder(placeOrderDto);
+            boolean isSuccess = cashiyerModel.placeOrder(placeOrderDto);
             if (isSuccess) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
             }
@@ -292,10 +306,13 @@ public class CashierController {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
-    }*/
-
+   // }
+        /*public void setAllOrders(){
+             ObservableList<CartTm> obList = FXCollections.observableArrayList();
+             CashiyerModel.
+        }*/
 
     }
 

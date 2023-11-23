@@ -1,28 +1,24 @@
 package lk.ijse.semisterfinal.model;
 
-/*
-    @author DanujaV
-    @created 10/30/23 - 4:59 PM   
-*/
-
 import lk.ijse.semisterfinal.DB.DbConnetion;
-import lk.ijse.semisterfinal.Tm.CashierTm;
+import lk.ijse.semisterfinal.Tm.CartTm;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
 public class OrderDetailModel {
-    public boolean saveOrderDetails(String orderId, List<CashierTm> cartTmList) throws SQLException {
-        for(CashierTm tm : cartTmList) {
-            if(!saveOrderDetails(orderId, (List<CashierTm>) tm)) {
+    public static boolean saveOrderDetails(String orderId, List<CartTm> cartTmList) throws SQLException {
+        for(CartTm tm : cartTmList) {
+            if(!saveOrderDetails(orderId, (List<CartTm>) tm)) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean saveOrderDetails(String orderId, CashierTm tm) throws SQLException {
+    private boolean saveOrderDetails(String orderId, CartTm tm) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
         String sql = "INSERT INTO order_detail VALUES(?, ?, ?, ?)";

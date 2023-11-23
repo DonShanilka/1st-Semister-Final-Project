@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="740.0" prefWidth="1140.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
+<AnchorPane fx:id="pane" prefHeight="740.0" prefWidth="1140.0" style=" -fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
    <children>
-      <Label layoutX="235.0" prefHeight="42.0" prefWidth="330.0" text="Place Order Form" textFill="#5e5c5c">
+      <Label layoutX="16.0" layoutY="7.0" prefHeight="42.0" prefWidth="330.0" text="Add To Bill" textFill="#5e5c5c">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -87,9 +87,9 @@
             <TableColumn fx:id="colItemCode" prefWidth="81.0" text="Item Code" />
             <TableColumn fx:id="colDescription" prefWidth="242.0" text="Item Name" />
             <TableColumn fx:id="colUnitPrice" prefWidth="174.0" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="62.0" text="Qty" />
-            <TableColumn fx:id="colAction" prefWidth="176.0" text="Total" />
-            <TableColumn fx:id="colQty" prefWidth="100.0" text="Action" />
+            <TableColumn fx:id="colQty" prefWidth="62.0" text="Qty" />
+            <TableColumn fx:id="colTotal" prefWidth="176.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="100.0" text="Action" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="640.0" layoutY="260.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to cart" textFill="WHITE">

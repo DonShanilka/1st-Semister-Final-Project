@@ -25,11 +25,11 @@ public class BillModel {
             connection = DbConnetion.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isOrderSaved = orderModel.saveOrder(orderId, customerId, date);
+            boolean isOrderSaved = OrderModel.saveOrder(orderId, customerId, date);
             if (isOrderSaved) {
-                boolean isUpdated = itemModel.updateItem(placeOrderDto.getCartTmList());
+                boolean isUpdated = ItemModel.updateItem(placeOrderDto.getCartTmList());
                 if (isUpdated) {
-                    boolean isOrderDetailSaved = orderDetailModel.saveOrderDetails(placeOrderDto.getOrderId(), placeOrderDto.getCartTmList());
+                    boolean isOrderDetailSaved = OrderDetailModel.saveOrderDetails(placeOrderDto.getOrderId(), placeOrderDto.getCartTmList());
                     if (isOrderDetailSaved) {
                         connection.commit();
                     }

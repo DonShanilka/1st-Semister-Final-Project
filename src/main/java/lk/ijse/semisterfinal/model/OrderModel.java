@@ -1,17 +1,12 @@
 package lk.ijse.semisterfinal.model;
 
-/*
-    @author DanujaV
-    @created 10/30/23 - 12:12 PM   
-*/
-
 import lk.ijse.semisterfinal.DB.DbConnetion;
 
 import java.sql.*;
 import java.time.LocalDate;
 
 public class OrderModel {
-    public String generateNextOrderId() throws SQLException {
+    public String getLastId() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
         String sql = "SELECT order_id FROM orders ORDER BY order_id DESC LIMIT 1";
@@ -19,24 +14,24 @@ public class OrderModel {
 
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()) {
-            return splitOrderId(resultSet.getString(1));
+            return (resultSet.getString(1));
         }
-        return splitOrderId(null);
+        return null;
     }
 
-    private String splitOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("O0");
+//    private String splitOrderId(String currentOrderId) {
+//        if(currentOrderId != null) {
+//            String[] split = currentOrderId.split("O0");
+//
+//            int id = Integer.parseInt(split[1]); //01
+//            id++;
+//            return "O00" + id;
+//        } else {
+//            return "O001";
+//        }
+//    }
 
-            int id = Integer.parseInt(split[1]); //01
-            id++;
-            return "O00" + id;
-        } else {
-            return "O001";
-        }
-    }
-
-    public boolean saveOrder(String orderId, String customerId, LocalDate date) throws SQLException {
+    public static boolean saveOrder(String orderId, String customerId, LocalDate date) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
         String sql = "INSERT INTO orders VALUES(?,?,?)";

@@ -8,7 +8,7 @@ public class DbConnetion {
     private static DbConnetion DbConnetion;
     public Connection connection;
 
-    public DbConnetion() throws SQLException{
+    private DbConnetion() throws SQLException{
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/MegaMart",
                 "root",
                 "Shanilka800@#");
