@@ -301,7 +301,7 @@ public class CashierController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        var orderDto = new CashiyerDTO(lblOrderId.getText(), lblOrderDate.getText(), cmbGuardian_Id.getValue());
+        var orderDto = new CashiyerDTO(lblOrderId.getText(), lblOrderDate.getText(), cmbItemCode.getValue());
         var oService = new OrderServiceDto(txtOrderId.getText(), lblOrderDate.getText(), cmbService_id.getValue());
 
         try {

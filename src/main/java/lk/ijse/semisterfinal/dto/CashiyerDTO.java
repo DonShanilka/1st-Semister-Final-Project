@@ -20,4 +20,7 @@ public class CashiyerDTO {
     private double total;
     private LocalDate date;
 
+    public CashiyerDTO(String text, String text1, String value) {
+
+    }
 }
