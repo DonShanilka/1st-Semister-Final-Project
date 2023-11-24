@@ -79,6 +79,8 @@ public class CashiyerModel {
         }
         return true;
     }
+
+
     /*public static ArrayList<ItemDTO> getAllItemsInCart() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
         String sql="SELECT * FROM item";

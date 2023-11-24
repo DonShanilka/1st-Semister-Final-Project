@@ -26,6 +26,12 @@ public class PlaceOrderDto {
         this.cartTmList = cartTmList;
     }
 
+    public PlaceOrderDto(String orderId, String customerId, String date) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.date = LocalDate.parse(date);
+    }
+
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;

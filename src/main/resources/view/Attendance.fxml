@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="619.0" prefWidth="869.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AttendanceController">
+   <children>
+      <DatePicker fx:id="date" layoutX="33.0" layoutY="69.0" style="-fx-background-color: #eed5ff;" />
+      <Label layoutX="33.0" layoutY="46.0" text="Date :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="244.0" text="Employee Name :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="143.0" text="Employee Id :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comEmpId" layoutX="33.0" layoutY="164.0" onAction="#cmbEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="lblName" layoutX="34.0" layoutY="272.0" style="-fx-background-color: #eed5ff;" />
+      <Line endX="60.0" layoutX="134.0" layoutY="297.0" startX="-100.0" />
+      <Line endX="60.0" layoutX="134.0" layoutY="193.0" startX="-100.0" />
+      <TableView fx:id="atendanceTm" layoutX="12.0" layoutY="354.0" prefHeight="251.0" prefWidth="845.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="117.0" text="Employee Id" />
+          <TableColumn fx:id="colName" prefWidth="417.0" text="Employee Name" />
+            <TableColumn fx:id="colDate" prefWidth="187.0" text="Date" />
+            <TableColumn fx:id="colAction" prefWidth="133.0" text="Reove" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="265.0" layoutY="267.0" onAction="#markAtendanseOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="Mark" />
+   </children>
+</AnchorPane>
