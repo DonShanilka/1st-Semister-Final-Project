@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CartTm;
+import lk.ijse.semisterfinal.dto.CashiyerDTO;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.dto.ItemDTO;
 import lk.ijse.semisterfinal.dto.PlaceOrderDto;
@@ -291,13 +292,16 @@ public class CashierController {
             boolean isSuccess = cashiyerModel.placeOrder(placeOrderDto);
             if (isSuccess) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Something went wrong!").show();
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
         }
     }
 
-       /*var orderDto = new OrderDto(txtOrderId.getText(), lblOrderDate.getText(), cmbGuardian_Id.getValue());
+    public void btnSaveOnAction(ActionEvent actionEvent) {
+        var orderDto = new CashiyerDTO(lblOrderId.getText(), lblOrderDate.getText(), cmbGuardian_Id.getValue());
         var oService = new OrderServiceDto(txtOrderId.getText(), lblOrderDate.getText(), cmbService_id.getValue());
 
         try {
@@ -306,13 +310,8 @@ public class CashierController {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }*/
-
-   // }
-        /*public void setAllOrders(){
-             ObservableList<CartTm> obList = FXCollections.observableArrayList();
-             CashiyerModel.
-        }*/
-
+        }
     }
+
+}
 
