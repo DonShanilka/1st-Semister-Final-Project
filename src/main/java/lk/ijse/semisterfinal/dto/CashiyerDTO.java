@@ -21,6 +21,8 @@ public class CashiyerDTO {
     private LocalDate date;
 
     public CashiyerDTO(String text, String text1, String value) {
-
+        billId = text;
+        itemId = text1;
+        itemName = value;
     }
 }
