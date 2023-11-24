@@ -36,12 +36,12 @@
       <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
-      <TableView fx:id="atendanceTm" layoutX="12.0" layoutY="377.0" prefHeight="233.0" prefWidth="845.0">
+      <TableView fx:id="atendanceTm" layoutX="14.0" layoutY="370.0" prefHeight="233.0" prefWidth="741.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="117.0" text="Employee Id" />
-          <TableColumn fx:id="colName" prefWidth="417.0" text="Employee Name" />
-            <TableColumn fx:id="colDate" prefWidth="199.0" text="Date" />
-            <TableColumn fx:id="colAction" prefWidth="121.0" text="Reove" />
+          <TableColumn fx:id="colId" prefWidth="148.0" text="Employee Id" />
+          <TableColumn fx:id="colName" prefWidth="319.0" text="Employee Name" />
+            <TableColumn fx:id="colDate" prefWidth="115.0" text="Date" />
+            <TableColumn fx:id="colAction" prefWidth="157.0" text="Remove" />
         </columns>
       </TableView>
       <JFXButton layoutX="224.0" layoutY="294.0" onAction="#markAtendanseOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="Mark" />
@@ -50,5 +50,6 @@
             <Image url="@../image/confiromAtendance.png" />
          </image>
       </ImageView>
+      <JFXButton layoutX="791.0" layoutY="578.0" onAction="#BackOnAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: orange;" text="&lt; Back" />
    </children>
 </AnchorPane>

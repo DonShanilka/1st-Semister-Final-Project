@@ -22,6 +22,7 @@ import java.util.Optional;
 public class AttendanceController {
 
     public AnchorPane root;
+
     public DatePicker date;
     public ComboBox comEmpId;
     public TextField lblName;
@@ -123,8 +124,33 @@ public class AttendanceController {
     }
 
     public void markAtendanseOnAction(ActionEvent event) {
+        String empId = (String) comEmpId.getValue();
+        String empName = lblName.getText();
+        Button btn = new Button("Remove");
+
+        setRemoveBtnAction(btn, empId);
+        btn.setCursor(Cursor.HAND);
+
+        if (!obList.isEmpty()) {
+            for (int i = 0; i < atendanceTm.getItems().size(); i++) {
+                if (colId.getCellData(i).equals(empId)) {
+
+                    atendanceTm.refresh();
+                    return;
+                }
+            }
+        }
+
+        var incomeTm = new AtendanceTm(empId, empName, btn);
+
+        obList.add(incomeTm);
+
+        atendanceTm.setItems(obList);
     }
 
     public void cmbEmpIdOnAction(ActionEvent event) {
+    }
+
+    public void BackOnAction(ActionEvent event) {
     }
 }
