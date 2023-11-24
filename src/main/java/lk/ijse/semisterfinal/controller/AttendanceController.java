@@ -118,7 +118,7 @@ public class AttendanceController {
             }
             comEmpId.setItems(obList);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
         }
     }
 
