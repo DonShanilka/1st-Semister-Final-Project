@@ -31,10 +31,10 @@ public class AddEmployeeModel {
 
     }
 
-    public List<AddEmployeeDTO> getAllEmployee() throws SQLException {
+    public static List<AddEmployeeDTO> getAllEmployee() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "SELECT * employee FROM ";
+        String sql = "SELECT * FROM employee";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
 

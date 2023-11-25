@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="619.0" prefWidth="869.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AttendanceController">
+<AnchorPane fx:id="root" prefHeight="619.0" prefWidth="869.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
    <children>
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #eed5ff;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
@@ -31,7 +31,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comEmpId" layoutX="15.0" layoutY="203.0" onAction="#cmbEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: #eed5ff;" />
+      <ComboBox fx:id="comEmpId" layoutX="15.0" layoutY="203.0" onAction="#comEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: #eed5ff;" />
       <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
@@ -56,7 +56,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="lblName1" layoutX="245.0" layoutY="118.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="salary" layoutX="245.0" layoutY="118.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="60.0" layoutX="347.0" layoutY="145.0" startX="-100.0" />
    </children>
 </AnchorPane>

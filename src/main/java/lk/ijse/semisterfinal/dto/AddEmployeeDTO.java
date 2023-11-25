@@ -18,5 +18,12 @@ public class AddEmployeeDTO {
     private String empPosition;
 
     public AddEmployeeDTO(String id, String name, String address, String contact, String date, String gender, String job) {
+        this.employeeId = id;
+        this.EmployeeName = name;
+        this.EmpAddress = address;
+        this.EmployeePhone = Integer.parseInt(contact);
+        this.empDate = date;
+        this.EmployeeGender = gender;
+        this.empPosition = job;
     }
 }
