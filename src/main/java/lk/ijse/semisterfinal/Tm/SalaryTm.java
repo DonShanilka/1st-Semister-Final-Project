@@ -19,4 +19,10 @@ public class SalaryTm {
     private Button removeBtn;
 
 
+    public static ChoiceDialog<Object> getSelectionModel() {
+        ChoiceDialog<Object> choiceDialog = new ChoiceDialog<>();
+        choiceDialog.setTitle("Delete");
+        choiceDialog.setHeaderText("Are you sure you want to delete this item?");
+        return choiceDialog;
+    }
 }

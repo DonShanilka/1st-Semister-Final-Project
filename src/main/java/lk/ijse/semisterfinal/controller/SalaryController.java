@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.ItemTm;
 import lk.ijse.semisterfinal.Tm.SalaryTm;
@@ -21,20 +22,23 @@ public class SalaryController {
     public DatePicker date;
     public ComboBox <String> comEmpId;
     public TextField lblName;
-    public TableView atendanceTm;
-    public TableColumn colId;
-    public TableColumn colName;
-    public TableColumn colDate;
-    public TableColumn colSalary;
-    public TableColumn colAction;
+    public TableView <SalaryTm> atendanceTm;
+    public TableColumn <?,?> colId;
+    public TableColumn <?,?> colName;
+    public TableColumn <?,?> colDate;
+    public TableColumn <?,?> colSalary;
+    public TableColumn <?,?> colAction;
     public TextField salary;
 
     public void initialize() {
         loadEmployeeId();
+        clearField();
+        tableListener();
+        setCellValueFactory();
     }
     private void tableListener() {
         SalaryTm.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-            setData(newValue);
+            setData((SalaryTm) newValue);
 
         });
     }
@@ -42,17 +46,24 @@ public class SalaryController {
     private void setData(SalaryTm row) {
         comEmpId.setValue(row.getEmployeeId());
         lblName.setText(row.getEmployeeName());
-        txtItemPrice.setText(String.valueOf(row.getItemPrice()));
-        comsupid.setValue(row.getSupplierId());
+        salary.setText(String.valueOf(row.getSalary()));
+        date.setValue(LocalDate.parse(row.getDate()));
 
     }
 
     private void clearField() {
-        txtItemCode.setText("");
-        comsupid.setValue("");
-        txtItemPrice.setText("");
-        txtWarrantyPeriod.setText("");
-        txtitemDetails.setText("");
+        comEmpId.setValue("");
+        lblName.setText("");
+        salary.setText("");
+        //date.setValue(LocalDate.parse(""));
+
+    }
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
 
     }
 
