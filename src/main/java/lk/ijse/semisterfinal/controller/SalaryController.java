@@ -22,34 +22,38 @@ public class SalaryController {
     public DatePicker date;
     public ComboBox <String> comEmpId;
     public TextField lblName;
-    public TableView <SalaryTm> atendanceTm;
     public TableColumn <?,?> colId;
     public TableColumn <?,?> colName;
     public TableColumn <?,?> colDate;
     public TableColumn <?,?> colSalary;
     public TableColumn <?,?> colAction;
     public TextField salary;
+    public TableView <SalaryTm> salaryTm;
+
+    private  ObservableList<SalaryTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
+        date.setPromptText(String.valueOf(LocalDate.now()));
         loadEmployeeId();
         clearField();
-        tableListener();
+        //tableListener();
         setCellValueFactory();
+        loadAllSalary();
     }
-    private void tableListener() {
+    /*private void tableListener() {
         SalaryTm.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             setData((SalaryTm) newValue);
 
         });
-    }
+    }*/
 
-    private void setData(SalaryTm row) {
+    /*private void setData(SalaryTm row) {
         comEmpId.setValue(row.getEmployeeId());
         lblName.setText(row.getEmployeeName());
         salary.setText(String.valueOf(row.getSalary()));
-        date.setValue(LocalDate.parse(row.getDate()));
+        date.setValue(row.getDate());
 
-    }
+    }*/
 
     private void clearField() {
         comEmpId.setValue("");
@@ -69,9 +73,9 @@ public class SalaryController {
 
     public void AddSalaryOnAction(ActionEvent event) {
         double amount = Double.parseDouble(salary.getText());
-        String id = (String) comEmpId.getValue();
+        String id = comEmpId.getValue();
         String Name = lblName.getText();
-        LocalDate date1 = date.getValue();
+        String date1 = String.valueOf(date.getValue());
 
 
         var dto = new SalaryDTO(amount, id, Name, date1);
@@ -80,8 +84,8 @@ public class SalaryController {
             boolean isaddite = SalaryModel.addSalary(dto);
             if (isaddite) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
-                //loadAllItem();
-                //clearField();
+                clearField();
+                //loadAllSalary();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -117,4 +121,29 @@ public class SalaryController {
         }
     }
 
+    private void loadAllSalary() {
+        var model = new SalaryModel();
+
+        try {
+            List<SalaryDTO> dtoList = model.getAllSalary();
+
+                for (SalaryDTO dto : dtoList) {
+                    Button btn = new Button("Remove");
+                    //setRemoveBtnAction(btn, dto);
+                    obList.add(
+                            new SalaryTm(
+                                    dto.getDate(),
+                                    dto.getEmployeeId(),
+                                    dto.getEmployeeName(),
+                                    dto.getSalary(),
+                                    btn
+                            )
+                    );
+                }
+                salaryTm.setItems(obList);
+            }catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
 }
+

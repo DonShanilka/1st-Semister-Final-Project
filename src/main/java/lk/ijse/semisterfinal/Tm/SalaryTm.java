@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
 import lombok.*;
 
+import java.sql.Date;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,11 +14,13 @@ import lombok.*;
 @ToString
 
 public class SalaryTm {
+    private String date;
     private String employeeId;
     private String employeeName;
-    private String date;
     private double salary;
     private Button removeBtn;
+
+
 
 
     public static ChoiceDialog<Object> getSelectionModel() {

@@ -35,7 +35,7 @@
       <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
-      <TableView fx:id="atendanceTm" layoutX="18.0" layoutY="372.0" prefHeight="233.0" prefWidth="834.0">
+      <TableView fx:id="salaryTm" layoutX="18.0" layoutY="372.0" prefHeight="233.0" prefWidth="834.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="138.0" text="Employee Id" />
             <TableColumn fx:id="colName" prefWidth="285.0" text="Employee Name" />

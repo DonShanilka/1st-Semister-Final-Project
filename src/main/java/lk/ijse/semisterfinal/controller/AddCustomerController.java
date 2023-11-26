@@ -40,7 +40,6 @@ public class AddCustomerController {
     private AnchorPane sliderAnchor;
 
 
-
     public TextField txtCustMobile;
     public TextField txtCustName;
     public TextField txtCustPayment;

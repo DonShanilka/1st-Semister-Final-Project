@@ -4,10 +4,7 @@ import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.ItemDTO;
 import lk.ijse.semisterfinal.dto.SalaryDTO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,7 @@ public class SalaryModel {
         String sql = "INSERT INTO salary VALUES(?,?,?,?)";
 
         PreparedStatement ptm = connection.prepareStatement(sql);
-        ptm.setDate(1, dto.getDate());
+        ptm.setString(1, dto.getDate());
         ptm.setString(2, dto.getEmployeeId());
         ptm.setString(3, dto.getEmployeeName());
         ptm.setDouble(4, dto.getSalary());
@@ -64,7 +61,7 @@ public class SalaryModel {
         while(resultSet.next()) {
             dtoList.add(
                     new SalaryDTO(
-                            resultSet.getDate(1),
+                            resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getString(3),
                             resultSet.getDouble(4)

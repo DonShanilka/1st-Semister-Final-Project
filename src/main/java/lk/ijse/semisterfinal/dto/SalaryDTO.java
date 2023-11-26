@@ -13,14 +13,14 @@ import java.time.LocalDate;
 
 public class SalaryDTO {
 
-    private Date date;
+    private String  date;
     private String employeeId;
     private String employeeName;
     private double salary;
 
 
-    public SalaryDTO(double amount, String id, String name, LocalDate date1) {
-        this.date = Date.valueOf(date1);
+    public SalaryDTO(double amount, String id, String name, String date1) {
+        this.date = date1;
         this.employeeId = id;
         this.employeeName = name;
         this.salary = amount;
