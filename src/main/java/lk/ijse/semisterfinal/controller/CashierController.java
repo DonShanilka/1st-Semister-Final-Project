@@ -300,18 +300,5 @@ public class CashierController {
         }
     }
 
-    /*public void btnSaveOnAction(ActionEvent actionEvent) {
-        var orderDto = new PlaceOrderDto(lblOrderId.getText(), lblOrderDate.getText(), cmbItemCode.getValue());
-        var oItem = new ItemDTO(colItemCode.getText(), .getText(), cmbItemCode.getValue());
-
-        try {
-            if (cashiyerModel.placeOrder(orderDto, oItem)) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Order saved!!").show();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
-
 }
 
