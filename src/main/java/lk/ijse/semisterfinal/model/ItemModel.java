@@ -115,7 +115,7 @@ public class ItemModel {
     public static boolean updateItem(List<CartTm> cartTmList) throws SQLException {
         for(CartTm tm : cartTmList) {
             System.out.println("Item: " + tm);
-            if(!updateQty(tm.getItem_code(), tm.getQty())) {
+            if(!updateQty(tm.getItem_code(), Integer.parseInt(tm.getQty()))) {
                 return false;
             }
         }

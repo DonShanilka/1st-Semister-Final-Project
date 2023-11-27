@@ -81,7 +81,6 @@ public class CashierController {
         loadCustomerId();
         generateNextOrderId();
         setCellValueFactory();
-
     }
 
     private void setCellValueFactory() {
@@ -90,6 +89,7 @@ public class CashierController {
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("Total"));
+        //setRemoveBtnAction();
         //b.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
 
     }
@@ -229,7 +229,7 @@ public class CashierController {
                     qty += col_qty;
                     tot = unitPrice * qty;
                     System.out.println("Shanilka");
-                    obList.get(i).setQty(qty);
+                    obList.get(i).setQty(String.valueOf(qty));
                     obList.get(i).setTotal(tot);
 
                     calculateTotal();
@@ -238,7 +238,6 @@ public class CashierController {
                 }
             }
         }
-
         obList.add(new CartTm(code, description,unitPrice, qty, tot, btn));
 
         tblOrderCart.setItems(obList);
@@ -273,23 +272,27 @@ public class CashierController {
 
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
-        String orderId = lblOrderId.getText();
-        System.out.println("Order id : " + orderId);
-        LocalDate date = LocalDate.parse(lblOrderDate.getText());
-        String customerId = cmbCustomerId.getValue();
-        List<CartTm> cartTmList = new ArrayList<>();
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-            CartTm cartTm = obList.get(i);
-            cartTmList.add(cartTm);
-        }
-
-        System.out.println("Place order form controller: " + cartTmList);
-        PlaceOrderDto placeOrderDto = new PlaceOrderDto(orderId, date, customerId, cartTmList);
-        System.out.println("new place order id : " + placeOrderDto.getOrderId());
-        System.out.println("new place order customer id : " + placeOrderDto.getCustomerId());
-
         try {
-            boolean isSuccess = cashiyerModel.placeOrder(placeOrderDto);
+            String orderId = lblOrderId.getText();
+            System.out.println("Order id: " + orderId);
+
+            LocalDate date = LocalDate.parse(lblOrderDate.getText());
+            String customerId = cmbCustomerId.getValue();
+
+            List<CartTm> cartTmList = new ArrayList<>();
+
+            for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+                CartTm cartTm = tblOrderCart.getItems().get(i);
+                cartTmList.add(cartTm);
+
+            }
+
+            System.out.println("Place order from controller: " + cartTmList);
+
+            PlaceOrderDto placeOrderDto = new PlaceOrderDto(orderId, date, customerId, cartTmList);
+
+            boolean isSuccess = CashiyerModel.placeOrder(placeOrderDto);
+
             if (isSuccess) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
             } else {
@@ -299,6 +302,5 @@ public class CashierController {
             throw new RuntimeException(e);
         }
     }
-
 }
 

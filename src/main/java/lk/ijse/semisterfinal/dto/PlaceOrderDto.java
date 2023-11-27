@@ -14,6 +14,9 @@ public class PlaceOrderDto {
     private String orderId;
     private LocalDate date;
     private String customerId;
+    private String itemCode;
+    private int qty;
+    private double unitPrice;
     private List<CartTm> cartTmList = new ArrayList<>();
 
     public PlaceOrderDto() {

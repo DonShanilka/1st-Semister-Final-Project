@@ -2,33 +2,37 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.CartTm;
+import lk.ijse.semisterfinal.dto.PlaceOrderDto;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
 public class OrderDetailModel {
-    public static boolean saveOrderDetails(String orderId, List<CartTm> cartTmList) throws SQLException {
+
+        public static boolean saveOrderDetails(String orderId, List<CartTm> cartTmList) throws SQLException {
         for(CartTm tm : cartTmList) {
-            if(!saveOrderDetails(orderId, (List<CartTm>) tm)) {
+            if(!saveOrderDetails(orderId, tm)) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean saveOrderDetails(String orderId, CartTm tm) throws SQLException {
+    private static boolean saveOrderDetails(String orderId, CartTm tm) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
         String sql = "INSERT INTO order_detail VALUES(?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, orderId);
-        pstm.setString(2, tm.getComItemId());
-        pstm.setInt(3, Integer.parseInt(tm.getTxtQty()));
-        pstm.setDouble(4, Double.parseDouble(tm.getItemPrice()));
+        pstm.setString(2, tm.getItem_code());
+        pstm.setString(3, tm.getQty());
+        pstm.setString(4, tm.getUnit_price());
 
         return pstm.executeUpdate() > 0;
-    }
+        }
+
 }

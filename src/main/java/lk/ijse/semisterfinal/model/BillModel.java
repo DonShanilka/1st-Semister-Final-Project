@@ -13,8 +13,8 @@ public class BillModel {
     private ItemModel itemModel = new ItemModel();
     private OrderDetailModel orderDetailModel = new OrderDetailModel();
 
-    public boolean placeOrder(PlaceOrderDto placeOrderDto) throws SQLException {
-        System.out.println(placeOrderDto);
+   /* public boolean placeOrder(PlaceOrderDto placeOrderDto) throws SQLException {}*/
+        /*System.out.println(placeOrderDto);
 
         String orderId = placeOrderDto.getOrderId();
         String customerId = placeOrderDto.getCustomerId();
@@ -40,5 +40,5 @@ public class BillModel {
             connection.setAutoCommit(true);
         }
         return true;
-    }
+    }*/
 }
