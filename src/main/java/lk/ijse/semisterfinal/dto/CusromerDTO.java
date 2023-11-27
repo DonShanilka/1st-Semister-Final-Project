@@ -14,8 +14,10 @@ public class CusromerDTO {
     private String txtCustName;
     private String txtCustAddress;
     private String txtCustMobile;
-    private String txtCustPayment;
     private String txtCustitemId;
+    private String txtCustPayment;
+
+
 
 
     public CusromerDTO(String custId, String custAddress, String custName, String custMobile, String payment) {

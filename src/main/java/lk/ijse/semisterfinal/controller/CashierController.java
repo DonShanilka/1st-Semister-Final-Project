@@ -296,7 +296,7 @@ public class CashierController {
                 new Alert(Alert.AlertType.WARNING, "Something went wrong!").show();
             }
         } catch (SQLException e) {
-            //throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 

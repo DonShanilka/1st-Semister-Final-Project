@@ -19,11 +19,11 @@
                   <TableView fx:id="CustomerAddTable" layoutX="9.0" layoutY="116.0" prefHeight="279.0" prefWidth="1090.0">
                     <columns>
                       <TableColumn fx:id="tbCid" prefWidth="106.0" text="Customer id" />
-                      <TableColumn fx:id="tbCname" prefWidth="94.0" text="Item id" />
-                        <TableColumn fx:id="tbCaddress" minWidth="8.0" prefWidth="429.0" text="Address" />
-                        <TableColumn fx:id="tbCmobile" prefWidth="194.0" text="Name" />
-                        <TableColumn fx:id="tbCpayment" minWidth="0.0" prefWidth="156.0" text="Payment" />
-                        <TableColumn fx:id="tbCitemId" minWidth="0.0" prefWidth="110.0" text="Mobile" />
+                      <TableColumn fx:id="tbCname" prefWidth="176.0" text="Customer Name" />
+                        <TableColumn fx:id="tbCaddress" minWidth="8.0" prefWidth="347.0" text="Address" />
+                        <TableColumn fx:id="tbCmobile" prefWidth="194.0" text="Mobile" />
+                        <TableColumn fx:id="tbCpayment" minWidth="0.0" prefWidth="171.0" text="Payment" />
+                        <TableColumn fx:id="tbCitemId" minWidth="0.0" prefWidth="95.0" text="Item Id" />
                     </columns>
                   </TableView>
                   <Label fx:id="newCustomer" layoutX="14.0" layoutY="14.0" text="Add New Customer">

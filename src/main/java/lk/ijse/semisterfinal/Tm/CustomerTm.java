@@ -1,15 +1,12 @@
 package lk.ijse.semisterfinal.Tm;
 
-/*
-    @author DanujaV
-    @created 10/23/23 - 12:01 PM   
-*/
-
 public class CustomerTm {
     private String id;
     private String name;
     private String address;
     private String tel;
+    private String payment;
+    private String itemId;
 
     public CustomerTm() {
     }
@@ -22,6 +19,12 @@ public class CustomerTm {
     }
 
     public CustomerTm(String txtCustId, String txtCustName, String txtCustAddress, String txtCustMobile, String txtCustPayment, String txtCustitemId) {
+        this.id = txtCustId;
+        this.name = txtCustName;
+        this.address = txtCustAddress;
+        this.tel = txtCustMobile;
+        this.payment = txtCustPayment;
+        this.itemId = txtCustitemId;
     }
 
     public String getId() {
@@ -64,5 +67,21 @@ public class CustomerTm {
                 ", address='" + address + '\'' +
                 ", tel='" + tel + '\'' +
                 '}';
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 }

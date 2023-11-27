@@ -11,9 +11,13 @@ import javafx.scene.layout.BorderPane;
 import lk.ijse.semisterfinal.Tm.CustomerTm;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.model.CustomerModel;
+import org.controlsfx.control.Notifications;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import static java.awt.SystemColor.text;
 
 public class AddCustomerController {
 
@@ -83,17 +87,19 @@ public class AddCustomerController {
         String custItemid = txtCustitemId.getText();
         String custPayment = txtCustPayment.getText();
 
-        var dto = new CusromerDTO(custId,custName,custAddress,custMobile,custItemid,custPayment);
-
         try {
-            boolean isadd= CustomerModel.AddCustomer(dto);
-            if (isadd) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
-                loadAllCustomer();
-                clearField();
+            if (!validateCustomer()){
+                return;
             }
+            var dto = new CusromerDTO(custId,custName,custAddress,custMobile,custItemid,custPayment);
+            boolean isadd= CustomerModel.AddCustomer(dto);
+            if (isadd){
+                new Alert(Alert.AlertType.CONFIRMATION,"Employee is updated").show();
+                //clearFileds();
+            }
+
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,"already define customer Id").show();
+            throw new RuntimeException(e);
         }
     }
 
@@ -104,21 +110,22 @@ public class AddCustomerController {
     }
 
     private void setCellValueFactory() {
-        tbCid.setCellValueFactory(new PropertyValueFactory<>("txtCustId"));
-        tbCname.setCellValueFactory(new PropertyValueFactory<>("txtCustName"));
-        tbCaddress.setCellValueFactory(new PropertyValueFactory<>("txtCustAddress"));
-        tbCmobile.setCellValueFactory(new PropertyValueFactory<>("txtCustMobile"));
-        tbCpayment.setCellValueFactory(new PropertyValueFactory<>("txtCustPayment"));
-        tbCitemId.setCellValueFactory(new PropertyValueFactory<>("txtCustitemId"));
+        tbCid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tbCname.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tbCaddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tbCmobile.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        tbCpayment.setCellValueFactory(new PropertyValueFactory<>("payment"));
+        tbCitemId.setCellValueFactory(new PropertyValueFactory<>("itemId"));
+
     }
 
     private void loadAllCustomer() {
         var model = new CustomerModel();
 
-        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+        ObservableList <CustomerTm> obList = FXCollections.observableArrayList();
 
         try {
-            List<CusromerDTO> dtoList = model.getAllCustomer();
+            List <CusromerDTO> dtoList = model.getAllCustomer();
 
             for (CusromerDTO dto : dtoList) {
                 obList.add(
@@ -127,8 +134,8 @@ public class AddCustomerController {
                                 dto.getTxtCustName(),
                                 dto.getTxtCustAddress(),
                                 dto.getTxtCustMobile(),
-                                dto.getTxtCustPayment(),
-                                dto.getTxtCustitemId()
+                                dto.getTxtCustitemId(),
+                                dto.getTxtCustPayment()
                         )
                 );
             }
@@ -137,6 +144,34 @@ public class AddCustomerController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private boolean validateCustomer() {
+        boolean isValidate = true;
+        boolean id = Pattern.matches("[0-9]{0,}", txtCustId.getText());
+        if (!id){
+            showErrorNotification("Invalid Employee Id", "The Employee Id you entered is invalid");
+            isValidate = false;
+        }
+        boolean address = Pattern.matches("[A-Za-z]{0,}",txtCustAddress.getText());
+        if (!address){
+            showErrorNotification("Invalid Address", "The Address you entered is invalid");
+            isValidate = false;
+        }
+        boolean mobile = Pattern.matches("^([0-9]{9}|[0-9]{10})$",txtCustMobile.getText());
+        if (!mobile){
+            showErrorNotification("Invalid Mobile", "The Mobile Number you entered is invalid");
+            isValidate = false;
+
+        }
+        return isValidate;
+    }
+
+    private void showErrorNotification(String title, String txtt) {
+        Notifications.create()
+                .title(title)
+                .text(String.valueOf(text))
+                .showError();
     }
 
 }

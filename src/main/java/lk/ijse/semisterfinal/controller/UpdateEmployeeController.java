@@ -52,7 +52,7 @@ public class UpdateEmployeeController {
         boolean isValidate = true;
         boolean name = Pattern.matches("[A-Za-z]{5,}", updateEmpId.getValue());
         if (!name){
-            showErrorNotification("Invalid Customer Name", "The customer name you entered is invalid");
+            showErrorNotification("Invalid Employee Name", "The Employee name you entered is invalid");
             isValidate = false;
         }
         boolean con = Pattern.matches("[0-9]{10,}",updateEmpName.getText());
@@ -62,7 +62,7 @@ public class UpdateEmployeeController {
         }
         boolean NIC = Pattern.matches("^([0-9]{9}|[0-9]{12})$",updateEmpMobile.getText());
         if (!NIC){
-            showErrorNotification("Invalid NIC", "The NUC Number you entered is invalid");
+            showErrorNotification("Invalid NIC", "The NIC Number you entered is invalid");
             isValidate = false;
 
         }
