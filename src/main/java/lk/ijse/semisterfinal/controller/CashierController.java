@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class CashierController {
-
+    @FXML
     public TextField txtDiscount;
     @FXML
     private AnchorPane pane;
@@ -307,6 +307,10 @@ public class CashierController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void txtDiscountOnAction(ActionEvent event) {
+        btnAddToCartOnAction(event);
     }
 }
 

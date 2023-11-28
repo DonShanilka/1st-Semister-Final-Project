@@ -135,7 +135,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDiscount" layoutX="816.0" layoutY="196.0" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtDiscount" layoutX="816.0" layoutY="196.0" onAction="#txtDiscountOnAction" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="10.0" layoutX="916.0" layoutY="222.0" startX="-100.0" />
    </children>
 </AnchorPane>
