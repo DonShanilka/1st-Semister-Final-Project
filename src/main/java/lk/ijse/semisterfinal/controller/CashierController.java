@@ -26,6 +26,7 @@ import java.util.Optional;
 
 public class CashierController {
 
+    public TextField txtDiscount;
     @FXML
     private AnchorPane pane;
     @FXML
@@ -214,7 +215,7 @@ public class CashierController {
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
         int  qty = Integer.parseInt(txtQty.getText());
         double tot = (double)qty * unitPrice;
-        double discount = 500;
+        double discount = txtDiscount.;
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);
