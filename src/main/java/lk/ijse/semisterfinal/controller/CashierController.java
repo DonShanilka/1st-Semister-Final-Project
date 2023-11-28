@@ -215,7 +215,7 @@ public class CashierController {
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
         int  qty = Integer.parseInt(txtQty.getText());
         double tot = (double)qty * unitPrice;
-        double discount = txtDiscount.;
+        double discount = Double.parseDouble(txtDiscount.getText());
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);

@@ -23,6 +23,7 @@ public class CartTm {
     private String txtQty;
     private String btnAddToBill;
     private String comItemId;
+    private double discount;
 
     public CartTm(String code, String description, double unitPrice, int qty, double tot, Button btn) {
         this.item_code = code;
