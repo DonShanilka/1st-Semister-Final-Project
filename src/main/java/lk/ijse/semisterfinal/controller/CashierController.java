@@ -214,7 +214,7 @@ public class CashierController {
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
         int  qty = Integer.parseInt(txtQty.getText());
         double tot = (double)qty * unitPrice;
-        double discount;
+        double discount = 0;
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);
@@ -228,7 +228,7 @@ public class CashierController {
                 if (colItemCode.getCellData(i).equals(code)) {
                     int col_qty = (int) colQty.getCellData(i);
                     qty += col_qty;
-                    tot = unitPrice - * qty;
+                    tot = unitPrice - discount * qty;
                     System.out.println("Shanilka");
                     obList.get(i).setQty(String.valueOf(qty));
                     obList.get(i).setTotal(tot);
