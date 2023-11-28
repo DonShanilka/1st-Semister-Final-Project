@@ -228,7 +228,7 @@ public class CashierController {
                 if (colItemCode.getCellData(i).equals(code)) {
                     int col_qty = (int) colQty.getCellData(i);
                     qty += col_qty;
-                    tot = unitPrice * qty;
+                    tot = unitPrice - * qty;
                     System.out.println("Shanilka");
                     obList.get(i).setQty(String.valueOf(qty));
                     obList.get(i).setTotal(tot);
