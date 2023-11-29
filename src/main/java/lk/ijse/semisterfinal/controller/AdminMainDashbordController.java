@@ -33,7 +33,7 @@ public class AdminMainDashbordController implements Initializable {
     public JFXButton cashiyer;
 
     @FXML
-    public BarChart orderDataChart;
+    public BarChart <?,?> orderDataChart;
     @FXML
     public Label lblTotalOrders;
     @FXML
@@ -41,7 +41,7 @@ public class AdminMainDashbordController implements Initializable {
     @FXML
     public Label lblTotalInCome;
     @FXML
-    public AreaChart incomeDataChart;
+    public AreaChart <?,?> incomeDataChart;
 
     CartTm cartTm = new CartTm();
     PlaceOrderDto placeOrderDto = new PlaceOrderDto();
