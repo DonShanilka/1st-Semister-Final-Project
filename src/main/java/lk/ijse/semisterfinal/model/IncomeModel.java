@@ -1,4 +1,5 @@
 package lk.ijse.semisterfinal.model;
 
-public class IncomeModel {
+public class IncomeModel  {
+
 }

@@ -20,6 +20,9 @@ public class AdminregisterController {
     private AdminRegisterModel adminRegisterModel = new AdminRegisterModel();
     public AdminMainDashbordController adminMainDashbordController = new AdminMainDashbordController();
 
+    public AdminregisterController() throws SQLException {
+    }
+
 
     public void HyperOnAction(ActionEvent event) throws IOException {
         AnchorPane load = FXMLLoader.load(getClass().getResource("/view/adminlogin.fxml"));

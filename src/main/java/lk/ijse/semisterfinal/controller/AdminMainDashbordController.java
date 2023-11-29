@@ -10,15 +10,20 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.CartTm;
 import lk.ijse.semisterfinal.dto.PlaceOrderDto;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AdminMainDashbordController implements Initializable {
+public class AdminMainDashbordController{
     public JFXButton monthlyIncome;
 
     public JFXButton item;
@@ -43,34 +48,6 @@ public class AdminMainDashbordController implements Initializable {
     @FXML
     public AreaChart <?,?> incomeDataChart;
 
-    CartTm cartTm = new CartTm();
-    PlaceOrderDto placeOrderDto = new PlaceOrderDto();
-
-
-    public void dashBord() {
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        XYChart.Series series1 = new XYChart.Series();
-
-        series1.setName("Monthly Income");
-        series1.getData().add(new XYChart.Data("January", placeOrderDto.getQty()));
-        series1.getData().add(new XYChart.Data("February", 150));
-        series1.getData().add(new XYChart.Data("March", 50));
-        series1.getData().add(new XYChart.Data("April", 350));
-        series1.getData().add(new XYChart.Data("May", 420));
-        series1.getData().add(new XYChart.Data("June", 110));
-        series1.getData().add(new XYChart.Data("July", 60));
-        series1.getData().add(new XYChart.Data("August", 760));
-        series1.getData().add(new XYChart.Data("September", 44));
-        series1.getData().add(new XYChart.Data("October", 290));
-        series1.getData().add(new XYChart.Data("November", 320));
-        series1.getData().add(new XYChart.Data("December", 175));
-
-        //barChart.getData().add(series1);
-    }
 
     public void initialize() throws IOException {
         monthlyIncomeOnAction(null);
