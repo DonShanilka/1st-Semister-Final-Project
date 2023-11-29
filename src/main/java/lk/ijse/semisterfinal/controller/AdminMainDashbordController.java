@@ -4,16 +4,21 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.semisterfinal.Tm.CartTm;
+import lk.ijse.semisterfinal.dto.PlaceOrderDto;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AdminMainDashbordController {
+public class AdminMainDashbordController implements Initializable {
     public JFXButton monthlyIncome;
 
     public JFXButton item;
@@ -28,13 +33,25 @@ public class AdminMainDashbordController {
     public JFXButton cashiyer;
 
     @FXML
-    public BarChart barChart;
+    public BarChart orderDataChart;
+    @FXML
+    public Label lblTotalOrders;
+    @FXML
+    public Label lblTotalUnits;
+    @FXML
+    public Label lblTotalInCome;
+    @FXML
+    public AreaChart incomeDataChart;
 
-    public void initialize(URL url, ResourceBundle rb) throws IOException {
+    CartTm cartTm = new CartTm();
+    PlaceOrderDto placeOrderDto = new PlaceOrderDto();
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
         XYChart.Series series1 = new XYChart.Series();
 
         series1.setName("Monthly Income");
-        series1.getData().add(new XYChart.Data("January", 250));
+        series1.getData().add(new XYChart.Data("January", placeOrderDto.getQty()));
         series1.getData().add(new XYChart.Data("February", 150));
         series1.getData().add(new XYChart.Data("March", 50));
         series1.getData().add(new XYChart.Data("April", 350));
