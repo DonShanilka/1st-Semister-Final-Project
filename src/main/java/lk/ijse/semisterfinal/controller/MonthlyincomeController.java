@@ -125,7 +125,7 @@ public class MonthlyincomeController  implements Initializable {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                chart.getData().add(new XYChart.Data(resultSet.getString(1), resultSet.getInt(2)));
+                chart.getData().add(new XYChart.Data(resultSet.getString(1), resultSet.getString(2)));
             }
             incomeDataChart.getData().add(chart);
 
