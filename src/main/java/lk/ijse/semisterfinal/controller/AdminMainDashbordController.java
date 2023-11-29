@@ -46,6 +46,11 @@ public class AdminMainDashbordController implements Initializable {
     CartTm cartTm = new CartTm();
     PlaceOrderDto placeOrderDto = new PlaceOrderDto();
 
+
+    public void dashBord() {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         XYChart.Series series1 = new XYChart.Series();
@@ -64,7 +69,7 @@ public class AdminMainDashbordController implements Initializable {
         series1.getData().add(new XYChart.Data("November", 320));
         series1.getData().add(new XYChart.Data("December", 175));
 
-        barChart.getData().add(series1);
+        //barChart.getData().add(series1);
     }
 
     public void initialize() throws IOException {

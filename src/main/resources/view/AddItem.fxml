@@ -25,7 +25,7 @@
             <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: #eed5ff;" />
             <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
             <Line endX="100.0" layoutX="126.0" layoutY="166.0" startX="-100.0" />
-            <TextField layoutX="26.0" layoutY="44.0" />
+            <TextField fx:id="serachItem" layoutX="15.0" layoutY="19.0" onAction="#itemSerachOnAction" prefHeight="25.0" prefWidth="295.0" />
             <TextField fx:id="txtItemPrice" layoutX="272.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Price" style="-fx-background-color: #eed5ff;" />
             <Line endX="100.0" layoutX="373.0" layoutY="124.0" startX="-100.0" />
             <Line endX="100.0" layoutX="373.0" layoutY="166.0" startX="-100.0" />

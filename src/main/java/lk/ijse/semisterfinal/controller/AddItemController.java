@@ -2,6 +2,8 @@ package lk.ijse.semisterfinal.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,12 +31,14 @@ public class AddItemController {
     public TableColumn <?,?> tmSupplierId;
     public TableColumn <?,?> tmWarranty;
     public TextField txtQty;
+    public TextField serachItem;
 
     public void initialize() {
         setCellValueFactory();
         tableListener();
         loadAllItem();
        // loadAllSupId();
+        itemSerachOnAction();
     }
 
     private void tableListener() {
@@ -80,6 +84,7 @@ public class AddItemController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
                 loadAllItem();
                 clearField();
+                itemSerachOnAction();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -167,6 +172,30 @@ public class AddItemController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    public void itemSerachOnAction() {
+        FilteredList<ItemTm> filteredData = new FilteredList<>(ItemTm.getItems(), b -> true);
+
+        serachItem.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(item -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String serchKey = newValue.toLowerCase();
+
+                if (item.getItemCode().toString().contains(serchKey)) {
+                    return true;
+                } else if (item.getItemDetails().toLowerCase().contains(serchKey)){
+                    return true;
+                } else return false;
+            });
+        });
+
+        SortedList <ItemTm> sortedList = new SortedList<>(filteredData);
+        sortedList.comparatorProperty().bind(ItemTm.comparatorProperty());
+        ItemTm.setItems(sortedList);
+    }
 }
+
 
 
