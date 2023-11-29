@@ -2,7 +2,6 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.dto.PlaceOrderDto;
-
 import java.sql.*;
 import java.time.LocalDate;
 

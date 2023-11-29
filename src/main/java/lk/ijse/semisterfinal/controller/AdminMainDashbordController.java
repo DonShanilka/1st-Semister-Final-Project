@@ -3,6 +3,7 @@ package lk.ijse.semisterfinal.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.chart.BarChart;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ public class AdminMainDashbordController {
     public AnchorPane root;
     public AnchorPane root1;
     public JFXButton cashiyer;
+    public BarChart barChart;
 
     public void initialize() throws IOException {
         monthlyIncomeOnAction(null);

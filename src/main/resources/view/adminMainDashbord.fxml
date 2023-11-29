@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -54,32 +54,26 @@
       </Pane>
       <AnchorPane fx:id="root1" layoutX="215.0" prefHeight="768.0" prefWidth="1138.0" style="-fx-background-color: #50394c;">
          <children>
-            <Pane layoutX="13.0" layoutY="-1.0" prefHeight="769.0" prefWidth="1124.0" style="-fx-background-color: #eed5ff; -fx-background-radius: 30;">
+            <Pane layoutX="13.0" layoutY="-1.0" prefHeight="768.0" prefWidth="1124.0" style="-fx-background-color: #eed5ff; -fx-background-radius: 30;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="129.0" text="Dashboard">
                      <font>
                         <Font name="Arial Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="46.0" layoutY="80.0" prefHeight="232.0" prefWidth="517.0" style="-fx-background-color: #eed5ff; -fx-background-radius: 20;">
-                     <children>
-                        <LineChart layoutY="11.0" prefHeight="210.0" prefWidth="500.0" style="-fx-background-color: #eed5ff;">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </LineChart>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="79.0" layoutY="351.0" prefHeight="200.0" prefWidth="358.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-                  <Pane layoutX="706.0" layoutY="94.0" prefHeight="200.0" prefWidth="276.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-                  <ImageView fitHeight="589.0" fitWidth="584.0" layoutX="539.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="406.0" fitWidth="445.0" layoutX="712.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/DashBord.png" />
                      </image>
                   </ImageView>
+                  <BarChart fx:id="barChart" layoutX="14.0" layoutY="398.0" legendSide="TOP" prefHeight="357.0" prefWidth="697.0" title="Seles Count Month">
+                    <xAxis>
+                      <CategoryAxis label="Month" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Unit" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
                </children>
             </Pane>
          </children>
