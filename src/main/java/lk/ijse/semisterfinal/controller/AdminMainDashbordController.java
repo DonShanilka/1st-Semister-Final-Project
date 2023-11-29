@@ -2,12 +2,16 @@ package lk.ijse.semisterfinal.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class AdminMainDashbordController {
     public JFXButton monthlyIncome;
@@ -22,7 +26,29 @@ public class AdminMainDashbordController {
     public AnchorPane root;
     public AnchorPane root1;
     public JFXButton cashiyer;
+
+    @FXML
     public BarChart barChart;
+
+    public void initialize(URL url, ResourceBundle rb) throws IOException {
+        XYChart.Series series1 = new XYChart.Series();
+
+        series1.setName("Monthly Income");
+        series1.getData().add(new XYChart.Data("January", 250));
+        series1.getData().add(new XYChart.Data("February", 150));
+        series1.getData().add(new XYChart.Data("March", 50));
+        series1.getData().add(new XYChart.Data("April", 350));
+        series1.getData().add(new XYChart.Data("May", 420));
+        series1.getData().add(new XYChart.Data("June", 110));
+        series1.getData().add(new XYChart.Data("July", 60));
+        series1.getData().add(new XYChart.Data("August", 760));
+        series1.getData().add(new XYChart.Data("September", 44));
+        series1.getData().add(new XYChart.Data("October", 290));
+        series1.getData().add(new XYChart.Data("November", 320));
+        series1.getData().add(new XYChart.Data("December", 175));
+
+        barChart.getData().add(series1);
+    }
 
     public void initialize() throws IOException {
         monthlyIncomeOnAction(null);
