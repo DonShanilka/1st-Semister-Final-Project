@@ -53,9 +53,9 @@
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root1" layoutX="215.0" prefHeight="768.0" prefWidth="1138.0" style="-fx-background-color: #50394c;">
+      <AnchorPane fx:id="root1" layoutX="198.0" prefHeight="775.0" prefWidth="1175.0" style="-fx-background-color: #50394c;">
          <children>
-            <Pane layoutX="-11.0" layoutY="-1.0" prefHeight="776.0" prefWidth="1169.0" style="-fx-background-color: #eed5ff; -fx-background-radius: 0;">
+            <Pane layoutX="-5.0" layoutY="-1.0" prefHeight="776.0" prefWidth="1163.0" style="-fx-background-color: #eed5ff; -fx-background-radius: 0;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="129.0" text="Dashboard">
                      <font>
