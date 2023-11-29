@@ -20,17 +20,17 @@
                   <Font name="Arial Bold" size="21.0" />
                </font>
             </Label>
-            <ImageView fitHeight="257.0" fitWidth="247.0" layoutX="919.0" layoutY="529.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="234.0" fitWidth="220.0" layoutX="948.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/DashBord.png" />
                </image>
             </ImageView>
-            <BarChart fx:id="orderDataChart" layoutY="197.0" legendSide="TOP" prefHeight="332.0" prefWidth="679.0" title="Order Data Chart">
+            <BarChart fx:id="orderDataChart" layoutX="23.0" layoutY="220.0" legendSide="TOP" prefHeight="539.0" prefWidth="554.0" title="Order Data Chart">
                <xAxis>
-                  <CategoryAxis label="Month" side="BOTTOM" />
+                  <CategoryAxis label="Days" side="BOTTOM" />
                </xAxis>
                <yAxis>
-                  <NumberAxis label="Unit" side="LEFT" />
+                  <NumberAxis label="Order Count" side="LEFT" />
                </yAxis>
             </BarChart>
             <Pane layoutX="43.0" layoutY="55.0" prefHeight="115.0" prefWidth="247.0" style="-fx-background-color: #50394c; -fx-background-radius: 20;">
@@ -40,7 +40,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTotalOrders" layoutX="202.0" layoutY="14.0" textFill="WHITE">
+                  <Label fx:id="lblTotalOrders" contentDisplay="RIGHT" layoutX="8.0" layoutY="14.0" prefHeight="21.0" prefWidth="229.0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTotalUnits" layoutX="195.0" layoutY="14.0" textFill="WHITE">
+                  <Label fx:id="lblTotalUnits" contentDisplay="RIGHT" layoutX="7.0" layoutY="14.0" prefHeight="21.0" prefWidth="235.0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -68,14 +68,14 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTotalInCome" layoutX="205.0" layoutY="14.0" textFill="WHITE">
+                  <Label fx:id="lblTotalInCome" contentDisplay="RIGHT" layoutX="9.0" layoutY="14.0" prefHeight="21.0" prefWidth="229.0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <AreaChart fx:id="incomeDataChart" layoutX="712.0" layoutY="192.0" prefHeight="313.0" prefWidth="413.0" title="Income Data Chart">
+            <AreaChart fx:id="incomeDataChart" layoutX="606.0" layoutY="221.0" prefHeight="313.0" prefWidth="446.0" title="Income Data Chart">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>

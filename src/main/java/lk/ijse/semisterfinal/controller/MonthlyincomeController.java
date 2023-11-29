@@ -11,12 +11,14 @@ import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.CartTm;
 import lk.ijse.semisterfinal.dto.PlaceOrderDto;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class MonthlyincomeController {
+public class MonthlyincomeController  implements Initializable {
 
     @FXML
     private AreaChart<?, ?> incomeDataChart;
@@ -123,7 +125,7 @@ public class MonthlyincomeController {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                chart.getData().add(new XYChart.Data(resultSet.getString(2), resultSet.getInt(1)));
+                chart.getData().add(new XYChart.Data(resultSet.getString(1), resultSet.getInt(2)));
             }
             incomeDataChart.getData().add(chart);
 
@@ -132,11 +134,39 @@ public class MonthlyincomeController {
         }
     }
 
-    public void initialize() throws SQLException {
-        incomeChart();
-        dashBordTotalInCome();
-        dashBordTotalUnits();
-        dashBordTotalOrders();
+    public void orderChart() throws SQLException {
+        orderDataChart.getData().clear();
+        String sql = "SELECT date,COUNT(order_id) FROM orders GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 6";
+
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        try {
+            XYChart.Series chart = new XYChart.Series();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                chart.getData().add(new XYChart.Data(resultSet.getString(1), resultSet.getInt(2)));
+            }
+
+            orderDataChart.getData().add(chart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            orderChart();
+            incomeChart();
+            dashBordTotalInCome();
+            dashBordTotalUnits();
+            dashBordTotalOrders();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -10,24 +10,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="740.0" prefWidth="1140.0" style=" -fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
+<AnchorPane fx:id="pane" prefHeight="776.0" prefWidth="1169.0" style=" -fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
    <children>
       <Label layoutX="16.0" layoutY="7.0" prefHeight="42.0" prefWidth="330.0" text="Add To Bill" textFill="#5e5c5c">
          <font>
             <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="123.0" text="Order Id:">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblOrderId" layoutX="99.0" layoutY="122.0" textFill="#278d7f">
-         <font>
-            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
       <Label layoutX="540.0" layoutY="123.0" text="Order date:">
@@ -85,12 +76,13 @@
       <TextField fx:id="txtQty" layoutX="694.0" layoutY="199.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: white;" />
       <TableView fx:id="tblOrderCart" layoutX="14.0" layoutY="318.0" prefHeight="200.0" prefWidth="831.0">
          <columns>
-            <TableColumn fx:id="colItemCode" prefWidth="81.0" text="Item Code" />
-            <TableColumn fx:id="colDescription" prefWidth="242.0" text="Item Name" />
-            <TableColumn fx:id="colUnitPrice" prefWidth="174.0" text="Unit Price" />
-            <TableColumn fx:id="colQty" prefWidth="62.0" text="Qty" />
-            <TableColumn fx:id="colTotal" prefWidth="176.0" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="100.0" text="Action" />
+            <TableColumn fx:id="colItemCode" text="Item Code" />
+            <TableColumn fx:id="colDescription" prefWidth="232.0" text="Item Name" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="123.0" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="64.0" text="Qty" />
+            <TableColumn fx:id="colDiscount" prefWidth="96.0" text="Discount %" />
+            <TableColumn fx:id="colTotal" prefWidth="149.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="86.0" text="Action" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="640.0" layoutY="260.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to cart" textFill="WHITE">
@@ -130,12 +122,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="816.0" layoutY="176.0" text="Discount %">
+      <Label layoutX="679.0" layoutY="40.0" text="Discount %">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDiscount" layoutX="816.0" layoutY="196.0" onAction="#txtDiscountOnAction" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: #eed5ff;" />
-      <Line endX="10.0" layoutX="916.0" layoutY="222.0" startX="-100.0" />
+      <TextField fx:id="txtDiscount" layoutX="679.0" layoutY="60.0" onAction="#txtDiscountOnAction" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: #eed5ff;" />
+      <Line endX="10.0" layoutX="779.0" layoutY="86.0" startX="-100.0" />
+      <Pane layoutX="864.0" layoutY="88.0" prefHeight="677.0" prefWidth="294.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="14.0" layoutY="29.0" text="Order Id:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderId" layoutX="99.0" layoutY="28.0" textFill="#278d7f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
