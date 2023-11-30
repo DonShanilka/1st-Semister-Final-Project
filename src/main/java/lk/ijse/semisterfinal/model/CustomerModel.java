@@ -1,6 +1,7 @@
 package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
+import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 
 import java.sql.Connection;
@@ -85,6 +86,28 @@ public class CustomerModel {
             dto = new CusromerDTO(cust_id,cust_address,cust_name,cust_mobile,payment);
         }
         return dto;
+    }
+
+    public static boolean updateCustomer(CusromerDTO dto) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "UPDATE customer SET customer_address = ?, customer_name = ?, customer_mobile = ?, item_id = ? , payment =?  WHERE customer_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1,dto.getTxtCustAddress());
+        pstm.setString(2,dto.getTxtCustName());
+        pstm.setString(3,dto.getTxtCustMobile());
+        pstm.setString(4, dto.getTxtCustitemId());
+        pstm.setString(5, dto.getTxtCustPayment());
+        pstm.setString(6, dto.getTxtCustId());
+
+        return pstm.executeUpdate() >0;
+
+    }
+
+    public CusromerDTO search(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

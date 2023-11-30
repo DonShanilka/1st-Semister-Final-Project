@@ -61,13 +61,6 @@ public class UpdateEmployeeController {
             isValidate = false;
         }
 
-        /*boolean NIC = Pattern.matches("^([0-9]{9}|[0-9]{12})$",updateEmpMobile.getText());
-        if (!NIC){
-            showErrorNotification("Invalid NIC", "The NIC Number you entered is invalid");
-            isValidate = false;
-
-        }*/
-
         boolean Job = Pattern.matches("[A-Za-z]{5,}",updateEmpPosition.getText());
         if (!Job){
             showErrorNotification("Invalid job type", "The job type you entered is invalid");

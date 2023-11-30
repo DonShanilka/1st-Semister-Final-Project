@@ -43,7 +43,7 @@ public class MonthlyincomeController  implements Initializable {
 
 
     public void dashBordTotalOrders() throws SQLException {
-        Connection connection = DbConnetion.getInstance().connection;
+        Connection connection = DbConnetion.getInstance().getConnection();
         //DbConnetion dbConnetion = new DbConnetion();
 
         String sql = "SELECT COUNT(order_id) FROM orders";
@@ -89,11 +89,10 @@ public class MonthlyincomeController  implements Initializable {
     }
 
     public void dashBordTotalUnits() throws SQLException {
-        Connection connection = DbConnetion.getInstance().getConnection();
-        DbConnetion dbConnetion = new DbConnetion();
+        Connection connection;
 
         String sql = "SELECT SUM(qty) FROM order_detail";
-        connection = dbConnetion.connection;
+        connection = DbConnetion.getInstance().getConnection();
 
         int totalUnits = 0;
 

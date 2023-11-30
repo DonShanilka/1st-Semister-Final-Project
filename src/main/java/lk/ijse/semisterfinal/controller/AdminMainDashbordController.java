@@ -4,35 +4,22 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.semisterfinal.DB.DbConnetion;
-import lk.ijse.semisterfinal.Tm.CartTm;
-import lk.ijse.semisterfinal.dto.PlaceOrderDto;
-
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
-public class AdminMainDashbordController{
+
+public class AdminMainDashbordController {
+
     public JFXButton monthlyIncome;
-
     public JFXButton item;
     public JFXButton Employee;
     public JFXButton supplier;
     public JFXButton deliver;
-
     public JFXButton customer;
-
     public AnchorPane root;
     public AnchorPane root1;
     public JFXButton cashiyer;
@@ -48,10 +35,10 @@ public class AdminMainDashbordController{
     @FXML
     public AreaChart <?,?> incomeDataChart;
 
-
     public void initialize() throws IOException {
         monthlyIncomeOnAction(null);
     }
+
     void setForm(String form) throws IOException {
         String[] formArray = {"/view/AddCustomer.fxml","/view/Diliver.fxml", "/view/addEmployee.fxml", "/view/AddItem.fxml", "/view/AddSupplier.fxml", "/view/monthlyincome.fxml","/view/Cashier.fxml"};
 
@@ -67,6 +54,7 @@ public class AdminMainDashbordController{
             }
         }
     }
+
     public void monthlyIncomeOnAction(ActionEvent event) throws IOException {
         setForm("/view/monthlyincome.fxml");
     }

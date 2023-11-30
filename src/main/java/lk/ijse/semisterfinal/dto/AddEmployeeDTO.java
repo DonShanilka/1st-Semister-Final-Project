@@ -29,8 +29,8 @@ public class AddEmployeeDTO {
         this.EmployeeName = name;
         this.EmpAddress = address;
         this.EmployeePhone = contact;
-       // this.EmployeeGender = gender;
         this.empDate = date;
         this.empPosition = job;
     }
+
 }
