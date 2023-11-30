@@ -115,7 +115,7 @@ public class MonthlyincomeController  implements Initializable {
     public void incomeChart() throws SQLException {
         incomeDataChart.getData().clear();
 
-        String sql = "SELECT SUM(unit_price) FROM order_detail";
+        String sql = "SELECT date,SUM(unit_price) FROM order_detail GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 6";
         Connection connection = DbConnetion.getInstance().getConnection();
 
         try {
