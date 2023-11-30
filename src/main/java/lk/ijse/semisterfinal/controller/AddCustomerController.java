@@ -81,8 +81,8 @@ public class AddCustomerController {
 
     public void CustomerAddOnAction(ActionEvent event) {
         String custId = txtCustId.getText();
-        String custName = txtCustName.getText();
         String custAddress = txtCustAddress.getText();
+        String custName = txtCustName.getText();
         String custMobile = txtCustMobile.getText();
         String custItemid = txtCustitemId.getText();
         String custPayment = txtCustPayment.getText();
@@ -94,7 +94,8 @@ public class AddCustomerController {
             var dto = new CusromerDTO(custId,custName,custAddress,custMobile,custItemid,custPayment);
             boolean isadd= CustomerModel.AddCustomer(dto);
             if (isadd){
-                new Alert(Alert.AlertType.CONFIRMATION,"Employee is updated").show();
+                new Alert(Alert.AlertType.CONFIRMATION,"Customer is Added").show();
+                loadAllCustomer();
                 //clearFileds();
             }
 
@@ -148,11 +149,11 @@ public class AddCustomerController {
 
     private boolean validateCustomer() {
         boolean isValidate = true;
-        boolean id = Pattern.matches("[0-9]{0,}", txtCustId.getText());
+        /*boolean id = Pattern.matches("[0-9]{0,}", txtCustId.getText());
         if (!id){
             showErrorNotification("Invalid Employee Id", "The Employee Id you entered is invalid");
             isValidate = false;
-        }
+        }*/
         boolean address = Pattern.matches("[A-Za-z]{0,}",txtCustAddress.getText());
         if (!address){
             showErrorNotification("Invalid Address", "The Address you entered is invalid");
