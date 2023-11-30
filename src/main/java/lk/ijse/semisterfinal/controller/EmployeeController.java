@@ -11,23 +11,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import lk.ijse.semisterfinal.Tm.CustomerTm;
 import lk.ijse.semisterfinal.Tm.EmployeeTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
-import lk.ijse.semisterfinal.dto.CusromerDTO;
-import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
-import lk.ijse.semisterfinal.model.CustomerModel;
-import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 public class EmployeeController {
 
-    //public TextField txtSerach;
     public TextField txtemployeeId;
     public TextField txtEmployeeName;
     public TextField txtEmployeeGender;

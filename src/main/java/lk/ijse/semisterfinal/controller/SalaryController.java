@@ -6,22 +6,36 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.semisterfinal.Tm.ItemTm;
+import javafx.scene.text.Text;
+import lk.ijse.semisterfinal.Mail.Mail;
 import lk.ijse.semisterfinal.Tm.SalaryTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.SalaryDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.SalaryModel;
+import lombok.Getter;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Properties;
 
-public class SalaryController {
+public class SalaryController implements Runnable{
 
     public AnchorPane root;
     public DatePicker date;
     public ComboBox <String> comEmpId;
     public TextField lblName;
+    public TextArea txtMsg;
+    @Getter
+    private String Msg;
+    @Getter
+    private String To;
+    @Getter
+    private String Subject;
     public TableColumn <?,?> colId;
     public TableColumn <?,?> colName;
     public TableColumn <?,?> colDate;
@@ -29,8 +43,40 @@ public class SalaryController {
     public TableColumn <?,?> colAction;
     public TextField salary;
     public TableView <SalaryTm> salaryTm;
+    public TextField txtTo;
+    public TextField txtSubject;
+    public Text Sending;
 
     private  ObservableList<SalaryTm> obList = FXCollections.observableArrayList();
+
+    public SalaryController(String msg, String s, String subject) {
+        Msg = msg;
+        To = s;
+        Subject = subject;
+    }
+
+    public SalaryController() {}
+
+    public void setMsg(String msg) {
+        Msg = msg;
+    }
+
+    public void setTo(String to) {
+        To = to;
+    }
+
+    public void setSubject(String subject) {
+        Subject = subject;
+    }
+
+    @Override
+    public String toString() {
+        return "SalaryController{" +
+                "Msg='" + Msg + '\'' +
+                ", To='" + To + '\'' +
+                ", Subject='" + Subject + '\'' +
+                '}';
+    }
 
     public void initialize() {
         date.setPromptText(String.valueOf(LocalDate.now()));
@@ -92,6 +138,41 @@ public class SalaryController {
         }
     }
 
+    public boolean outMail() throws MessagingException {
+        String from = "Megamart@gmail.com"; //sender's email address
+        String host = "localhost";
+
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", 587);
+        Session session = Session.getInstance(properties, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("Megamart@gmail.com", "xxxxxxxx");  // email and password
+            }
+        });
+
+        MimeMessage mimeMessage = new MimeMessage(session);
+        mimeMessage.setFrom(new InternetAddress(from));
+        mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(To));
+        mimeMessage.setSubject(this.Subject);
+        mimeMessage.setText(this.Msg);
+        Transport.send(mimeMessage);
+        return true;
+    }
+    public void run() {
+        if (Msg != null) {
+            try {
+                outMail();
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("not sent. empty msg!");
+        }
+    }
+
     public void BackOnAction(ActionEvent event) {
     }
 
@@ -145,5 +226,22 @@ public class SalaryController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    public void sendEmailOnAction(ActionEvent event) {
+        System.out.println("Start");
+        Sending.setText("sending...");
+        SalaryController mail = new SalaryController(); //creating an instance of Mail class
+        mail.setMsg(txtMsg.getText());//email message
+        mail.setTo(txtTo.getText()); //receiver's mail
+        mail.setSubject(txtSubject.getText()); //email subject
+
+        Thread thread = new Thread(mail);
+        thread.start();
+
+        System.out.println("end");
+        Sending.setText("sended");
+
+    }
+
 }
 

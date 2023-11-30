@@ -6,14 +6,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="619.0" prefWidth="869.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
+<AnchorPane fx:id="root" prefHeight="674.0" prefWidth="888.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
    <children>
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #eed5ff;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
@@ -35,28 +37,51 @@
       <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
-      <TableView fx:id="salaryTm" layoutX="18.0" layoutY="372.0" prefHeight="233.0" prefWidth="834.0">
+      <TableView fx:id="salaryTm" layoutX="13.0" layoutY="459.0" prefHeight="204.0" prefWidth="710.0">
          <columns>
-            <TableColumn fx:id="colId" prefWidth="138.0" text="Employee Id" />
-            <TableColumn fx:id="colName" prefWidth="285.0" text="Employee Name" />
-            <TableColumn fx:id="colDate" prefWidth="112.0" text="Date" />
-            <TableColumn fx:id="colSalary" minWidth="0.0" prefWidth="183.0" text="Salary" />
-            <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="115.0" text="Remove" />
+            <TableColumn fx:id="colId" prefWidth="121.0" text="Employee Id" />
+            <TableColumn fx:id="colName" prefWidth="230.0" text="Employee Name" />
+            <TableColumn fx:id="colDate" prefWidth="117.0" text="Date" />
+            <TableColumn fx:id="colSalary" minWidth="0.0" prefWidth="145.0" text="Salary" />
+            <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="100.0" text="Remove" />
          </columns>
       </TableView>
-      <JFXButton layoutX="247.0" layoutY="294.0" onAction="#AddSalaryOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="+ Add" />
-      <ImageView fitHeight="335.0" fitWidth="313.0" layoutX="542.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton layoutX="226.0" layoutY="395.0" onAction="#AddSalaryOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="+ Add" />
+      <ImageView fitHeight="222.0" fitWidth="174.0" layoutX="695.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/confiromAtendance.png" />
          </image>
       </ImageView>
       <JFXButton layoutX="791.0" layoutY="14.0" onAction="#BackOnAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: orange;" text="&lt; Back" />
-      <Label layoutX="245.0" layoutY="97.0" text="Salary Amount :">
+      <Label layoutX="14.0" layoutY="361.0" text="Salary Amount :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="salary" layoutX="245.0" layoutY="118.0" style="-fx-background-color: #eed5ff;" />
-      <Line endX="60.0" layoutX="347.0" layoutY="145.0" startX="-100.0" />
+      <TextField fx:id="salary" layoutX="14.0" layoutY="382.0" style="-fx-background-color: #eed5ff;" />
+      <Line endX="60.0" layoutX="116.0" layoutY="409.0" startX="-100.0" />
+      <Label layoutX="479.0" layoutY="181.0" text="Subject :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="482.0" layoutY="97.0" text="To :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTo" layoutX="483.0" layoutY="118.0" style="-fx-background-color: #eed5ff;" />
+      <Line endX="48.0" layoutX="583.0" layoutY="145.0" startX="-100.0" />
+      <TextField fx:id="txtSubject" layoutX="479.0" layoutY="203.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #eed5ff;" />
+      <Line endX="135.0" layoutX="582.0" layoutY="229.0" startX="-100.0" />
+      <JFXButton layoutX="479.0" layoutY="395.0" onAction="#sendEmailOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="Send Email" />
+      <Label layoutX="479.0" layoutY="272.0" text="Subject :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Line endX="177.0" layoutX="582.0" layoutY="378.0" startX="-100.0" />
+      <TextArea fx:id="txtMsg" layoutX="477.0" layoutY="292.0" prefHeight="83.0" prefWidth="283.0" style="-fx-background-color: #eed5ff;" />
+      <Text fx:id="Sending" layoutX="662.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sending ...." wrappingWidth="96.0" />
    </children>
 </AnchorPane>
