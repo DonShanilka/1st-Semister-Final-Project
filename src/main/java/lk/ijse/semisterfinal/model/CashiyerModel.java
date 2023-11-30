@@ -40,5 +40,4 @@ public class CashiyerModel {
             }
             return true;
         }
-
 }

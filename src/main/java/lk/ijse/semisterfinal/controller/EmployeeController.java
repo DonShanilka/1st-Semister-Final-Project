@@ -53,13 +53,13 @@ public class EmployeeController {
     }
 
     private void setCellValueFactory() {
-        txtemployeeId.setText(String.valueOf(new PropertyValueFactory<>("id")));
-        txtEmployeeName.setText(String.valueOf(new PropertyValueFactory<>("name")));
-        txtAddress.setText(String.valueOf(new PropertyValueFactory<>("address")));
-        txtEmployeePhone.setText(String.valueOf(new PropertyValueFactory<>("telephone")));
-        //empDate.setValue(new PropertyValueFactory<>("salary"));
-        txtEmployeeGender.setText(String.valueOf(new PropertyValueFactory<>("gender")));
-        txtPossition.setText(String.valueOf(new PropertyValueFactory<>("position")));
+        tmid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tmEmpName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tmEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tmEmpMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+        tmStartDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        //tmEmpGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tmEmpPossition.setCellValueFactory(new PropertyValueFactory<>("possition"));
 
     }
 
@@ -80,15 +80,16 @@ public class EmployeeController {
         String address = txtAddress.getText();
         int tele = Integer.parseInt(txtEmployeePhone.getText());
         String date = String.valueOf(empDate.getValue());
-        String gender = txtEmployeeGender.getText();
+        //String gender = txtEmployeeGender.getText();
         String position = txtPossition.getText();
 
-        var dto = new AddEmployeeDTO(id,name,address,tele,date,gender,position);
+        var dto = new AddEmployeeDTO(id,name,address,tele,date,position);
 
         try {
             boolean addSup= AddEmployeeModel.addEmployee(dto);
             if (addSup) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee is Added").show();
+                loadAllEmployee();
                 clearField();
             }
         } catch (SQLException e) {
@@ -129,7 +130,6 @@ public class EmployeeController {
                                 dto.getEmpAddress(),
                                 dto.getEmployeePhone(),
                                 dto.getEmpDate(),
-                                dto.getEmployeeGender(),
                                 dto.getEmpPosition()
                         )
                 );

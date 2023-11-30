@@ -50,22 +50,24 @@ public class UpdateEmployeeController {
 
     private boolean validateEmployee() {
         boolean isValidate = true;
-        boolean name = Pattern.matches("[A-Za-z]{5,}", updateEmpId.getValue());
+        boolean name = Pattern.matches("[A-Za-z]{5,}", updateEmpName.getText());
         if (!name){
             showErrorNotification("Invalid Employee Name", "The Employee name you entered is invalid");
             isValidate = false;
         }
-        boolean con = Pattern.matches("[0-9]{10,}",updateEmpName.getText());
+        boolean con = Pattern.matches("[0-9]{10}",updateEmpMobile.getText());
         if (!con){
             showErrorNotification("Invalid Contact Number", "The contact number you entered is invalid");
             isValidate = false;
         }
-        boolean NIC = Pattern.matches("^([0-9]{9}|[0-9]{12})$",updateEmpMobile.getText());
+
+        /*boolean NIC = Pattern.matches("^([0-9]{9}|[0-9]{12})$",updateEmpMobile.getText());
         if (!NIC){
             showErrorNotification("Invalid NIC", "The NIC Number you entered is invalid");
             isValidate = false;
 
-        }
+        }*/
+
         boolean Job = Pattern.matches("[A-Za-z]{5,}",updateEmpPosition.getText());
         if (!Job){
             showErrorNotification("Invalid job type", "The job type you entered is invalid");
@@ -91,8 +93,37 @@ public class UpdateEmployeeController {
         updateEmpPosition.setText("");
     }
 
+    public void BackOnAction(ActionEvent event) {
 
-    public void comboEmployee_idOnAction(ActionEvent actionEvent) {
+    }
+
+
+    public void employeeUpdateSaveOnAction(ActionEvent event) {
+        String id = (String) updateEmpId.getValue();
+        String name = updateEmpName.getText();
+        String address = updateEmpaddress.getText();
+        int contact = Integer.parseInt(updateEmpMobile.getText());
+        String date = String.valueOf(updateEmpDate.getValue());
+        //String gender = (String) updateEmpGender.getValue();
+        String job = updateEmpPosition.getText();
+
+        try{
+            if (!validateEmployee()){
+                return;
+            }
+            var dto = new AddEmployeeDTO(id,name,address,contact,date,job);
+            boolean isUpdate = employeeModel.updateEmployee(dto);
+
+            if (isUpdate){
+                new Alert(Alert.AlertType.CONFIRMATION,"Employee is updated").show();
+                clearFileds();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
+
+    public void combEmployeeId(ActionEvent event) {
         String id = updateEmpId.getValue();
 
         try{
@@ -103,34 +134,6 @@ public class UpdateEmployeeController {
             updateEmpPosition.setText(dto.getEmpPosition());
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
-    }
-
-    public void BackOnAction(ActionEvent event) {
-    }
-
-    public void EmployeeSaveOnAction(ActionEvent event) {
-        String id = (String) updateEmpId.getValue();
-        String name = updateEmpName.getText();
-        String address = updateEmpaddress.getText();
-        int contact = Integer.parseInt(updateEmpMobile.getText());
-        String date = String.valueOf(updateEmpDate.getValue());
-        String gender = (String) updateEmpGender.getValue();
-        String job = updateEmpPosition.getText();
-
-        try{
-            if (!validateEmployee()){
-                return;
-            }
-            var dto = new AddEmployeeDTO(id,name,address,contact,date,gender,job);
-            boolean isUpdate = employeeModel.updateEmployee(dto);
-
-            if (isUpdate){
-                new Alert(Alert.AlertType.CONFIRMATION,"Employee is updated").show();
-                clearFileds();
-            }
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
 }

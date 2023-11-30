@@ -32,7 +32,6 @@
       <Line endX="100.0" layoutX="377.0" layoutY="417.0" startX="-100.0" />
       <Line endX="100.0" layoutX="376.0" layoutY="472.0" startX="-100.0" />
       <TextField fx:id="txtSerach" layoutX="16.0" layoutY="27.0" prefHeight="25.0" prefWidth="201.0" promptText="serach" />
-      <TextField fx:id="txtemployeeId" layoutX="16.0" layoutY="392.0" prefHeight="25.0" prefWidth="201.0" promptText="Employee id" style="-fx-background-color: #eed5ff;" />
       <TextField fx:id="txtEmployeeName" layoutX="16.0" layoutY="448.0" prefHeight="25.0" prefWidth="201.0" promptText="Employee Name" style="-fx-background-color: #eed5ff;" />
       <TextField fx:id="txtEmployeeGender" layoutX="16.0" layoutY="503.0" prefHeight="25.0" prefWidth="201.0" promptText="Gender" style="-fx-background-color: #eed5ff;" />
       <TextField fx:id="txtEmployeePhone" layoutX="16.0" layoutY="559.0" prefHeight="25.0" prefWidth="201.0" promptText="Phone" style="-fx-background-color: #eed5ff;" />
@@ -59,5 +58,6 @@
             <Image url="@../image/AddEmployee.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtemployeeId" layoutX="16.0" layoutY="390.0" prefHeight="26.0" prefWidth="201.0" />
    </children>
 </AnchorPane>

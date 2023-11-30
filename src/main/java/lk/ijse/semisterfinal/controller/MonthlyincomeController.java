@@ -136,7 +136,7 @@ public class MonthlyincomeController  implements Initializable {
 
     public void orderChart() throws SQLException {
         orderDataChart.getData().clear();
-        String sql = "SELECT date,COUNT(order_id) FROM orders GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 6";
+        String sql = "SELECT date, COUNT(order_id) FROM orders WHERE date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 7";
 
         Connection connection = DbConnetion.getInstance().getConnection();
 

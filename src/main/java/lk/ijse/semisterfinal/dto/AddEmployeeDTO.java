@@ -2,7 +2,7 @@ package lk.ijse.semisterfinal.dto;
 
 import lombok.*;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -14,16 +14,23 @@ public class AddEmployeeDTO {
     private String EmpAddress;
     private int EmployeePhone;
     private String empDate;
-    private String EmployeeGender;
     private String empPosition;
 
-    public AddEmployeeDTO(String id, String name, String address, String contact, String date, String gender, String job) {
+    public AddEmployeeDTO(String eid, String name, String address, String mobile, String position) {
+        this.employeeId = eid;
+        this.EmployeeName = name;
+        this.EmpAddress = address;
+        this.EmployeePhone = Integer.parseInt(mobile);
+        this.empPosition = position;
+    }
+
+    public AddEmployeeDTO(String id, String name, String address, int contact, String date, String job) {
         this.employeeId = id;
         this.EmployeeName = name;
         this.EmpAddress = address;
-        this.EmployeePhone = Integer.parseInt(contact);
+        this.EmployeePhone = contact;
+       // this.EmployeeGender = gender;
         this.empDate = date;
-        this.EmployeeGender = gender;
         this.empPosition = job;
     }
 }

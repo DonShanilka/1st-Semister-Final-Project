@@ -230,7 +230,6 @@ public class CashierController {
                 if (colItemCode.getCellData(i).equals(code)) {
                     int col_qty = (int) colQty.getCellData(i);
                     qty += col_qty;
-                    //discount = (tot * discount) / 100;
                     tot = unitPrice - discount * qty;
                     System.out.println(tot);
                     System.out.println("Shanilka");

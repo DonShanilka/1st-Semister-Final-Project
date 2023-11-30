@@ -9,7 +9,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="615.0" prefWidth="751.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.UpdateEmployeeController">
    <children>
       <Label layoutX="501.0" layoutY="10.0" text="Update Employee" textFill="#420657">
@@ -52,7 +51,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="updateEmpId" layoutX="23.0" layoutY="119.0" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #eed5ff;" />
+      <ComboBox fx:id="updateEmpId" layoutX="23.0" layoutY="119.0" onAction="#combEmployeeId" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #eed5ff;" />
       <Line endX="24.0" layoutX="126.0" layoutY="145.0" startX="-100.0" stroke="#300440" />
       <Line endX="73.0" layoutX="126.0" layoutY="238.0" startX="-100.0" stroke="#300440" />
       <TextField fx:id="updateEmpaddress" layoutX="26.0" layoutY="297.0" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #eed5ff;" />
@@ -67,6 +66,6 @@
       <Line endX="24.0" layoutX="401.0" layoutY="237.0" startX="-100.0" stroke="#300440" />
       <TextField fx:id="updateEmpPosition" layoutX="300.0" layoutY="210.0" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #eed5ff;" />
       <JFXButton layoutX="632.0" layoutY="558.0" onAction="#BackOnAction" prefHeight="36.0" prefWidth="77.0" text="Back" />
-      <JFXButton buttonType="RAISED" layoutX="507.0" layoutY="558.0" onAction="#EmployeeSaveOnAction" prefHeight="36.0" prefWidth="77.0" text="Save" />
+      <JFXButton buttonType="RAISED" layoutX="507.0" layoutY="558.0" onAction="#employeeUpdateSaveOnAction" prefHeight="36.0" prefWidth="77.0" text="Save" />
    </children>
 </AnchorPane>
