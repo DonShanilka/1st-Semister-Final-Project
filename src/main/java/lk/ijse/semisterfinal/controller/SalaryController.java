@@ -7,20 +7,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import lk.ijse.semisterfinal.Mail.Mail;
 import lk.ijse.semisterfinal.Tm.SalaryTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.SalaryDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.SalaryModel;
 import lombok.Getter;
-
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class SalaryController implements Runnable{
@@ -131,45 +129,48 @@ public class SalaryController implements Runnable{
             if (isaddite) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
                 clearField();
-                //loadAllSalary();
+                loadAllSalary();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
 
-    public boolean outMail() throws MessagingException {
-        String from = "Megamart@gmail.com"; //sender's email address
-        String host = "localhost";
+    public boolean sendMain() throws MessagingException {
+        String from = "nshanilka999@gmail.com"; // sender's email address
+        String password = "your_password"; // replace with your email password
 
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", 587);
+        properties.put("mail.smtp.port", "587");
+
         Session session = Session.getInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("Megamart@gmail.com", "xxxxxxxx");  // email and password
+                return new PasswordAuthentication(from, password);
             }
         });
 
         MimeMessage mimeMessage = new MimeMessage(session);
         mimeMessage.setFrom(new InternetAddress(from));
         mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(To));
-        mimeMessage.setSubject(this.Subject);
-        mimeMessage.setText(this.Msg);
+        mimeMessage.setSubject(Subject);
+        mimeMessage.setText(Msg);
+
         Transport.send(mimeMessage);
         return true;
     }
     public void run() {
-        if (Msg != null) {
+        if (Msg != null && !Msg.isEmpty()) {
             try {
-                outMail();
+                sendMain();
+                System.out.println("Email sent successfully.");
             } catch (MessagingException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Error sending email: " + e.getMessage(), e);
             }
         } else {
-            System.out.println("not sent. empty msg!");
+            System.out.println("Not sent. Empty message!");
         }
     }
 
@@ -244,4 +245,5 @@ public class SalaryController implements Runnable{
     }
 
 }
+
 
