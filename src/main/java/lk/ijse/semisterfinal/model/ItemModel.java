@@ -2,6 +2,7 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.CartTm;
+import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.ItemDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -132,6 +133,24 @@ public class ItemModel {
         pstm.setString(2, code);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean updateItem(ItemDTO dto) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "UPDATE item SET item_name = ?, item_price = ?, supplier_id = ? , warranty =?, qty =?  WHERE item_code = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1,dto.getItemDetails());
+        pstm.setDouble(2,dto.getItemPrice());
+        pstm.setString(3,dto.getSupplierId());
+        pstm.setString(4, dto.getWarrantyPeriod());
+        pstm.setInt(5, dto.getItemQty());
+        pstm.setString(6, dto.getItemCode());
+
+        return pstm.executeUpdate() >0;
+
     }
 
 }

@@ -29,7 +29,6 @@ public class UpdateEmployeeController {
 
     public void initialize() {
         setValue();
-
     }
 
     private void setValue() {
@@ -46,7 +45,6 @@ public class UpdateEmployeeController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
 
     private boolean validateEmployee() {
         boolean isValidate = true;
@@ -89,7 +87,6 @@ public class UpdateEmployeeController {
     public void BackOnAction(ActionEvent event) {
 
     }
-
 
     public void employeeUpdateSaveOnAction(ActionEvent event) {
         String id = (String) updateEmpId.getValue();
