@@ -6,9 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import lk.ijse.semisterfinal.dto.ItemDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
-import lk.ijse.semisterfinal.model.ItemModel;
 import lk.ijse.semisterfinal.model.SupplierModel;
 import org.controlsfx.control.Notifications;
 
@@ -25,6 +23,18 @@ public class UpdateSupplierController {
     public TextField qty;
 
     public void comUpdateSupplier(ActionEvent event) {
+        String id = (String) supId.getValue();
+
+        try{
+            SupplierDTO dto = SupplierModel.searchsupplier(id);
+            supName.setText(dto.getSupName());
+            itemName.setText(dto.getSupItemName());
+            qty.setText(String.valueOf(dto.getSupqty()));
+            supMobile.setText(dto.getSupMobile());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -101,12 +111,12 @@ public class UpdateSupplierController {
     }
 
     private void clearFileds() {
-        itemId.setValue("");
+        supId.setValue("");
+        supName.setText("");
         itemName.setText("");
-        itemPrice.setText("");
-        supplierId.setText("");
-        waranty.setText("");
         qty.setText("");
+        supMobile.setText("");
+
     }
 
 
@@ -114,19 +124,5 @@ public class UpdateSupplierController {
 
     }
 
-    public void comItemIdOnAction(ActionEvent event) {
-        String id = (String) itemId.getValue();
-
-        try{
-            ItemDTO dto = ItemModel.searchItemId(id);
-            itemName.setText(dto.getItemDetails());
-            itemPrice.setText(String.valueOf(dto.getItemPrice()));
-            supplierId.setText(dto.getSupplierId());
-            waranty.setText(dto.getWarrantyPeriod());
-            qty.setText(String.valueOf(dto.getItemQty()));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

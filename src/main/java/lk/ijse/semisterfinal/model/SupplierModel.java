@@ -63,7 +63,7 @@ public class SupplierModel {
     public static boolean updateSupplier(SupplierDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "UPDATE supplier SET supplier_name = ?, item_name = ?, qty = ?, supplier_mobie = ?  WHERE supplier_id = ?";
+        String sql = "UPDATE supplier SET supplier_name = ?, item_name = ?, qty = ?, supplier_mobile = ?  WHERE supplier_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
 
