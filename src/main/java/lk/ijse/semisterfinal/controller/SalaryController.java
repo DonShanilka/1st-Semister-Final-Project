@@ -21,11 +21,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class SalaryController implements Runnable{
+public class SalaryController implements Runnable {
 
     public AnchorPane root;
     public DatePicker date;
-    public ComboBox <String> comEmpId;
+    public ComboBox<String> comEmpId;
     public TextField lblName;
     public TextArea txtMsg;
     @Getter
@@ -34,18 +34,18 @@ public class SalaryController implements Runnable{
     private String To;
     @Getter
     private String Subject;
-    public TableColumn <?,?> colId;
-    public TableColumn <?,?> colName;
-    public TableColumn <?,?> colDate;
-    public TableColumn <?,?> colSalary;
-    public TableColumn <?,?> colAction;
+    public TableColumn<?, ?> colId;
+    public TableColumn<?, ?> colName;
+    public TableColumn<?, ?> colDate;
+    public TableColumn<?, ?> colSalary;
+    public TableColumn<?, ?> colAction;
     public TextField salary;
-    public TableView <SalaryTm> salaryTm;
+    public TableView<SalaryTm> salaryTm;
     public TextField txtTo;
     public TextField txtSubject;
     public Text Sending;
 
-    private  ObservableList<SalaryTm> obList = FXCollections.observableArrayList();
+    private ObservableList<SalaryTm> obList = FXCollections.observableArrayList();
 
     public SalaryController(String msg, String s, String subject) {
         Msg = msg;
@@ -53,7 +53,8 @@ public class SalaryController implements Runnable{
         Subject = subject;
     }
 
-    public SalaryController() {}
+    public SalaryController() {
+    }
 
     public void setMsg(String msg) {
         Msg = msg;
@@ -132,23 +133,25 @@ public class SalaryController implements Runnable{
                 loadAllSalary();
             }
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
     public boolean sendMain() throws MessagingException {
+
         String from = "nshanilka999@gmail.com"; // sender's email address
-        String password = "your_password"; // replace with your email password
+        String host = "localhost"; // replace with your email password
 
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
+        Properties props = new Properties();
+        props.setProperty("mail.debug", "true");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
-        Session session = Session.getInstance(properties, new Authenticator() {
+        Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, password);
+                return new PasswordAuthentication("nshanilka999@gmail.com", "wupawoazypqsfghh");
             }
         });
 
@@ -161,6 +164,7 @@ public class SalaryController implements Runnable{
         Transport.send(mimeMessage);
         return true;
     }
+
     public void run() {
         if (Msg != null && !Msg.isEmpty()) {
             try {
@@ -175,6 +179,7 @@ public class SalaryController implements Runnable{
     }
 
     public void BackOnAction(ActionEvent event) {
+
     }
 
     private void loadEmployeeId() {
@@ -209,21 +214,21 @@ public class SalaryController implements Runnable{
         try {
             List<SalaryDTO> dtoList = model.getAllSalary();
 
-                for (SalaryDTO dto : dtoList) {
-                    Button btn = new Button("Remove");
-                    //setRemoveBtnAction(btn, dto);
-                    obList.add(
-                            new SalaryTm(
-                                    dto.getDate(),
-                                    dto.getEmployeeId(),
-                                    dto.getEmployeeName(),
-                                    dto.getSalary(),
-                                    btn
-                            )
-                    );
-                }
-                salaryTm.setItems(obList);
-            }catch (SQLException e) {
+            for (SalaryDTO dto : dtoList) {
+                Button btn = new Button("Remove");
+                //setRemoveBtnAction(btn, dto);
+                obList.add(
+                        new SalaryTm(
+                                dto.getDate(),
+                                dto.getEmployeeId(),
+                                dto.getEmployeeName(),
+                                dto.getSalary(),
+                                btn
+                        )
+                );
+            }
+            salaryTm.setItems(obList);
+        } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
@@ -244,6 +249,50 @@ public class SalaryController implements Runnable{
 
     }
 
+
+    public static void sendMail(String recepient, int otp) throws MessagingException {
+        try {
+            System.out.println("Preparing to send email");
+            Properties properties = new Properties();
+
+
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+
+            String myAccountEmail = "nshanilka999@gmail.com";
+            String password = "wupawoazypqsfghh";
+
+            Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(myAccountEmail, password);
+                }
+            });
+            Message message = prepareMessage(session, myAccountEmail, recepient, otp);
+            Transport.send(message);
+            System.out.println("Email Send successfully");
+        } catch (Exception ex) {
+            new Alert(Alert.AlertType.ERROR, "Connect Internet Connection !!").show();
+        }
+    }
+
+    private static Message prepareMessage(Session session, String myAccountEmail, String recepient, int otp) {
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.setSubject("Your OTP");
+            message.setText("Your OTP is");
+            return message;
+        } catch (Exception e) {
+//            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Connect Internet Connection !!").show();
+        }
+        return null;
+    }
 }
+
 
 
