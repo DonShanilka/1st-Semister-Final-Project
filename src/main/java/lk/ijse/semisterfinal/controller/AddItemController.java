@@ -37,7 +37,6 @@ public class AddItemController {
         setCellValueFactory();
         tableListener();
         loadAllItem();
-       // loadAllSupId();
         itemSerachOnAction();
     }
 
@@ -54,7 +53,6 @@ public class AddItemController {
         txtItemPrice.setText(String.valueOf(row.getItemPrice()));
         comsupid.setValue(row.getSupplierId());
         txtWarrantyPeriod.setText(row.getWarrantyPeriod());
-        //txtQty.setText(row.get());
 
     }
 

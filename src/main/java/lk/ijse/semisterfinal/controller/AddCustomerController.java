@@ -9,11 +9,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import lk.ijse.semisterfinal.Tm.CustomerTm;
+import lk.ijse.semisterfinal.Tm.EmployeeTm;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.model.CustomerModel;
 import org.controlsfx.control.Notifications;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -60,6 +62,21 @@ public class AddCustomerController {
         txtCustitemId.setText("");
 
     }
+/*
+    private void tableListener() {
+        CustomerModel.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+        });
+    }
+
+    private void setData(CustomerTm row) {
+        txtemployeeId.setText(row.getId());
+        txtEmployeeName.setText(row.getName());
+        txtAddress.setText(row.getAddress());
+        txtEmployeePhone.setText(String.valueOf(row.getMobile()));
+        txtPossition.setText(String.valueOf(row.getPossition()));
+        empDate.setValue(LocalDate.parse(row.getDate()));
+    }*/
 
     public void CustomerUpdateOnAction(ActionEvent event) {
         
@@ -108,6 +125,7 @@ public class AddCustomerController {
     public void initialize() {
         setCellValueFactory();
         loadAllCustomer();
+        //tableListener();
     }
 
     private void setCellValueFactory() {

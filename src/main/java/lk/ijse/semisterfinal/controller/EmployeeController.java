@@ -12,11 +12,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lk.ijse.semisterfinal.Tm.EmployeeTm;
+import lk.ijse.semisterfinal.Tm.SupplierTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
+import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class EmployeeController {
@@ -42,6 +45,7 @@ public class EmployeeController {
         loadAllEmployee();
         clearField();
         setCellValueFactory();
+        tableListener();
 
     }
 
@@ -61,10 +65,24 @@ public class EmployeeController {
         txtEmployeeName.setText("");
         txtAddress.setText("");
         txtEmployeePhone.setText("");
-        //empDate.setValue(LocalDate.parse(""));
         txtEmployeeGender.setText("");
         txtPossition.setText("");
 
+    }
+
+    private void tableListener() {
+        EmployeeTm.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+        });
+    }
+
+    private void setData(EmployeeTm row) {
+        txtemployeeId.setText(row.getId());
+        txtEmployeeName.setText(row.getName());
+        txtAddress.setText(row.getAddress());
+        txtEmployeePhone.setText(String.valueOf(row.getMobile()));
+        txtPossition.setText(String.valueOf(row.getPossition()));
+        empDate.setValue(LocalDate.parse(row.getDate()));
     }
 
     public void EmployeeAddOnAction(ActionEvent event) {
@@ -104,7 +122,19 @@ public class EmployeeController {
     }
 
     public void EmployeeDeleteOnAction(ActionEvent event) {
+        String id = txtemployeeId.getText();
 
+        try {
+            boolean isDeleted = AddEmployeeModel.deleteEmployee(id);
+            if(isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Supplier has deleted!").show();
+                loadAllEmployee();
+            } else {
+                new Alert(Alert.AlertType.CONFIRMATION, "Supplier not deleted!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     private void loadAllEmployee() {

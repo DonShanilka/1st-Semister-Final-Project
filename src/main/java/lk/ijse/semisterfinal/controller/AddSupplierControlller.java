@@ -102,25 +102,8 @@ public class AddSupplierControlller {
     }
 
     public void updateSupplierOnAction(ActionEvent event) {
-        String id = txtSupId.getText();
-        String name = txtSupName.getText();
-        String itemName = txtsupItemName.getText();
-        int itemQty = Integer.parseInt(txtSupQty.getText());
-        String mobile = txtSupMobile.getText();
 
-        var dto = new SupplierDTO(id,name,itemName,itemQty,mobile);
 
-        try {
-            boolean isUpdated = SupplierModel.updateSupplier(dto);
-            if(isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION,"Supplier Add").show();
-                setCellValueFactory();
-                loadAllSupplier();
-                clearField();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
     }
 
     private void setCellValueFactory() {

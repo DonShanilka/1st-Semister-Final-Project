@@ -7,20 +7,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import lk.ijse.semisterfinal.Mail.Mail;
 import lk.ijse.semisterfinal.Tm.SalaryTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.SalaryDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.SalaryModel;
-import lombok.Getter;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.Properties;
+
 
 public class SalaryController {
 
@@ -29,12 +25,6 @@ public class SalaryController {
     public ComboBox<String> comEmpId;
     public TextField lblName;
     public TextArea txtMsg;
-    @Getter
-    private String Msg;
-    @Getter
-    private String To;
-    @Getter
-    private String Subject;
     public TableColumn<?, ?> colId;
     public TableColumn<?, ?> colName;
     public TableColumn<?, ?> colDate;
@@ -47,36 +37,6 @@ public class SalaryController {
     public Text Sending;
 
     private ObservableList<SalaryTm> obList = FXCollections.observableArrayList();
-
-    public SalaryController(String msg, String s, String subject) {
-        Msg = msg;
-        To = s;
-        Subject = subject;
-    }
-
-    public SalaryController() {
-    }
-
-    public void setMsg(String msg) {
-        Msg = msg;
-    }
-
-    public void setTo(String to) {
-        To = to;
-    }
-
-    public void setSubject(String subject) {
-        Subject = subject;
-    }
-
-    @Override
-    public String toString() {
-        return "SalaryController{" +
-                "Msg='" + Msg + '\'' +
-                ", To='" + To + '\'' +
-                ", Subject='" + Subject + '\'' +
-                '}';
-    }
 
     public void initialize() {
         date.setPromptText(String.valueOf(LocalDate.now()));
@@ -195,50 +155,18 @@ public class SalaryController {
     public void sendEmailOnAction(ActionEvent event) {
         System.out.println("Start");
         Sending.setText("sending...");
-        SalaryController mail = new SalaryController(); //creating an instance of Mail class
+        Mail mail = new Mail();
+
         mail.setMsg(txtMsg.getText());//email message
         mail.setTo(txtTo.getText()); //receiver's mail
         mail.setSubject(txtSubject.getText()); //email subject
-
+        mail.run();
         Thread thread = new Thread(String.valueOf(mail));
         thread.start();
 
         System.out.println("end");
         Sending.setText("sended");
 
-    }
-
-    public static void outMail(String msg, String to, String subject) throws MessagingException {
-
-        String from = "nshanilka999@gmail.com";
-        String host = "localhost";
-
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", 587);
-
-        Session session = Session.getDefaultInstance(properties, new Authenticator() {
-            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("nshanilka999@gmail.com", "wupawoazypqsfghh");
-            }
-        });
-
-        MimeMessage mimeMessage = new MimeMessage(session);
-        mimeMessage.setFrom(new InternetAddress(from));
-        mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-        mimeMessage.setSubject(subject);
-        mimeMessage.setText(msg);
-        Transport.send(mimeMessage);
-
-        System.out.println("Sent... " + to);
-    }
-
-    public static void outMail(String msg, ArrayList<String> to, String subject) throws MessagingException {
-        for (String ele : to) {
-            outMail(msg, ele, subject);
-        }
     }
 
 }
