@@ -15,13 +15,14 @@ import lk.ijse.semisterfinal.model.SalaryModel;
 import lombok.Getter;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class SalaryController implements Runnable {
+public class SalaryController {
 
     public AnchorPane root;
     public DatePicker date;
@@ -81,30 +82,29 @@ public class SalaryController implements Runnable {
         date.setPromptText(String.valueOf(LocalDate.now()));
         loadEmployeeId();
         clearField();
-        //tableListener();
+        tableListener();
         setCellValueFactory();
         loadAllSalary();
     }
-    /*private void tableListener() {
+    private void tableListener() {
         SalaryTm.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             setData((SalaryTm) newValue);
 
         });
-    }*/
+    }
 
-    /*private void setData(SalaryTm row) {
+    private void setData(SalaryTm row) {
         comEmpId.setValue(row.getEmployeeId());
-        lblName.setText(row.getEmployeeName());
+        colName.setText(row.getEmployeeName());
         salary.setText(String.valueOf(row.getSalary()));
-        date.setValue(row.getDate());
+        date.setValue(LocalDate.parse(row.getDate()));
 
-    }*/
+    }
 
     private void clearField() {
         comEmpId.setValue("");
         lblName.setText("");
         salary.setText("");
-        //date.setValue(LocalDate.parse(""));
 
     }
 
@@ -122,7 +122,6 @@ public class SalaryController implements Runnable {
         String Name = lblName.getText();
         String date1 = String.valueOf(date.getValue());
 
-
         var dto = new SalaryDTO(amount, id, Name, date1);
 
         try {
@@ -137,46 +136,6 @@ public class SalaryController implements Runnable {
         }
     }
 
-    public boolean sendMain() throws MessagingException {
-
-        String from = "nshanilka999@gmail.com"; // sender's email address
-        String host = "localhost"; // replace with your email password
-
-        Properties props = new Properties();
-        props.setProperty("mail.debug", "true");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-
-        Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("nshanilka999@gmail.com", "wupawoazypqsfghh");
-            }
-        });
-
-        MimeMessage mimeMessage = new MimeMessage(session);
-        mimeMessage.setFrom(new InternetAddress(from));
-        mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(To));
-        mimeMessage.setSubject(Subject);
-        mimeMessage.setText(Msg);
-
-        Transport.send(mimeMessage);
-        return true;
-    }
-
-    public void run() {
-        if (Msg != null && !Msg.isEmpty()) {
-            try {
-                sendMain();
-                System.out.println("Email sent successfully.");
-            } catch (MessagingException e) {
-                throw new RuntimeException("Error sending email: " + e.getMessage(), e);
-            }
-        } else {
-            System.out.println("Not sent. Empty message!");
-        }
-    }
 
     public void BackOnAction(ActionEvent event) {
 
@@ -241,7 +200,7 @@ public class SalaryController implements Runnable {
         mail.setTo(txtTo.getText()); //receiver's mail
         mail.setSubject(txtSubject.getText()); //email subject
 
-        Thread thread = new Thread(mail);
+        Thread thread = new Thread(String.valueOf(mail));
         thread.start();
 
         System.out.println("end");
@@ -249,49 +208,39 @@ public class SalaryController implements Runnable {
 
     }
 
+    public static void outMail(String msg, String to, String subject) throws MessagingException {
 
-    public static void sendMail(String recepient, int otp) throws MessagingException {
-        try {
-            System.out.println("Preparing to send email");
-            Properties properties = new Properties();
+        String from = "nshanilka999@gmail.com";
+        String host = "localhost";
 
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", 587);
 
-            properties.put("mail.smtp.auth", "true");
-            properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.host", "smtp.gmail.com");
-            properties.put("mail.smtp.port", "587");
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("nshanilka999@gmail.com", "wupawoazypqsfghh");
+            }
+        });
 
-            String myAccountEmail = "nshanilka999@gmail.com";
-            String password = "wupawoazypqsfghh";
+        MimeMessage mimeMessage = new MimeMessage(session);
+        mimeMessage.setFrom(new InternetAddress(from));
+        mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+        mimeMessage.setSubject(subject);
+        mimeMessage.setText(msg);
+        Transport.send(mimeMessage);
 
-            Session session = Session.getInstance(properties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(myAccountEmail, password);
-                }
-            });
-            Message message = prepareMessage(session, myAccountEmail, recepient, otp);
-            Transport.send(message);
-            System.out.println("Email Send successfully");
-        } catch (Exception ex) {
-            new Alert(Alert.AlertType.ERROR, "Connect Internet Connection !!").show();
+        System.out.println("Sent... " + to);
+    }
+
+    public static void outMail(String msg, ArrayList<String> to, String subject) throws MessagingException {
+        for (String ele : to) {
+            outMail(msg, ele, subject);
         }
     }
 
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient, int otp) {
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Your OTP");
-            message.setText("Your OTP is");
-            return message;
-        } catch (Exception e) {
-//            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Connect Internet Connection !!").show();
-        }
-        return null;
-    }
 }
 
 
