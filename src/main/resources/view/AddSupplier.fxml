@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="740.0" prefWidth="1127.0" style="-fx-background-color: #eed5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddSupplierControlller">
+<AnchorPane prefHeight="740.0" prefWidth="1127.0" style="-fx-background-color: #f7e6d4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddSupplierControlller">
    <children>
       <ImageView fitHeight="350.0" fitWidth="357.0" layoutX="752.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -62,9 +62,9 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSupName" layoutX="136.0" layoutY="505.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
-      <TextField fx:id="txtSupId" layoutX="112.0" layoutY="445.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
-      <TextField fx:id="txtsupItemName" layoutX="113.0" layoutY="568.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtSupName" layoutX="136.0" layoutY="505.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #f7e6d4;" />
+      <TextField fx:id="txtSupId" layoutX="112.0" layoutY="445.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #f7e6d4;" />
+      <TextField fx:id="txtsupItemName" layoutX="113.0" layoutY="568.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #f7e6d4;" />
       <Label layoutX="393.0" layoutY="450.0" text="Qty :">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -75,10 +75,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupQty" layoutX="430.0" layoutY="444.0" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtSupQty" layoutX="430.0" layoutY="445.0" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #f7e6d4;" />
       <Line endX="-27.0" layoutX="528.0" layoutY="472.0" startX="-100.0" />
       <Line endX="33.0" layoutX="555.0" layoutY="534.0" startX="-100.0" />
-      <TextField fx:id="txtSupMobile" layoutX="455.0" layoutY="507.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: #eed5ff;" />
+      <TextField fx:id="txtSupMobile" layoutX="455.0" layoutY="507.0" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: #f7e6d4;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#11569a" height="31.0" layoutX="508.0" layoutY="38.0" stroke="#11569a" strokeType="INSIDE" width="240.0" />
       <TextField layoutX="510.0" layoutY="40.0" prefHeight="27.0" prefWidth="236.0" style="-fx-background-color: white;" />
       <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="687.0" onAction="#updateSupplierOnAction" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="WHITE">

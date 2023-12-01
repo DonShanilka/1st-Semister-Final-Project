@@ -47,10 +47,10 @@ public class AdminMainDashbordController {
         root1.getChildren().clear();
         root1.getChildren().add(load);
         for (int i = 0; i < formArray.length; i++) {
-            btnArray[i].setStyle("-fx-background-color:  #380047; -fx-font-size: 15; -fx-text-fill: #fd8800");
+            btnArray[i].setStyle("-fx-background-color:  #ffffff; -fx-font-size: 20; -fx-text-fill: #202A44FF");
 
             if (form.equals(formArray[i])){
-                btnArray[i].setStyle("-fx-background-color: #eed5ff; -fx-text-fill: #380047");
+                btnArray[i].setStyle("-fx-background-color: #4db6ac; -fx-text-fill: #ffffff");
             }
         }
     }
