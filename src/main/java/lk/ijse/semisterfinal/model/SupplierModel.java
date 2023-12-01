@@ -1,6 +1,7 @@
 package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
+import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
 
 import java.sql.*;
@@ -62,13 +63,18 @@ public class SupplierModel {
     public static boolean updateSupplier(SupplierDTO dto) throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
 
-        String sql = "UPDATE supplier SET supplier_name = ?, qty = ? WHERE supplier_id = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, dto.getSupId());
-        pstm.setString(2, dto.getSupName());
-        pstm.setInt(3, dto.getSupqty());
+        String sql = "UPDATE supplier SET supplier_name = ?, item_name = ?, qty = ?, supplier_mobie = ?  WHERE supplier_id = ?";
 
-        return pstm.executeUpdate() > 0;
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1,dto.getSupName());
+        pstm.setString(2,dto.getSupItemName());
+        pstm.setInt(3,dto.getSupqty());
+        pstm.setString(4, dto.getSupMobile());
+        pstm.setString(5, dto.getSupId());
+
+        return pstm.executeUpdate() >0;
+
     }
 
     public static ArrayList<SupplierDTO> getAllSupplier() throws SQLException {
@@ -94,5 +100,32 @@ public class SupplierModel {
         }
         return dtoList;
 
+    }
+
+    public static SupplierDTO searchsupplier(String id) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT * FROM supplier WHERE supplier_id = ? ";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        SupplierDTO dto = null;
+
+        if (resultSet.next()){
+            String sid = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String itemName = resultSet.getString(3);
+            int Qty = resultSet.getInt(4);
+            String mobile = resultSet.getString(5);
+
+            dto = new SupplierDTO(sid,name,itemName,Qty,mobile);
+        }
+        return dto;
+    }
+
+    public SupplierDTO search(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
