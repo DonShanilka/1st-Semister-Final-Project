@@ -17,9 +17,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeController">
+<AnchorPane fx:id="root" prefHeight="755.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeController">
    <children>
-      <Pane accessibleRole="LIST_VIEW" layoutX="16.0" layoutY="14.0" prefHeight="738.0" prefWidth="1142.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
+      <Pane accessibleRole="LIST_VIEW" layoutX="16.0" layoutY="14.0" prefHeight="725.0" prefWidth="1142.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="321.0" fitWidth="303.0" layoutX="839.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,32 +33,32 @@
             <Line endX="100.0" layoutX="115.0" layoutY="528.0" startX="-100.0" />
             <Line endX="100.0" layoutX="115.0" layoutY="585.0" startX="-100.0" />
             <TextField fx:id="txtEmployeeName" layoutX="15.0" layoutY="447.0" prefHeight="25.0" prefWidth="201.0" promptText="Employee Name" style="-fx-background-color: #e6e6ff;" />
-            <TextField fx:id="txtEmployeeGender" layoutX="15.0" layoutY="502.0" prefHeight="25.0" prefWidth="201.0" promptText="Gender" style="-fx-background-color: #e6e6ff;" />
+            <TextField fx:id="txtEmail" layoutX="15.0" layoutY="502.0" prefHeight="25.0" prefWidth="201.0" promptText="Email" style="-fx-background-color: #e6e6ff;" />
             <TextField fx:id="txtEmployeePhone" layoutX="15.0" layoutY="558.0" prefHeight="25.0" prefWidth="201.0" promptText="Phone" style="-fx-background-color: #e6e6ff;" />
-            <TextField fx:id="txtemployeeId" layoutX="15.0" layoutY="389.0" prefHeight="26.0" prefWidth="201.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
+            <TextField fx:id="txtemployeeId" layoutX="15.0" layoutY="389.0" prefHeight="26.0" prefWidth="201.0" promptText="Employee id" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
             <Line endX="100.0" layoutX="364.0" layoutY="528.0" startX="-100.0" />
             <Line endX="100.0" layoutX="363.0" layoutY="472.0" startX="-100.0" />
             <TextField fx:id="txtAddress" layoutX="264.0" layoutY="502.0" prefHeight="25.0" prefWidth="201.0" promptText="Address" style="-fx-background-color: #e6e6ff;" />
             <TextField fx:id="txtPossition" layoutX="263.0" layoutY="445.0" prefHeight="25.0" prefWidth="201.0" promptText="Possition" style="-fx-background-color: #e6e6ff;" />
             <DatePicker fx:id="empDate" layoutX="262.0" layoutY="390.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #00004DFF;" />
+            <JFXButton layoutX="15.0" layoutY="655.0" onAction="#EmployeeAddOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="+ Add">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
          </children>
       </Pane>
-      <TableView fx:id="EmployeeTm" layoutX="33.0" layoutY="102.0" prefHeight="261.0" prefWidth="1106.0" style="-fx-background-color: #00004DFF;">
+      <TableView fx:id="EmployeeTm" layoutX="33.0" layoutY="102.0" prefHeight="261.0" prefWidth="1106.0" style="-fx-background-color: #00004DFF; -fx-background-radius: 0;">
         <columns>
           <TableColumn fx:id="tmid" prefWidth="81.0" text="id" />
           <TableColumn fx:id="tmEmpName" prefWidth="275.0" text="Employee Name" />
-            <TableColumn fx:id="tmEmpGender" prefWidth="96.0" text="Gender" />
+            <TableColumn fx:id="tmEmpJob" prefWidth="96.0" text="Possition" />
             <TableColumn fx:id="tmEmpMobile" prefWidth="100.0" text="Phone" />
-            <TableColumn fx:id="tmEmpAddress" prefWidth="313.0" text="Address" />
-            <TableColumn fx:id="tmStartDate" prefWidth="113.0" text="Start Date" />
-            <TableColumn fx:id="tmEmpPossition" prefWidth="127.0" text="Possition" />
+            <TableColumn fx:id="tmEmpAddress" prefWidth="247.0" text="Address" />
+            <TableColumn fx:id="tmStartDate" prefWidth="126.0" text="Start Date" />
+            <TableColumn fx:id="tmEmpEmail" prefWidth="180.0" text="Email" />
         </columns>
       </TableView>
-      <JFXButton layoutX="16.0" layoutY="669.0" onAction="#EmployeeAddOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="+ Add">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXButton>
       <JFXButton layoutX="134.0" layoutY="669.0" onAction="#EmployeeUpdateOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="Update">
          <font>
             <Font name="System Bold" size="15.0" />

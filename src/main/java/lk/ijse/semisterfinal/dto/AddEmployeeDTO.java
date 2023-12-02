@@ -15,6 +15,7 @@ public class AddEmployeeDTO {
     private int EmployeePhone;
     private String empDate;
     private String empPosition;
+    private String email;
 
     public AddEmployeeDTO(String eid, String name, String address, String mobile, String position) {
         this.employeeId = eid;
@@ -33,4 +34,13 @@ public class AddEmployeeDTO {
         this.empPosition = job;
     }
 
+    public AddEmployeeDTO(String id, String name, String address, int tele, String date, String email, String position) {
+        this.employeeId = id;
+        this.EmployeeName = name;
+        this.EmpAddress = address;
+        this.EmployeePhone = tele;
+        this.empDate = date;
+        this.email = email;
+        this.empPosition = position;
+    }
 }

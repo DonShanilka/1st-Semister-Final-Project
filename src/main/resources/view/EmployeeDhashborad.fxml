@@ -1,46 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootNode1" prefHeight="750.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDhashboradController">
    <children>
-      <Pane layoutX="14.0" layoutY="-25.0" prefHeight="325.0" prefWidth="67.0" style="-fx-background-color: #00004d; -fx-background-radius: 30;">
+      <Pane layoutX="14.0" layoutY="-25.0" prefHeight="389.0" prefWidth="67.0" style="-fx-background-color: #00004d; -fx-background-radius: 30;">
          <children>
-            <JFXButton id="button" fx:id="cashier" layoutX="14.0" layoutY="147.0" onAction="#CashierOnAction" prefHeight="35.0" prefWidth="40.0" stylesheets="@style.css" text="Cashier">
+            <JFXButton id="button" fx:id="cashier" layoutX="7.0" layoutY="216.0" onAction="#CashierOnAction" prefHeight="35.0" prefWidth="40.0" stylesheets="@style.css" text="Cashier">
                <font>
-                  <Font name="Segoe UI Semibold" size="15.0" />
+                  <Font name="Segoe UI Semibold" size="1.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/addtocart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton id="button" fx:id="empCustomer" layoutX="14.0" layoutY="95.0" onAction="#CustomerOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css" text="Customer">
+            <JFXButton id="button" fx:id="empCustomer" layoutX="10.0" layoutY="138.0" onAction="#CustomerOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css" text="Customer">
                <font>
-                  <Font name="Segoe UI Semibold" size="15.0" />
+                  <Font name="Segoe UI Semibold" size="1.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/customer-service.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton id="button" fx:id="empItem" layoutX="14.0" layoutY="42.0" onAction="#itemOnActionEmp" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css">
+            <JFXButton id="button" fx:id="empItem" layoutX="11.0" layoutY="67.0" onAction="#itemOnActionEmp" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css">
                <font>
-                  <Font name="Segoe UI Semibold" size="15.0" />
+                  <Font name="Segoe UI Semibold" size="1.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/box.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton id="button" fx:id="empDeliver" layoutX="14.0" layoutY="193.0" onAction="#empDelierOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css" text="Deliver">
+            <JFXButton id="button" fx:id="empSupplier" layoutX="14.0" layoutY="296.0" onAction="#empSupplierOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css" text=".">
                <font>
-                  <Font name="Segoe UI Semibold" size="15.0" />
+                  <Font name="Segoe UI Semibold" size="1.0" />
                </font>
-            </JFXButton>
-            <JFXButton id="button" fx:id="empSupplier" layoutX="14.0" layoutY="244.0" onAction="#empSupplierOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@style.css" text="Supplier">
-               <font>
-                  <Font name="Segoe UI Semibold" size="15.0" />
-               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/supplier.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
          </children>
       </Pane>
       <AnchorPane fx:id="root" layoutX="95.0" layoutY="15.0" prefHeight="720.0" prefWidth="1302.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
-      <JFXButton id="button" fx:id="empSupplier1" layoutX="28.0" layoutY="674.0" onAction="#logOutOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #00004d;" stylesheets="@style.css" text="Supplier">
+      <JFXButton id="button" fx:id="logout" layoutX="20.0" layoutY="651.0" onAction="#logOutOnAction" prefHeight="53.0" prefWidth="55.0" style="-fx-background-color: #00004d;" stylesheets="@style.css">
          <font>
-            <Font name="Segoe UI Semibold" size="15.0" />
+            <Font name="Segoe UI Semibold" size="1.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="28.0" layoutY="658.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/logout.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

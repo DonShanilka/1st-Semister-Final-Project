@@ -84,7 +84,7 @@ public class SalaryController {
     }
 
     public void AddSalaryOnAction(ActionEvent event) {
-        double amount = Double.parseDouble(salary.getText());
+        /*double amount = Double.parseDouble(salary.getText());
         String id = comEmpId.getValue();
         String Name = lblName.getText();
         String date1 = String.valueOf(date.getValue());
@@ -100,7 +100,7 @@ public class SalaryController {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
+        }*/
     }
 
 
@@ -160,6 +160,25 @@ public class SalaryController {
     }
 
     public void sendEmailOnAction(ActionEvent event) {
+
+        double amount = Double.parseDouble(salary.getText());
+        String id = comEmpId.getValue();
+        String Name = lblName.getText();
+        String date1 = String.valueOf(date.getValue());
+
+        var dto = new SalaryDTO(amount, id, Name, date1);
+
+        try {
+            boolean isaddite = SalaryModel.addSalary(dto);
+            if (isaddite) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
+                clearField();
+                loadAllSalary();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
         System.out.println("Start");
         Sending.setText("sending...");
         Mail mail = new Mail(); //creating an instance of Mail class

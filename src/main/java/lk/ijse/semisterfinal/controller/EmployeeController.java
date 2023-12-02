@@ -14,11 +14,8 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.EmployeeTm;
-import lk.ijse.semisterfinal.Tm.SupplierTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
-import lk.ijse.semisterfinal.model.SupplierModel;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -33,7 +30,6 @@ public class EmployeeController implements Initializable {
 
     public TextField txtemployeeId;
     public TextField txtEmployeeName;
-    public TextField txtEmployeeGender;
     public TextField txtEmployeePhone;
     public TextField txtAddress;
     public DatePicker empDate;
@@ -48,6 +44,9 @@ public class EmployeeController implements Initializable {
     public TableView <EmployeeTm>  EmployeeTm;
     public AnchorPane root;
     public Label lblTotalEmployee;
+    public TextField txtEmail;
+    public TableColumn <?, ?> tmEmpJob;
+    public TableColumn <?, ?> tmEmpEmail;
 
     public void initialize(){
         loadAllEmployee();
@@ -63,8 +62,8 @@ public class EmployeeController implements Initializable {
         tmEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         tmEmpMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
         tmStartDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        //tmEmpGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        tmEmpPossition.setCellValueFactory(new PropertyValueFactory<>("possition"));
+        tmEmpEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tmEmpJob.setCellValueFactory(new PropertyValueFactory<>("possition"));
 
     }
 
@@ -73,8 +72,9 @@ public class EmployeeController implements Initializable {
         txtEmployeeName.setText("");
         txtAddress.setText("");
         txtEmployeePhone.setText("");
-        txtEmployeeGender.setText("");
+        txtEmail.setText("");
         txtPossition.setText("");
+        //empDate.setValue(LocalDate.parse(""));
 
     }
 
@@ -90,6 +90,7 @@ public class EmployeeController implements Initializable {
         txtAddress.setText(row.getAddress());
         txtEmployeePhone.setText(String.valueOf(row.getMobile()));
         txtPossition.setText(String.valueOf(row.getPossition()));
+        txtEmail.setText(String.valueOf(row.getPossition()));
         empDate.setValue(LocalDate.parse(row.getDate()));
     }
 
@@ -99,10 +100,10 @@ public class EmployeeController implements Initializable {
         String address = txtAddress.getText();
         int tele = Integer.parseInt(txtEmployeePhone.getText());
         String date = String.valueOf(empDate.getValue());
-        //String gender = txtEmployeeGender.getText();
+        String email = txtEmail.getText();
         String position = txtPossition.getText();
 
-        var dto = new AddEmployeeDTO(id,name,address,tele,date,position);
+        var dto = new AddEmployeeDTO(id,name,address,tele,date,email,position);
 
         try {
             boolean addSup= AddEmployeeModel.addEmployee(dto);
@@ -161,7 +162,8 @@ public class EmployeeController implements Initializable {
                                 dto.getEmpAddress(),
                                 dto.getEmployeePhone(),
                                 dto.getEmpDate(),
-                                dto.getEmpPosition()
+                                dto.getEmpPosition(),
+                                dto.getEmail()
                         )
                 );
             }

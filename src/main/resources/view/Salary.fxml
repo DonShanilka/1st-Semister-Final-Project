@@ -18,6 +18,7 @@
 
 <AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
    <children>
+      <Pane accessibleRole="LIST_VIEW" layoutX="9.0" layoutY="22.0" prefHeight="722.0" prefWidth="1149.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #00004DFF;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
          <font>
@@ -34,8 +35,8 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comEmpId" layoutX="15.0" layoutY="203.0" onAction="#comEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: white;" />
-      <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: white;" />
+      <ComboBox fx:id="comEmpId" layoutX="15.0" layoutY="203.0" onAction="#comEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: #e6e6ff;" />
+      <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
       <TableView fx:id="salaryTm" layoutX="13.0" layoutY="459.0" prefHeight="204.0" prefWidth="710.0" style="-fx-background-color: #00004DFF;">
@@ -58,7 +59,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="salary" layoutX="14.0" layoutY="382.0" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: white;" />
+      <TextField fx:id="salary" layoutX="14.0" layoutY="382.0" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="60.0" layoutX="116.0" layoutY="409.0" startX="-100.0" />
       <Label layoutX="479.0" layoutY="181.0" text="Subject :">
          <font>
@@ -70,9 +71,9 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTo" layoutX="483.0" layoutY="118.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtTo" layoutX="483.0" layoutY="118.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="48.0" layoutX="583.0" layoutY="145.0" startX="-100.0" />
-      <TextField fx:id="txtSubject" layoutX="479.0" layoutY="203.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtSubject" layoutX="479.0" layoutY="203.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="135.0" layoutX="582.0" layoutY="229.0" startX="-100.0" />
       <JFXButton layoutX="479.0" layoutY="395.0" onAction="#sendEmailOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="Send Email" />
       <Label layoutX="479.0" layoutY="272.0" text="Subject :">
@@ -83,6 +84,5 @@
       <Line endX="177.0" layoutX="582.0" layoutY="378.0" startX="-100.0" />
       <TextArea fx:id="txtMsg" layoutX="477.0" layoutY="292.0" prefHeight="83.0" prefWidth="283.0" style="-fx-background-color: #00004DFF;" />
       <Text fx:id="Sending" layoutX="662.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sending ...." wrappingWidth="96.0" />
-      <Pane accessibleRole="LIST_VIEW" layoutX="17.0" layoutY="22.0" prefHeight="722.0" prefWidth="1137.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
    </children>
 </AnchorPane>

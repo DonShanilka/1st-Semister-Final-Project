@@ -58,7 +58,6 @@ public class AttendanceController {
         String empName = lblName.getText();
         Button btn = new Button("Remove");
 
-        setRemoveBtnAction(btn, empId);
         btn.setCursor(Cursor.HAND);
 
         if (!obList.isEmpty()) {
@@ -78,7 +77,7 @@ public class AttendanceController {
         atendanceTm.setItems(obList);
     }
 
-    private void setRemoveBtnAction(Button RemoveBtn, String teacherId) {
+    /*private void setRemoveBtnAction(Button RemoveBtn, String teacherId) {
         MenuItemBase Removebtn = null;
         Removebtn.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
@@ -96,12 +95,12 @@ public class AttendanceController {
             Optional <ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                // Remove the selected teacher from the attendance list
+                //Remove the selected teacher from the attendance list
                 obList.removeIf(attendanceTm -> attendanceTm.getEmployeeId().equals(teacherId));
                 atendanceTm.setItems(obList);
             }
         });
-    }
+    }*/
 
 
     public void cmbIdOnAction(ActionEvent actionEvent) {
@@ -130,7 +129,6 @@ public class AttendanceController {
         String empName = lblName.getText();
         Button btn = new Button("Remove");
 
-        setRemoveBtnAction(btn, empId);
         btn.setCursor(Cursor.HAND);
 
         if (!obList.isEmpty()) {
