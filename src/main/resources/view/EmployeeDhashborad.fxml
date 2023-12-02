@@ -7,35 +7,40 @@
 
 <AnchorPane fx:id="rootNode1" prefHeight="750.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeDhashboradController">
    <children>
-      <Pane layoutX="14.0" layoutY="15.0" prefHeight="720.0" prefWidth="80.0" style="-fx-background-color: #4db6ac; -fx-background-radius: 15;">
+      <Pane layoutX="14.0" layoutY="-25.0" prefHeight="325.0" prefWidth="67.0" style="-fx-background-color: #00004d; -fx-background-radius: 30;">
          <children>
-            <JFXButton fx:id="cashier" layoutX="20.0" layoutY="261.0" onAction="#CashierOnAction" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Cashier">
+            <JFXButton id="button" fx:id="cashier" layoutX="14.0" layoutY="147.0" onAction="#CashierOnAction" prefHeight="35.0" prefWidth="40.0" stylesheets="@../Style/style.css" text="Cashier">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empCustomer" layoutX="20.0" layoutY="208.0" onAction="#CustomerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Customer">
+            <JFXButton id="button" fx:id="empCustomer" layoutX="14.0" layoutY="95.0" onAction="#CustomerOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@../Style/style.css" text="Customer">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empItem" layoutX="20.0" layoutY="156.0" onAction="#itemOnActionEmp" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+            <JFXButton id="button" fx:id="empItem" layoutX="14.0" layoutY="42.0" onAction="#itemOnActionEmp" prefHeight="40.0" prefWidth="40.0" stylesheets="@../Style/style.css">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empDeliver" layoutX="20.0" layoutY="309.0" onAction="#empDelierOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Deliver">
+            <JFXButton id="button" fx:id="empDeliver" layoutX="14.0" layoutY="193.0" onAction="#empDelierOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@../Style/style.css" text="Deliver">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="empSupplier" layoutX="20.0" layoutY="368.0" onAction="#empSupplierOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Supplier">
+            <JFXButton id="button" fx:id="empSupplier" layoutX="14.0" layoutY="244.0" onAction="#empSupplierOnAction" prefHeight="40.0" prefWidth="40.0" stylesheets="@../Style/style.css" text="Supplier">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root" layoutX="111.0" layoutY="15.0" prefHeight="720.0" prefWidth="1286.0" style="-fx-background-color: #f7e6d4; -fx-background-radius: 15;" />
+      <AnchorPane fx:id="root" layoutX="95.0" layoutY="15.0" prefHeight="720.0" prefWidth="1302.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <JFXButton id="button" fx:id="empSupplier1" layoutX="28.0" layoutY="674.0" onAction="#logOutOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #00004d;" stylesheets="@../Style/style.css" text="Supplier">
+         <font>
+            <Font name="Segoe UI Semibold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package lk.ijse.semisterfinal.controller;
 
+import com.sun.javafx.menu.MenuItemBase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -78,7 +79,8 @@ public class AttendanceController {
     }
 
     private void setRemoveBtnAction(Button RemoveBtn, String teacherId) {
-        /*Removebtn.setOnAction((e) -> {
+        MenuItemBase Removebtn = null;
+        Removebtn.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
             ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
@@ -86,7 +88,7 @@ public class AttendanceController {
 
             if (type.orElse(no) == yes) {
             }
-        });*/
+        });
         RemoveBtn.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
             ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -149,6 +151,13 @@ public class AttendanceController {
     }
 
     public void cmbEmpIdOnAction(ActionEvent event) {
+        String id = (String) comEmpId.getValue();
+        try {
+            AddEmployeeDTO dto = AddEmployeeModel.searchEmployee(id);
+            lblName.setText(dto.getEmployeeName());
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     public void BackOnAction(ActionEvent event) {

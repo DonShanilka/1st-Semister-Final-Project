@@ -18,11 +18,12 @@ public class AdminMainDashbordController {
     public JFXButton item;
     public JFXButton Employee;
     public JFXButton supplier;
-    public JFXButton deliver;
     public JFXButton customer;
+    public JFXButton salary;
     public AnchorPane root;
     public AnchorPane root1;
     public JFXButton cashiyer;
+    public JFXButton attendence;
 
     @FXML
     public BarChart <?,?> orderDataChart;
@@ -35,22 +36,23 @@ public class AdminMainDashbordController {
     @FXML
     public AreaChart <?,?> incomeDataChart;
 
+
     public void initialize() throws IOException {
         monthlyIncomeOnAction(null);
     }
 
     void setForm(String form) throws IOException {
-        String[] formArray = {"/view/AddCustomer.fxml","/view/Diliver.fxml", "/view/addEmployee.fxml", "/view/AddItem.fxml", "/view/AddSupplier.fxml", "/view/monthlyincome.fxml","/view/Cashier.fxml"};
+        String[] formArray = {"/view/AddCustomer.fxml", "/view/addEmployee.fxml", "/view/AddItem.fxml", "/view/AddSupplier.fxml","/view/Salary.fxml" , "/view/monthlyincome.fxml","/view/Attendance.fxml","/view/Cashier.fxml"};
 
-        JFXButton[] btnArray = {customer,deliver,Employee,item,supplier,monthlyIncome,cashiyer};
+        JFXButton[] btnArray = {customer,Employee,item,supplier,salary,monthlyIncome,attendence,cashiyer};
         AnchorPane load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(form)));
         root1.getChildren().clear();
         root1.getChildren().add(load);
         for (int i = 0; i < formArray.length; i++) {
-            btnArray[i].setStyle("-fx-background-color:  #ffffff; -fx-font-size: 20; -fx-text-fill: #202A44FF");
+            btnArray[i].setStyle("/*-fx-background-color:  #ffffff;*/ -fx-font-size: 1; /*-fx-text-fill: #202A44FF*/");
 
             if (form.equals(formArray[i])){
-                btnArray[i].setStyle("-fx-background-color: #4db6ac; -fx-text-fill: #ffffff");
+                btnArray[i].setStyle("/*-fx-background-color: #ffffff;*/ -fx-font-size: 20 /*-fx-text-fill: #ffffff*/");
             }
         }
     }
@@ -71,10 +73,6 @@ public class AdminMainDashbordController {
         setForm("/view/AddSupplier.fxml");
     }
 
-    public void DeliverOnAction(ActionEvent event) throws IOException {
-        setForm("/view/Diliver.fxml");
-    }
-
     public void CustomerOnAction(ActionEvent event) throws IOException {
         setForm("/view/AddCustomer.fxml");
     }
@@ -88,4 +86,13 @@ public class AdminMainDashbordController {
         root1.getChildren().clear();
         root1.getChildren().add(load);
     }
+
+    public void SalaryOnAction(ActionEvent event) throws IOException {
+        setForm("/view/Salary.fxml");
+    }
+
+    public void AttendenceOnAction(ActionEvent event) throws IOException {
+        setForm("/view/Attendance.fxml");
+    }
 }
+

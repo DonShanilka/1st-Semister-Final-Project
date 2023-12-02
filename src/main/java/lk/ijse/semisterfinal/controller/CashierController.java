@@ -100,7 +100,6 @@ public class CashierController {
         colTotal.setCellValueFactory(new PropertyValueFactory<>("Total"));
         colDiscount.setCellValueFactory(new PropertyValueFactory<>("discount"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("button"));
-        //b.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
 
     }
 
@@ -333,8 +332,8 @@ public class CashierController {
     }
 
 
-    /*public void reportOnAction(ActionEvent event) {
-        throws JRException, SQLException {
+    public void reportOnAction(ActionEvent event) {
+        /*throws JRException, SQLException {
 
             HashMap map = new HashMap<>();
 
@@ -365,7 +364,7 @@ public class CashierController {
             tm.setParkingFee(Double.parseDouble(parkingfee_txt.getCellData(index).toString()));
             tm.setType(parkingtype_txt.getCellData(index).toString());
             tm.setSpaceNum(parkingspace_txt.getCellData(index).toString());
-
-    }*/
+*/
+    }
 }
 

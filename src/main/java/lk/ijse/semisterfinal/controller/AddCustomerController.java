@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import lk.ijse.semisterfinal.Tm.CustomerTm;
 import lk.ijse.semisterfinal.Tm.EmployeeTm;
+import lk.ijse.semisterfinal.Tm.ItemTm;
 import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.model.CustomerModel;
 import org.controlsfx.control.Notifications;
@@ -62,21 +63,8 @@ public class AddCustomerController {
         txtCustitemId.setText("");
 
     }
-/*
-    private void tableListener() {
-        CustomerModel.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-            setData(newValue);
-        });
-    }
 
-    private void setData(CustomerTm row) {
-        txtemployeeId.setText(row.getId());
-        txtEmployeeName.setText(row.getName());
-        txtAddress.setText(row.getAddress());
-        txtEmployeePhone.setText(String.valueOf(row.getMobile()));
-        txtPossition.setText(String.valueOf(row.getPossition()));
-        empDate.setValue(LocalDate.parse(row.getDate()));
-    }*/
+
 
     public void CustomerUpdateOnAction(ActionEvent event) {
         
@@ -90,6 +78,7 @@ public class AddCustomerController {
             if (isDelete){
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer deleted").show();
                 loadAllCustomer();
+                clearField();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -113,7 +102,7 @@ public class AddCustomerController {
             if (isadd){
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer is Added").show();
                 loadAllCustomer();
-                //clearFileds();
+                clearField();
             }
 
         } catch (SQLException e) {
@@ -125,7 +114,7 @@ public class AddCustomerController {
     public void initialize() {
         setCellValueFactory();
         loadAllCustomer();
-        //tableListener();
+        clearField();
     }
 
     private void setCellValueFactory() {
@@ -167,11 +156,6 @@ public class AddCustomerController {
 
     private boolean validateCustomer() {
         boolean isValidate = true;
-        /*boolean id = Pattern.matches("[0-9]{0,}", txtCustId.getText());
-        if (!id){
-            showErrorNotification("Invalid Employee Id", "The Employee Id you entered is invalid");
-            isValidate = false;
-        }*/
         boolean address = Pattern.matches("[A-Za-z]{0,}",txtCustAddress.getText());
         if (!address){
             showErrorNotification("Invalid Address", "The Address you entered is invalid");

@@ -50,6 +50,7 @@ public class SalaryController {
         tableListener();
         setCellValueFactory();
         loadAllSalary();
+
     }
 
     private void tableListener() {
@@ -103,9 +104,9 @@ public class SalaryController {
     }
 
 
-    public void BackOnAction(ActionEvent event) {
+    /*public void BackOnAction(ActionEvent event) {
 
-    }
+    }*/
 
     private void loadEmployeeId() {
         ObservableList<String> obList = FXCollections.observableArrayList();

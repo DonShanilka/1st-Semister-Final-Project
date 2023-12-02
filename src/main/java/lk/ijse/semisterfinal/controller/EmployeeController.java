@@ -114,7 +114,7 @@ public class EmployeeController {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
-                //loadAllEmployee();
+                loadAllEmployee();
             }
         });
         stage.centerOnScreen();

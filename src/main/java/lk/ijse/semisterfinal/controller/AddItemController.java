@@ -5,14 +5,22 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lk.ijse.semisterfinal.Tm.ItemTm;
 import lk.ijse.semisterfinal.dto.ItemDTO;
+import lk.ijse.semisterfinal.dto.SupplierDTO;
 import lk.ijse.semisterfinal.model.ItemModel;
+import lk.ijse.semisterfinal.model.SupplierModel;
 
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -90,12 +98,17 @@ public class AddItemController {
     }
 
     public void cmbsupidOnAction(ActionEvent event) {
-
+        String id = (String) comsupid.getValue();
+        try {
+            SupplierDTO dto = SupplierModel.searchsupplier(id);
+            tmSupplierId.setText(dto.getSupId());
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
 
     private void loadAllItem() {
-
         ObservableList<ItemTm> obList = FXCollections.observableArrayList();
 
         try {
@@ -148,11 +161,21 @@ public class AddItemController {
         tmItemPrice.setCellValueFactory(new PropertyValueFactory<>("ItemPrice"));
         tmSupplierId.setCellValueFactory(new PropertyValueFactory<>("SupplierId"));
         tmWarranty.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
+        tmWarranty.setCellValueFactory(new PropertyValueFactory<>("ItemQty"));
 
     }
 
-    public void UpdateOnAction(ActionEvent event) {
-
+    public void UpdateOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/UpdateItem.fxml"))));
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                loadAllItem();
+            }
+        });
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void deleteOnAction(ActionEvent event) {
