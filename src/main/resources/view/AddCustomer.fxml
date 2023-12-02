@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="740.0" prefWidth="1113.0" style="-fx-background-color: #f7e6d4;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddCustomerController">
+<AnchorPane fx:id="rootNode" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: #f7e6d4;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddCustomerController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="192.0" prefWidth="761.0">
          <center>

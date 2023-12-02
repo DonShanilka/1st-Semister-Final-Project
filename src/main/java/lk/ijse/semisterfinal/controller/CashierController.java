@@ -27,6 +27,9 @@ import java.util.Optional;
 public class CashierController {
     @FXML
     public TextField txtDiscount;
+    public TextField paidAmount;
+    public Label lblBalence;
+    public TableColumn colDiscount;
     @FXML
     private AnchorPane pane;
     @FXML
@@ -82,6 +85,7 @@ public class CashierController {
         loadCustomerId();
         generateNextOrderId();
         setCellValueFactory();
+
     }
 
     private void setCellValueFactory() {
@@ -90,7 +94,8 @@ public class CashierController {
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("Total"));
-        //setRemoveBtnAction();
+        colDiscount.setCellValueFactory(new PropertyValueFactory<>("discount"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("button"));
         //b.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
 
     }
@@ -214,8 +219,8 @@ public class CashierController {
         String description = lblItemName.getText();
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
         int  qty = Integer.parseInt(txtQty.getText());
-        double discount = Double.parseDouble(txtDiscount.getText());
-        double tot = (double)unitPrice - discount * qty;
+        double discount =qty * Double.parseDouble(txtDiscount.getText());
+        double tot = (unitPrice * qty) - (discount * qty);
         System.out.println(discount);
         Button btn = new Button("Remove");
 
@@ -242,19 +247,29 @@ public class CashierController {
                 }
             }
         }
-        obList.add(new CartTm(code, description,unitPrice, qty, tot, btn));
+        obList.add(new CartTm(code, description,unitPrice, qty, tot,discount, btn));
 
         tblOrderCart.setItems(obList);
         calculateTotal();
     }
 
+    private void calculateBalance(){
+        double payment = Double.parseDouble(paidAmount.getText());
+        double total = 0;
+        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            total += (double) colTotal.getCellData(i);
+        }
+        double balance = payment - total;
+        lblBalence.setText(String.valueOf("Rs : " + balance));
+
+    }
 
     private void calculateTotal() {
         double total = 0;
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
             total += (double) colTotal.getCellData(i);
         }
-        lblNetTotal.setText(String.valueOf(total));
+        lblNetTotal.setText(String.valueOf("Rs : " + total));
     }
 
     private void setRemoveBtnAction(Button btn) {
@@ -276,6 +291,8 @@ public class CashierController {
 
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
+        calculateBalance();
+
         try {
             String orderId = lblOrderId.getText();
             System.out.println("Order id: " + orderId);
@@ -309,6 +326,9 @@ public class CashierController {
 
     public void txtDiscountOnAction(ActionEvent event) {
         btnAddToCartOnAction(event);
+    }
+
+    public void reportOnAction(ActionEvent event) {
     }
 }
 

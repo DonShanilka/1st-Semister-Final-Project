@@ -2,10 +2,7 @@ package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.CartTm;
-import lk.ijse.semisterfinal.dto.PlaceOrderDto;
-
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;

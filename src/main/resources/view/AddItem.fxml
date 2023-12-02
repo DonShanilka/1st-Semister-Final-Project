@@ -20,7 +20,7 @@
 
 <AnchorPane prefHeight="557.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AddItemController">
    <children>
-      <Pane fx:id="root" prefHeight="769.0" prefWidth="1140.0" style="-fx-background-color: #f7e6d4;">
+      <Pane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: #f7e6d4;">
          <children>
             <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: #f7e6d4;" />
             <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
