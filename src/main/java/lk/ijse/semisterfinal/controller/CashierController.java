@@ -13,11 +13,18 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CartTm;
 import lk.ijse.semisterfinal.dto.*;
 import lk.ijse.semisterfinal.model.*;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -308,7 +315,6 @@ public class CashierController {
             System.out.println("Place order from controller: " + cartTmList);
 
             PlaceOrderDto placeOrderDto = new PlaceOrderDto(orderId, date, customerId, cartTmList);
-            PlaceOrderDto placeOrderDto1 = new PlaceOrderDto(orderId, cmbItemCode, lblItemName, lblUnitPrice,date,txtQty,txtDiscount,lblNetTotal,paidAmount,lblBalence);
 
             boolean isSuccess = CashiyerModel.placeOrder(placeOrderDto);
 
@@ -326,7 +332,40 @@ public class CashierController {
         btnAddToCartOnAction(event);
     }
 
-    public void reportOnAction(ActionEvent event) {
-    }
+
+    /*public void reportOnAction(ActionEvent event) {
+        throws JRException, SQLException {
+
+            HashMap map = new HashMap<>();
+
+            map.put("fee", tm.getParkingFee());
+            map.put("space",tm.getSpaceNum());
+            map.put("type", tm.getType());
+
+            InputStream resourceAsStream =
+                    getClass().getResourceAsStream("../report/parkingticket.jrxml");
+            JasperDesign load = JRXmlLoader.load(resourceAsStream);
+            JasperReport compileReport = JasperCompileManager.compileReport(load);
+            JasperPrint jasperPrint =
+                    JasperFillManager.fillReport(
+                            compileReport,
+                            map,
+                            new JREmptyDataSource()
+                    );
+            JasperViewer.viewReport(jasperPrint, false);
+
+        }
+
+        public void mouseClicakAction(MouseEvent mouseEvent) {
+            Integer index  = parkingmain_txt.getSelectionModel().getSelectedIndex() ;
+            if(index <=-1){
+                return;
+            }
+            tm.setDate(LocalDate.parse(parkingdate_txt.getCellData(index).toString()));
+            tm.setParkingFee(Double.parseDouble(parkingfee_txt.getCellData(index).toString()));
+            tm.setType(parkingtype_txt.getCellData(index).toString());
+            tm.setSpaceNum(parkingspace_txt.getCellData(index).toString());
+
+    }*/
 }
 

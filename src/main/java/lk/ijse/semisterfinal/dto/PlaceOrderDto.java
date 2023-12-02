@@ -54,19 +54,7 @@ public class PlaceOrderDto {
     }
 
 
-    /*public PlaceOrderDto(String billId, String itemId, String itemName, double itemPrice, LocalDate date,int qty,double discount,double total,double payment,double balance){
-        this.orderId = billId;
-        this.itemId = itemId;
-        this.itemName = itemName;
-        this.itemPrice = itemPrice;
-        this.date = date;
-        this.qty = qty;
-        this.discount = discount;
-        this.total = total;
-        this.payment = payment;
-        this.balance = balance;
 
-    }*/
 
 
 
