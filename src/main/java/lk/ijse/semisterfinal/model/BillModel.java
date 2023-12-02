@@ -1,44 +1,34 @@
 package lk.ijse.semisterfinal.model;
 
 
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import lk.ijse.semisterfinal.DB.DbConnetion;
-import lk.ijse.semisterfinal.dto.PlaceOrderDto;
-
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class BillModel {
-    private OrderModel orderModel = new OrderModel();
-    private ItemModel itemModel = new ItemModel();
-    private OrderDetailModel orderDetailModel = new OrderDetailModel();
+    public boolean saveBillDetails(String orderId, String itemId, String itemName, Label itemPrice, LocalDate date, TextField qty, TextField discount, Label total, TextField payment, Label balance) throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
 
-   /* public boolean placeOrder(PlaceOrderDto placeOrderDto) throws SQLException {}*/
-        /*System.out.println(placeOrderDto);
+        String sql = "INSERT INTO bill VALUES(?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement pstm = connection.prepareStatement(sql);
 
-        String orderId = placeOrderDto.getOrderId();
-        String customerId = placeOrderDto.getCustomerId();
-        LocalDate date = placeOrderDto.getDate();
+        pstm.setString(1, orderId);
+        pstm.setNString(2, itemId);
+        pstm.setString(3, itemName);
+        pstm.setNString(4, String.valueOf(itemPrice));
+        pstm.setDate(5, Date.valueOf(date));
+        pstm.setNString(6, String.valueOf(qty));
+        pstm.setNString(7, String.valueOf(discount));
+        pstm.setNString(8, String.valueOf(total));
+        pstm.setNString(9, String.valueOf(payment));
+        pstm.setNString(10, String.valueOf(balance));
 
-        Connection connection = null;
-        try {
-            connection = DbConnetion.getInstance().getConnection();
-            connection.setAutoCommit(false);
+        return pstm.executeUpdate() < 0;
+    }
 
-            boolean isOrderSaved = OrderModel.saveOrder(orderId, customerId, date);
-            if (isOrderSaved) {
-                boolean isUpdated = ItemModel.updateItem(placeOrderDto.getCartTmList());
-                if (isUpdated) {
-                    boolean isOrderDetailSaved = OrderDetailModel.saveOrderDetails(placeOrderDto.getOrderId(), placeOrderDto.getCartTmList());
-                    if (isOrderDetailSaved) {
-                        connection.commit();
-                    }
-                }
-            }
-            connection.rollback();
-        } finally {
-            connection.setAutoCommit(true);
-        }
-        return true;
-    }*/
 }

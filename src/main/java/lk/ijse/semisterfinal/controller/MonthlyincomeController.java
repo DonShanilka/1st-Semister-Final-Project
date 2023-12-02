@@ -38,10 +38,6 @@ public class MonthlyincomeController  implements Initializable {
     @FXML
     private AnchorPane root1;
 
-    CartTm cartTm = new CartTm();
-    PlaceOrderDto placeOrderDto = new PlaceOrderDto();
-
-
     public void dashBordTotalOrders() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
         //DbConnetion dbConnetion = new DbConnetion();

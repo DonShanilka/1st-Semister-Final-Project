@@ -1,5 +1,9 @@
 package lk.ijse.semisterfinal.controller;
 
+
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,15 +11,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import lk.ijse.semisterfinal.Mail.Mail;
 import lk.ijse.semisterfinal.Tm.SalaryTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.SalaryDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.SalaryModel;
+
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Properties;
 
 
 public class SalaryController {
@@ -46,6 +51,7 @@ public class SalaryController {
         setCellValueFactory();
         loadAllSalary();
     }
+
     private void tableListener() {
         SalaryTm.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             setData((SalaryTm) newValue);
@@ -155,13 +161,12 @@ public class SalaryController {
     public void sendEmailOnAction(ActionEvent event) {
         System.out.println("Start");
         Sending.setText("sending...");
-        Mail mail = new Mail();
-
+        Mail mail = new Mail(); //creating an instance of Mail class
         mail.setMsg(txtMsg.getText());//email message
         mail.setTo(txtTo.getText()); //receiver's mail
         mail.setSubject(txtSubject.getText()); //email subject
-        mail.run();
-        Thread thread = new Thread(String.valueOf(mail));
+
+        Thread thread = new Thread(mail);
         thread.start();
 
         System.out.println("end");
@@ -169,6 +174,62 @@ public class SalaryController {
 
     }
 
+
+
+
+    public class Mail implements Runnable {
+        private String msg;
+        private String to;
+        private String subject;
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+
+        public void setTo(String to) {
+            this.to = to;
+        }
+
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
+
+        public boolean outMail() throws MessagingException {
+            String from = "nshanilka999@gmail.com"; //sender's email address
+            String host = "localhost";
+
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", 587);
+            Session session = Session.getInstance(properties, new Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("nshanilka999@gmail.com", "bnsy wdyx uyop fbrc");  // email and password
+                }
+            });
+
+            MimeMessage mimeMessage = new MimeMessage(session);
+            mimeMessage.setFrom(new InternetAddress(from));
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            mimeMessage.setSubject(this.subject);
+            mimeMessage.setText(this.msg);
+            Transport.send(mimeMessage);
+            return true;
+        }
+
+        public void run() {
+            if (msg != null) {
+                try {
+                    outMail();
+                } catch (MessagingException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                System.out.println("not sent. empty msg!");
+            }
+        }
+    }
 }
 
 

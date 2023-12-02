@@ -1,8 +1,10 @@
 package lk.ijse.semisterfinal.dto;
 
+import com.jfoenix.controls.JFXComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import lk.ijse.semisterfinal.Tm.CartTm;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,16 +12,38 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@ToString
+
 public class PlaceOrderDto {
     private String orderId;
     private LocalDate date;
     private String customerId;
     private String itemCode;
-    private int qty;
+    private TextField qty;
     private double unitPrice;
     private List<CartTm> cartTmList = new ArrayList<>();
 
-    public PlaceOrderDto() {
+    private String billId;
+    private String itemId;
+    private String itemName;
+    private Label itemPrice;
+    private Label total;
+    private TextField discount;
+    private TextField payment;
+    private Label balance;
+
+    public PlaceOrderDto(String billId, JFXComboBox<String> itemId, Label itemName, Label itemPrice, LocalDate date, TextField qty, TextField discount, Label total, TextField payment, Label balance) {
+        this.orderId = billId;
+        this.itemId = String.valueOf(itemId);
+        this.itemName = String.valueOf(itemName);
+        this.itemPrice = itemPrice;
+        this.date = date;
+        this.qty = qty;
+        this.discount = discount;
+        this.total = total;
+        this.payment = payment;
+        this.balance = balance;
     }
 
     public PlaceOrderDto(String orderId, LocalDate date, String customerId, List<CartTm> cartTmList) {
@@ -29,11 +53,22 @@ public class PlaceOrderDto {
         this.cartTmList = cartTmList;
     }
 
-    public PlaceOrderDto(String orderId, String customerId, String date) {
-        this.orderId = orderId;
-        this.customerId = customerId;
-        this.date = LocalDate.parse(date);
-    }
+
+    /*public PlaceOrderDto(String billId, String itemId, String itemName, double itemPrice, LocalDate date,int qty,double discount,double total,double payment,double balance){
+        this.orderId = billId;
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.date = date;
+        this.qty = qty;
+        this.discount = discount;
+        this.total = total;
+        this.payment = payment;
+        this.balance = balance;
+
+    }*/
+
+
 
 
     public void setOrderId(String orderId) {

@@ -83,4 +83,9 @@ public class AdminMainDashbordController {
         setForm("/view/Cashier.fxml");
     }
 
+    public void logOutOnAction(ActionEvent event) throws IOException {
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/selectroll.fxml"));
+        root1.getChildren().clear();
+        root1.getChildren().add(load);
+    }
 }

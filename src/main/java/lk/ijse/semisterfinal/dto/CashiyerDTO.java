@@ -16,13 +16,9 @@ public class CashiyerDTO {
     private String itemName;
     private int qty;
     private double itemPrice;
-    private double discount;
     private double total;
     private LocalDate date;
-
-    public CashiyerDTO(String text, String text1, String value) {
-        billId = text;
-        itemId = text1;
-        itemName = value;
-    }
+    private double discount;
+    private double payment;
+    private double balance;
 }

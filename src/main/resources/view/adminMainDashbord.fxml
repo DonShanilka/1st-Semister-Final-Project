@@ -44,7 +44,7 @@
                   <Font name="Constantia Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="cashiyer1" layoutX="7.0" layoutY="724.0" onAction="#logOutOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Log Out" textFill="#4db6ac">
+            <JFXButton fx:id="cashiyer1" layoutX="7.0" layoutY="691.0" onAction="#logOutOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Log Out" textFill="#4db6ac">
                <font>
                   <Font name="Constantia Bold" size="20.0" />
                </font>

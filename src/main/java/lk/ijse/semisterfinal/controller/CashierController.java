@@ -11,10 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CartTm;
-import lk.ijse.semisterfinal.dto.CashiyerDTO;
-import lk.ijse.semisterfinal.dto.CusromerDTO;
-import lk.ijse.semisterfinal.dto.ItemDTO;
-import lk.ijse.semisterfinal.dto.PlaceOrderDto;
+import lk.ijse.semisterfinal.dto.*;
 import lk.ijse.semisterfinal.model.*;
 
 
@@ -311,6 +308,7 @@ public class CashierController {
             System.out.println("Place order from controller: " + cartTmList);
 
             PlaceOrderDto placeOrderDto = new PlaceOrderDto(orderId, date, customerId, cartTmList);
+            PlaceOrderDto placeOrderDto1 = new PlaceOrderDto(orderId, cmbItemCode, lblItemName, lblUnitPrice,date,txtQty,txtDiscount,lblNetTotal,paidAmount,lblBalence);
 
             boolean isSuccess = CashiyerModel.placeOrder(placeOrderDto);
 
