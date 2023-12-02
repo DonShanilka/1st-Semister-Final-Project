@@ -40,7 +40,6 @@ public class MonthlyincomeController  implements Initializable {
 
     public void dashBordTotalOrders() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
-        //DbConnetion dbConnetion = new DbConnetion();
 
         String sql = "SELECT COUNT(order_id) FROM orders";
 
@@ -62,7 +61,6 @@ public class MonthlyincomeController  implements Initializable {
 
     public void dashBordTotalInCome() throws SQLException {
         Connection connection = DbConnetion.getInstance().getConnection();
-        //DbConnetion dbConnetion = new DbConnetion();
 
         String sql = "SELECT SUM(unit_price) FROM order_detail";
 
@@ -74,14 +72,12 @@ public class MonthlyincomeController  implements Initializable {
 
             while(resultSet.next()){
                 totalInCome = resultSet.getDouble("SUM(unit_price)");
-
             }
             lblTotalInCome.setText("Rs. " + String.valueOf(totalInCome));
 
         } catch (SQLException e){
             e.printStackTrace();
         }
-
     }
 
     public void dashBordTotalUnits() throws SQLException {
@@ -131,7 +127,7 @@ public class MonthlyincomeController  implements Initializable {
 
     public void orderChart() throws SQLException {
         orderDataChart.getData().clear();
-        String sql = "SELECT date, COUNT(order_id) FROM orders WHERE date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 7"; //"SELECT * FROM orders WHERE date > CURRENT_DATE - INTERVAL 7 DAY";
+        String sql = "SELECT date, COUNT(order_id) FROM orders WHERE date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 7";
 
         Connection connection = DbConnetion.getInstance().getConnection();
 

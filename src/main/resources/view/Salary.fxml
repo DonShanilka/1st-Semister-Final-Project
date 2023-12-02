@@ -11,11 +11,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="674.0" prefWidth="888.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
+<AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
    <children>
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #00004DFF;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
@@ -82,5 +83,6 @@
       <Line endX="177.0" layoutX="582.0" layoutY="378.0" startX="-100.0" />
       <TextArea fx:id="txtMsg" layoutX="477.0" layoutY="292.0" prefHeight="83.0" prefWidth="283.0" style="-fx-background-color: #00004DFF;" />
       <Text fx:id="Sending" layoutX="662.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sending ...." wrappingWidth="96.0" />
+      <Pane accessibleRole="LIST_VIEW" layoutX="17.0" layoutY="22.0" prefHeight="722.0" prefWidth="1137.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
    </children>
 </AnchorPane>

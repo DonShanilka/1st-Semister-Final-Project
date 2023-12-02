@@ -5,12 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.EmployeeTm;
 import lk.ijse.semisterfinal.Tm.SupplierTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
@@ -18,11 +20,16 @@ import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.SupplierModel;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class EmployeeController {
+public class EmployeeController implements Initializable {
 
     public TextField txtemployeeId;
     public TextField txtEmployeeName;
@@ -40,6 +47,7 @@ public class EmployeeController {
     public TableColumn <?, ?>  tmEmpPossition;
     public TableView <EmployeeTm>  EmployeeTm;
     public AnchorPane root;
+    public Label lblTotalEmployee;
 
     public void initialize(){
         loadAllEmployee();
@@ -164,4 +172,37 @@ public class EmployeeController {
         }
     }
 
+    public void totalItem() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT COUNT(employee_id) FROM employee";
+
+        String totalid = null;
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                totalid = resultSet.getString("COUNT(total_id)");
+            }
+            lblTotalEmployee.setText(totalid);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            totalItem();
+            loadAllEmployee();
+            clearField();
+            setCellValueFactory();
+            tableListener();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

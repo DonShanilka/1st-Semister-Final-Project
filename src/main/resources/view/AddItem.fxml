@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -22,14 +23,15 @@
    <children>
       <Pane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;">
          <children>
-            <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: white;" />
+            <Pane layoutX="14.0" layoutY="26.0" prefHeight="722.0" prefWidth="1137.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
+            <TextField fx:id="txtItemCode" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Code" style="-fx-background-color: #e6e6ff;" />
             <Line endX="100.0" layoutX="126.0" layoutY="124.0" startX="-100.0" />
             <Line endX="100.0" layoutX="126.0" layoutY="166.0" startX="-100.0" />
-            <TextField fx:id="serachItem" layoutX="15.0" layoutY="19.0" onAction="#itemSerachOnAction" prefHeight="25.0" prefWidth="295.0" />
-            <TextField fx:id="txtItemPrice" layoutX="272.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Price" style="-fx-background-color: white;" />
+            <TextField fx:id="serachItem" layoutX="26.0" layoutY="45.0" onAction="#itemSerachOnAction" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="txtItemPrice" layoutX="272.0" layoutY="99.0" prefHeight="25.0" prefWidth="201.0" promptText="item Price" style="-fx-background-color: #e6e6ff;" />
             <Line endX="100.0" layoutX="373.0" layoutY="124.0" startX="-100.0" />
             <Line endX="100.0" layoutX="373.0" layoutY="166.0" startX="-100.0" />
-            <TextField fx:id="txtWarrantyPeriod" layoutX="272.0" layoutY="140.0" prefHeight="25.0" prefWidth="201.0" promptText="Warranty Period" style="-fx-background-color: white;" />
+            <TextField fx:id="txtWarrantyPeriod" layoutX="272.0" layoutY="140.0" prefHeight="25.0" prefWidth="201.0" promptText="Warranty Period" style="-fx-background-color: #e6e6ff;" />
             <TextArea fx:id="txtitemDetails" layoutX="26.0" layoutY="182.0" prefHeight="82.0" prefWidth="450.0" promptText="item Details" style="-fx-background-radius: 0; -fx-background-color: #00004DFF;">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -59,10 +61,10 @@
                </font>
             </Text>
             <JFXButton layoutX="500.0" layoutY="228.0" onAction="#AddItemOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="+ Add" />
-            <ComboBox fx:id="comsupid" layoutX="88.0" layoutY="139.0" onAction="#cmbsupidOnAction" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: white;" />
+            <ComboBox fx:id="comsupid" layoutX="88.0" layoutY="139.0" onAction="#cmbsupidOnAction" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: #e6e6ff;" />
             <Text fill="#0000006a" layoutX="26.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier id" />
             <JFXButton layoutX="651.0" layoutY="228.0" onAction="#UpdateOnAction" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: yellow;" text="Update" />
-            <ImageView fitHeight="322.0" fitWidth="267.0" layoutX="904.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="322.0" fitWidth="267.0" layoutX="840.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/AddItem.png" />
                </image>
@@ -83,7 +85,12 @@
                   <Font name="System Bold" size="16.0" />
                </font></JFXButton>
             <Line endX="100.0" layoutX="602.0" layoutY="165.0" startX="-100.0" />
-            <TextField fx:id="txtQty" layoutX="501.0" layoutY="139.0" prefHeight="25.0" prefWidth="201.0" promptText="Item Qty" style="-fx-background-color: white;" />
+            <TextField fx:id="txtQty" layoutX="501.0" layoutY="139.0" prefHeight="25.0" prefWidth="201.0" promptText="Item Qty" style="-fx-background-color: #e6e6ff;" />
+            <Label fx:id="lblTotalItem" layoutX="830.0" layoutY="57.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

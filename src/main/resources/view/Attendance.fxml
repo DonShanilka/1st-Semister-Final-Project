@@ -10,11 +10,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="619.0" prefWidth="869.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AttendanceController">
+<AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AttendanceController">
    <children>
+      <Pane accessibleRole="LIST_VIEW" layoutX="10.0" layoutY="13.0" prefHeight="738.0" prefWidth="1149.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #00004DFF;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
          <font>
@@ -31,11 +33,11 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comEmpId" layoutX="15.0" layoutY="203.0" onAction="#cmbEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: white;" />
-      <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: white;" />
+      <ComboBox fx:id="comEmpId" layoutX="15.0" layoutY="203.0" onAction="#cmbEmpIdOnAction" prefWidth="150.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
+      <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
-      <TableView fx:id="atendanceTm" layoutX="14.0" layoutY="370.0" prefHeight="233.0" prefWidth="741.0" style="-fx-background-color: #00004DFF;">
+      <TableView fx:id="atendanceTm" layoutX="14.0" layoutY="370.0" prefHeight="233.0" prefWidth="741.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.layout.Pane?&gt;&lt;Pane accessibleRole=&quot;LIST_VIEW&quot; layoutX=&quot;14.0&quot; layoutY=&quot;26.0&quot; prefHeight=&quot;722.0&quot; prefWidth=&quot;1137.0&quot; style=&quot;-fx-background-color: #e6e6ff; -fx-background-radius: 20;&quot; xmlns=&quot;http://javafx.com/javafx/21&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot; /&gt;;">
         <columns>
           <TableColumn fx:id="colId" prefWidth="148.0" text="Employee Id" />
           <TableColumn fx:id="colName" prefWidth="319.0" text="Employee Name" />

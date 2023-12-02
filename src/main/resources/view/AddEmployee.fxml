@@ -2,17 +2,47 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.EmployeeController">
    <children>
+      <Pane accessibleRole="LIST_VIEW" layoutX="16.0" layoutY="14.0" prefHeight="738.0" prefWidth="1142.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="321.0" fitWidth="303.0" layoutX="839.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/AddEmployee.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtSerach" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="201.0" promptText="serach" style="-fx-background-color: #e6e6ff;" />
+            <Line endX="100.0" layoutX="114.0" layoutY="38.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="115.0" layoutY="417.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="115.0" layoutY="474.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="115.0" layoutY="528.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="115.0" layoutY="585.0" startX="-100.0" />
+            <TextField fx:id="txtEmployeeName" layoutX="15.0" layoutY="447.0" prefHeight="25.0" prefWidth="201.0" promptText="Employee Name" style="-fx-background-color: #e6e6ff;" />
+            <TextField fx:id="txtEmployeeGender" layoutX="15.0" layoutY="502.0" prefHeight="25.0" prefWidth="201.0" promptText="Gender" style="-fx-background-color: #e6e6ff;" />
+            <TextField fx:id="txtEmployeePhone" layoutX="15.0" layoutY="558.0" prefHeight="25.0" prefWidth="201.0" promptText="Phone" style="-fx-background-color: #e6e6ff;" />
+            <TextField fx:id="txtemployeeId" layoutX="15.0" layoutY="389.0" prefHeight="26.0" prefWidth="201.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
+            <Line endX="100.0" layoutX="364.0" layoutY="528.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="363.0" layoutY="472.0" startX="-100.0" />
+            <TextField fx:id="txtAddress" layoutX="264.0" layoutY="502.0" prefHeight="25.0" prefWidth="201.0" promptText="Address" style="-fx-background-color: #e6e6ff;" />
+            <TextField fx:id="txtPossition" layoutX="263.0" layoutY="445.0" prefHeight="25.0" prefWidth="201.0" promptText="Possition" style="-fx-background-color: #e6e6ff;" />
+            <DatePicker fx:id="empDate" layoutX="262.0" layoutY="390.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #00004DFF;" />
+         </children>
+      </Pane>
       <TableView fx:id="EmployeeTm" layoutX="33.0" layoutY="102.0" prefHeight="261.0" prefWidth="1106.0" style="-fx-background-color: #00004DFF;">
         <columns>
           <TableColumn fx:id="tmid" prefWidth="81.0" text="id" />
@@ -24,18 +54,6 @@
             <TableColumn fx:id="tmEmpPossition" prefWidth="127.0" text="Possition" />
         </columns>
       </TableView>
-      <Line endX="100.0" layoutX="116.0" layoutY="418.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="116.0" layoutY="475.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="116.0" layoutY="529.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="116.0" layoutY="586.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="377.0" layoutY="528.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="376.0" layoutY="472.0" startX="-100.0" />
-      <TextField fx:id="txtSerach" layoutX="16.0" layoutY="27.0" prefHeight="25.0" prefWidth="201.0" promptText="serach" style="-fx-background-color: white;" />
-      <TextField fx:id="txtEmployeeName" layoutX="16.0" layoutY="448.0" prefHeight="25.0" prefWidth="201.0" promptText="Employee Name" style="-fx-background-color: white;" />
-      <TextField fx:id="txtEmployeeGender" layoutX="16.0" layoutY="503.0" prefHeight="25.0" prefWidth="201.0" promptText="Gender" style="-fx-background-color: white;" />
-      <TextField fx:id="txtEmployeePhone" layoutX="16.0" layoutY="559.0" prefHeight="25.0" prefWidth="201.0" promptText="Phone" style="-fx-background-color: white;" />
-      <TextField fx:id="txtAddress" layoutX="277.0" layoutY="502.0" prefHeight="25.0" prefWidth="201.0" promptText="Address" style="-fx-background-color: white;" />
-      <TextField fx:id="txtPossition" layoutX="276.0" layoutY="445.0" prefHeight="25.0" prefWidth="201.0" promptText="Possition" style="-fx-background-color: white;" />
       <JFXButton layoutX="16.0" layoutY="669.0" onAction="#EmployeeAddOnAction" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: yellow; -fx-background-radius: 5;" text="+ Add">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -51,13 +69,28 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <DatePicker fx:id="empDate" layoutX="275.0" layoutY="390.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #00004DFF;" />
-      <ImageView fitHeight="377.0" fitWidth="381.0" layoutX="773.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/AddEmployee.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtemployeeId" layoutX="16.0" layoutY="390.0" prefHeight="26.0" prefWidth="201.0" style="-fx-background-color: white;" />
-      <Line endX="100.0" layoutX="116.0" layoutY="52.0" startX="-100.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" height="53.0" layoutX="902.0" layoutY="25.0" stroke="#000590" strokeType="INSIDE" width="237.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.3270142180094787" startY="0.895734597156398">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.0660940557718277" green="0.27645793557167053" blue="0.46052631735801697" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.032224658876657486" green="0.032224658876657486" blue="0.30263158679008484" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label fx:id="lblTotalEmployee" layoutX="914.0" layoutY="31.0" prefHeight="30.0" prefWidth="0.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

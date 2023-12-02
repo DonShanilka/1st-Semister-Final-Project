@@ -3,11 +3,16 @@ package lk.ijse.semisterfinal.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lk.ijse.semisterfinal.Tm.CustomerTm;
 import lk.ijse.semisterfinal.Tm.EmployeeTm;
 import lk.ijse.semisterfinal.Tm.ItemTm;
@@ -15,6 +20,7 @@ import lk.ijse.semisterfinal.dto.CusromerDTO;
 import lk.ijse.semisterfinal.model.CustomerModel;
 import org.controlsfx.control.Notifications;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -66,7 +72,17 @@ public class AddCustomerController {
 
 
 
-    public void CustomerUpdateOnAction(ActionEvent event) {
+    public void CustomerUpdateOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/UpdateCustomer.fxml"))));
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                loadAllCustomer();
+            }
+        });
+        stage.centerOnScreen();
+        stage.show();
         
     }
 

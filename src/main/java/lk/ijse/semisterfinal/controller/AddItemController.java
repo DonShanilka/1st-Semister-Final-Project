@@ -6,13 +6,16 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lk.ijse.semisterfinal.DB.DbConnetion;
 import lk.ijse.semisterfinal.Tm.ItemTm;
 import lk.ijse.semisterfinal.dto.ItemDTO;
 import lk.ijse.semisterfinal.dto.SupplierDTO;
@@ -21,10 +24,15 @@ import lk.ijse.semisterfinal.model.SupplierModel;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class AddItemController {
+public class AddItemController implements Initializable {
     public TextField txtItemCode;
     public TextField txtItemPrice;
     public TextField txtWarrantyPeriod;
@@ -40,6 +48,8 @@ public class AddItemController {
     public TableColumn <?,?> tmWarranty;
     public TextField txtQty;
     public TextField serachItem;
+    @FXML
+    public Label lblTotalItem;
 
     public void initialize() {
         setCellValueFactory();
@@ -91,6 +101,7 @@ public class AddItemController {
                 loadAllItem();
                 clearField();
                 itemSerachOnAction();
+                totalItem();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -172,6 +183,11 @@ public class AddItemController {
             @Override
             public void handle(WindowEvent windowEvent) {
                 loadAllItem();
+                try {
+                    totalItem();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
         stage.centerOnScreen();
@@ -186,6 +202,7 @@ public class AddItemController {
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item has deleted!").show();
                 loadAllItem();
+                totalItem();
             } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item not deleted!").show();
             }
@@ -215,6 +232,39 @@ public class AddItemController {
         SortedList <ItemTm> sortedList = new SortedList<>(filteredData);
         sortedList.comparatorProperty().bind(ItemTm.comparatorProperty());
         ItemTm.setItems(sortedList);
+    }
+
+    public void totalItem() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT COUNT(item_code) FROM item";
+
+        String totalItem = null;
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                totalItem = resultSet.getString("COUNT(item_code)");
+            }
+            lblTotalItem.setText(totalItem);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            totalItem();
+            setCellValueFactory();
+            tableListener();
+            loadAllItem();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

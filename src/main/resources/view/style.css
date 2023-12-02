@@ -4,12 +4,12 @@
 }
 
 .button:hover {
-    -fx-background-color: rgb(96, 120, 255);
+    -fx-background-color: rgb(4, 23, 116);
     -fx-background-radius: 5 5 5 5;
 }
 
 .button:pressed{
-    -fx-background-color: rgba(48, 137, 151, 0.89);
+    -fx-background-color: rgba(0, 32, 144, 0.89);
     -fx-background-radius: 5 5 5 5;
 }
 
@@ -29,4 +29,14 @@
 }
 .text-field:focused {
     -fx-background-color: -fx-primary-color, white;
+}
+
+.total {
+    background: rgb(2,0,36);
+}
+
+.box {
+   -fx-background-color: white;
+    -fx-padding: 2em;
+    -fx-show-tick-labels: 0 0 20px 0px rgba(0,0,0,.5);
 }

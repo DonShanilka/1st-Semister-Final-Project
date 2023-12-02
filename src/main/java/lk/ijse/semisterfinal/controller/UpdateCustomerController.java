@@ -33,11 +33,11 @@ public class UpdateCustomerController {
 
     private boolean validateEmployee() {
         boolean isValidate = true;
-        /*boolean id = Pattern.matches("[C]{0,}", customerId.getText());
+        boolean id = Pattern.matches("[C]{0,}", customerId.getValue().toString());
         if (!id){
             showErrorNotification("Invalid Customer Id", "The Customer Id you entered is invalid");
             isValidate = false;
-        }*/
+        }
         boolean name = Pattern.matches("[A-Za-z]{5,}", customerName.getText());
         if (!name){
             showErrorNotification("Invalid Customer Name", "The Customer name you entered is invalid");
