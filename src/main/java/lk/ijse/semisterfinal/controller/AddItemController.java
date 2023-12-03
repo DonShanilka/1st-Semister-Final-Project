@@ -50,6 +50,7 @@ public class AddItemController implements Initializable {
     public TextField serachItem;
     @FXML
     public Label lblTotalItem;
+    public TableColumn <?,?> tmQty;
 
     public void initialize() throws SQLException {
         totalItem();
@@ -72,6 +73,7 @@ public class AddItemController implements Initializable {
         txtItemPrice.setText(String.valueOf(row.getItemPrice()));
         comsupid.setValue(row.getSupplierId());
         txtWarrantyPeriod.setText(row.getWarrantyPeriod());
+        txtQty.setText(String.valueOf(row.getItemQty()));
 
     }
 
@@ -81,6 +83,7 @@ public class AddItemController implements Initializable {
         txtItemPrice.setText("");
         txtWarrantyPeriod.setText("");
         txtitemDetails.setText("");
+        txtQty.setText("");
 
     }
 
@@ -173,7 +176,7 @@ public class AddItemController implements Initializable {
         tmItemPrice.setCellValueFactory(new PropertyValueFactory<>("ItemPrice"));
         tmSupplierId.setCellValueFactory(new PropertyValueFactory<>("SupplierId"));
         tmWarranty.setCellValueFactory(new PropertyValueFactory<>("WarrantyPeriod"));
-        tmWarranty.setCellValueFactory(new PropertyValueFactory<>("ItemQty"));
+        tmQty.setCellValueFactory(new PropertyValueFactory<>("ItemQty"));
 
     }
 

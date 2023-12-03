@@ -24,8 +24,9 @@ public class UpdateEmployeeController {
     public DatePicker updateEmpDate;
     public ComboBox <String> updateEmpGender;
     public TextField updateEmpPosition;
+    public TextField txtEmail;
 
-   private AddEmployeeModel employeeModel = new AddEmployeeModel();
+    private AddEmployeeModel employeeModel = new AddEmployeeModel();
 
     public void initialize() {
         setValue();
@@ -79,14 +80,10 @@ public class UpdateEmployeeController {
         updateEmpName.setText("");
         updateEmpaddress.setText("");
         updateEmpMobile.setText("");
-        updateEmpDate.setValue(LocalDate.parse(""));
         updateEmpGender.setValue("");
         updateEmpPosition.setText("");
     }
 
-    public void BackOnAction(ActionEvent event) {
-
-    }
 
     public void employeeUpdateSaveOnAction(ActionEvent event) {
         String id = (String) updateEmpId.getValue();
@@ -94,14 +91,14 @@ public class UpdateEmployeeController {
         String address = updateEmpaddress.getText();
         int contact = Integer.parseInt(updateEmpMobile.getText());
         String date = String.valueOf(updateEmpDate.getValue());
-        //String gender = (String) updateEmpGender.getValue();
+        String gmail = txtEmail.getText();
         String job = updateEmpPosition.getText();
 
         try{
             if (!validateEmployee()){
                 return;
             }
-            var dto = new AddEmployeeDTO(id,name,address,contact,date,job);
+            var dto = new AddEmployeeDTO(id,name,address,contact,date,job,gmail);
             boolean isUpdate = employeeModel.updateEmployee(dto);
 
             if (isUpdate){
@@ -122,6 +119,8 @@ public class UpdateEmployeeController {
             updateEmpMobile.setText(String.valueOf(dto.getEmployeePhone()));
             updateEmpaddress.setText(dto.getEmpAddress());
             updateEmpPosition.setText(dto.getEmpPosition());
+            updateEmpDate.setValue(LocalDate.parse(dto.getEmpDate()));
+            txtEmail.setText(dto.getEmail());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

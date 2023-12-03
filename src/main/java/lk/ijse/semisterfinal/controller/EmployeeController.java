@@ -62,8 +62,10 @@ public class EmployeeController implements Initializable {
         tmEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         tmEmpMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
         tmStartDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        tmEmpEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        tmEmpJob.setCellValueFactory(new PropertyValueFactory<>("possition"));
+        tmEmpJob.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tmEmpEmail.setCellValueFactory(new PropertyValueFactory<>("possition"));
+
+
 
     }
 
@@ -90,7 +92,7 @@ public class EmployeeController implements Initializable {
         txtAddress.setText(row.getAddress());
         txtEmployeePhone.setText(String.valueOf(row.getMobile()));
         txtPossition.setText(String.valueOf(row.getPossition()));
-        txtEmail.setText(String.valueOf(row.getPossition()));
+        txtEmail.setText(String.valueOf(row.getEmail()));
         empDate.setValue(LocalDate.parse(row.getDate()));
     }
 
@@ -186,7 +188,7 @@ public class EmployeeController implements Initializable {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()){
-                totalid = resultSet.getString("COUNT(total_id)");
+                totalid = resultSet.getString("COUNT(employee_id)");
             }
             lblTotalEmployee.setText(totalid);
 

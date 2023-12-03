@@ -91,6 +91,11 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lblTotalCustomer" layoutX="14.0" layoutY="16.0" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

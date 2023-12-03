@@ -18,7 +18,18 @@
 
 <AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.SalaryController">
    <children>
-      <Pane accessibleRole="LIST_VIEW" layoutX="9.0" layoutY="22.0" prefHeight="722.0" prefWidth="1149.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
+      <Pane accessibleRole="LIST_VIEW" layoutX="9.0" layoutY="22.0" prefHeight="722.0" prefWidth="1149.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
+         <children>
+            <TableView fx:id="salaryTm" layoutX="43.0" layoutY="455.0" prefHeight="204.0" prefWidth="611.0" style="-fx-background-color: #00004DFF;">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="121.0" text="Employee Id" />
+                  <TableColumn fx:id="colName" prefWidth="230.0" text="Employee Name" />
+                  <TableColumn fx:id="colDate" prefWidth="117.0" text="Date" />
+                  <TableColumn fx:id="colSalary" minWidth="0.0" prefWidth="145.0" text="Salary" />
+                  <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="0.0" text="Remove" />
+               </columns>
+            </TableView>
+         </children></Pane>
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #00004DFF;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
          <font>
@@ -39,15 +50,6 @@
       <TextField fx:id="lblName" layoutX="15.0" layoutY="300.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="60.0" layoutX="115.0" layoutY="325.0" startX="-100.0" />
       <Line endX="60.0" layoutX="116.0" layoutY="232.0" startX="-100.0" />
-      <TableView fx:id="salaryTm" layoutX="13.0" layoutY="459.0" prefHeight="204.0" prefWidth="710.0" style="-fx-background-color: #00004DFF;">
-         <columns>
-            <TableColumn fx:id="colId" prefWidth="121.0" text="Employee Id" />
-            <TableColumn fx:id="colName" prefWidth="230.0" text="Employee Name" />
-            <TableColumn fx:id="colDate" prefWidth="117.0" text="Date" />
-            <TableColumn fx:id="colSalary" minWidth="0.0" prefWidth="145.0" text="Salary" />
-            <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="100.0" text="Remove" />
-         </columns>
-      </TableView>
       <ImageView fitHeight="222.0" fitWidth="174.0" layoutX="695.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/confiromAtendance.png" />

@@ -41,7 +41,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="302.0" layoutY="102.0" text="Gender :">
+      <Label layoutX="302.0" layoutY="102.0" text="Email :">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -61,13 +61,13 @@
       <TextField fx:id="updateEmpMobile" layoutX="24.0" layoutY="380.0" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #e6e6ff;" />
       <DatePicker fx:id="updateEmpDate" layoutX="21.0" layoutY="463.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="73.0" layoutX="123.0" layoutY="490.0" startX="-100.0" stroke="#300440" />
-      <ComboBox fx:id="updateEmpGender" layoutX="302.0" layoutY="119.0" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #e6e6ff;" />
-      <Line endX="24.0" layoutX="403.0" layoutY="144.0" startX="-100.0" stroke="#300440" />
+      <Line endX="73.0" layoutX="403.0" layoutY="145.0" startX="-100.0" stroke="#300440" />
       <Line endX="24.0" layoutX="401.0" layoutY="237.0" startX="-100.0" stroke="#300440" />
       <TextField fx:id="updateEmpPosition" layoutX="300.0" layoutY="210.0" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #e6e6ff;" />
       <JFXButton buttonType="RAISED" layoutX="632.0" layoutY="541.0" onAction="#employeeUpdateSaveOnAction" prefHeight="36.0" prefWidth="77.0" style="-fx-background-color: #08084d;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
+      <TextField fx:id="txtEmail" layoutX="301.0" layoutY="119.0" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #e6e6ff;" />
    </children>
 </AnchorPane>

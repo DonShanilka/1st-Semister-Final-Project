@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class MonthlyincomeController  implements Initializable {
 
+    public Label lblTotalCustomer;
     @FXML
     private AreaChart<?, ?> incomeDataChart;
 
@@ -103,7 +104,7 @@ public class MonthlyincomeController  implements Initializable {
         }
     }
 
-    public void incomeChart() throws SQLException {
+    /*public void incomeChart() throws SQLException {
         incomeDataChart.getData().clear();
 
         String sql = "SELECT date,SUM(unit_price) FROM order_detail GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 6";
@@ -123,7 +124,7 @@ public class MonthlyincomeController  implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void orderChart() throws SQLException {
         orderDataChart.getData().clear();
@@ -148,11 +149,33 @@ public class MonthlyincomeController  implements Initializable {
         }
     }
 
+    public void totalCustomer() throws SQLException {
+        Connection connection = DbConnetion.getInstance().getConnection();
+
+        String sql = "SELECT COUNT(customer_id) FROM customer";
+
+        String totalid = null;
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                totalid = resultSet.getString("COUNT(customer_id)");
+            }
+            lblTotalCustomer.setText(totalid);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             orderChart();
-            incomeChart();
+            //incomeChart();
+            totalCustomer();
             dashBordTotalInCome();
             dashBordTotalUnits();
             dashBordTotalOrders();
