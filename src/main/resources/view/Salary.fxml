@@ -48,7 +48,6 @@
             <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="100.0" text="Remove" />
          </columns>
       </TableView>
-      <JFXButton layoutX="226.0" layoutY="395.0" onAction="#AddSalaryOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="+ Add" />
       <ImageView fitHeight="222.0" fitWidth="174.0" layoutX="695.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/confiromAtendance.png" />
@@ -75,7 +74,10 @@
       <Line endX="48.0" layoutX="583.0" layoutY="145.0" startX="-100.0" />
       <TextField fx:id="txtSubject" layoutX="479.0" layoutY="203.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #e6e6ff;" />
       <Line endX="135.0" layoutX="582.0" layoutY="229.0" startX="-100.0" />
-      <JFXButton layoutX="479.0" layoutY="395.0" onAction="#sendEmailOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="Send Email" />
+      <JFXButton layoutX="479.0" layoutY="395.0" onAction="#sendEmailOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #08084d;" text="Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
       <Label layoutX="479.0" layoutY="272.0" text="Subject :">
          <font>
             <Font name="System Bold" size="15.0" />

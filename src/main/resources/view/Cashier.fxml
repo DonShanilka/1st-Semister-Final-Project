@@ -13,25 +13,34 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="758.0" prefWidth="1184.0" style="-fx-background-color: #f7e6d4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
+<AnchorPane fx:id="pane" prefHeight="758.0" prefWidth="1184.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.CashierController">
    <children>
-      <Label layoutX="16.0" layoutY="7.0" prefHeight="42.0" prefWidth="330.0" text="Add To Bill" textFill="#5e5c5c">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="483.0" layoutY="600.0" text="Customer Id:">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <JFXComboBox fx:id="cmbCustomerId" layoutX="578.0" layoutY="584.0" onAction="#cmbCustomerOnAction" prefHeight="33.0" prefWidth="107.0" />
-      <Label layoutX="483.0" layoutY="656.0" text="Customer Name:">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tblOrderCart" layoutX="12.0" layoutY="72.0" prefHeight="353.0" prefWidth="831.0">
+      <Pane layoutX="17.0" layoutY="16.0" prefHeight="727.0" prefWidth="1150.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
+         <children>
+            <Pane layoutX="5.0" layoutY="416.0" prefHeight="105.0" prefWidth="294.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="12.0" layoutY="31.0" text="Customer Id:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="cmbCustomerId" layoutX="107.0" layoutY="15.0" onAction="#cmbCustomerOnAction" prefHeight="33.0" prefWidth="107.0" />
+                  <Label layoutX="11.0" layoutY="66.0" text="Customer Name:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCustomerName" layoutX="134.0" layoutY="70.0" />
+               </children>
+            </Pane>
+            <Label layoutX="14.0" layoutY="7.0" prefHeight="42.0" prefWidth="330.0" text="Add To Bill" textFill="#5e5c5c">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tblOrderCart" layoutX="20.0" layoutY="72.0" prefHeight="353.0" prefWidth="831.0">
          <columns>
             <TableColumn fx:id="colItemCode" text="Item Code" />
             <TableColumn fx:id="colDescription" prefWidth="232.0" text="Item Name" />
@@ -52,7 +61,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblCustomerName" layoutX="606.0" layoutY="660.0" />
       <Pane layoutX="854.0" layoutY="72.0" prefHeight="663.0" prefWidth="294.0" style="-fx-background-color: white; -fx-background-radius: 2;">
          <children>
             <Label layoutX="14.0" layoutY="27.0" text="Order Id:">

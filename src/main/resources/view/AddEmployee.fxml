@@ -21,9 +21,9 @@
    <children>
       <Pane accessibleRole="LIST_VIEW" layoutX="16.0" layoutY="14.0" prefHeight="725.0" prefWidth="1142.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
          <children>
-            <ImageView fitHeight="321.0" fitWidth="303.0" layoutX="839.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="357.0" fitWidth="382.0" layoutX="765.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/AddEmployee.png" />
+                  <Image url="@../image/Employeeeee.jpg" />
                </image>
             </ImageView>
             <TextField fx:id="txtSerach" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="201.0" promptText="serach" style="-fx-background-color: #e6e6ff;" />
@@ -80,7 +80,7 @@
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.032224658876657486" green="0.032224658876657486" blue="0.30263158679008484" />
+                        <Color red="0.0313725508749485" green="0.0313725508749485" blue="0.3019607961177826" />
                      </color>
                   </Stop>
                </stops>

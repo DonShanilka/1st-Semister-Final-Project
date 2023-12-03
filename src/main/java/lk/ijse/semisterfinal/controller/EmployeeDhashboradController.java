@@ -12,7 +12,6 @@ public class EmployeeDhashboradController {
 
 
     public JFXButton empSupplier;
-    public JFXButton empDeliver;
     public JFXButton empCustomer;
     public JFXButton cashier;
     public AnchorPane rootNode1;
@@ -25,14 +24,14 @@ public class EmployeeDhashboradController {
         CashierOnAction(null);
     }
     void setForm(String form) throws IOException {
-        String[] formArray = {"/view/Cashier.fxml","/view/AddCustomer.fxml", "/view/AddItem.fxml", "/view/AddDiliver.fxml", "/view/viewSuppler.fxml"};
+        String[] formArray = {"/view/Cashier.fxml","/view/AddCustomer.fxml", "/view/AddItem.fxml", "/view/viewSuppler.fxml"};
 
-        JFXButton[] btnArray = {cashier,empCustomer,empItem,empDeliver,empSupplier};
+        JFXButton[] btnArray = {cashier,empCustomer,empItem,empSupplier};
         AnchorPane load = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(form)));
         root.getChildren().clear();
         root.getChildren().add(load);
         for (int i = 0; i < formArray.length; i++) {
-            btnArray[i].setStyle("/*-fx-background-color:  #1032ff;*/ / -fx-font-size: 1; -fx-text-fill: #ffffff*/");
+            btnArray[i].setStyle("/*-fx-background-color:  #1032ff;*/ / -fx-font-size: 1; /*-fx-text-fill: #ffffff**/");
 
             if (form.equals(formArray[i])){
                 btnArray[i].setStyle("/*-fx-background-color: #ffffff;*/ -fx-font-size: 20; /*-fx-text-fill: #040082*/");
@@ -60,6 +59,9 @@ public class EmployeeDhashboradController {
         setForm("/view/AddItem.fxml");
     }
 
-    public void logOutOnAction(ActionEvent event) {
+    public void logOutOnAction(ActionEvent event) throws IOException {
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/selectroll.fxml"));
+        root.getChildren().clear();
+        root.getChildren().add(load);
     }
 }

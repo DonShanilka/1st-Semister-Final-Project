@@ -42,7 +42,7 @@
             </JFXButton>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="89.0" layoutX="416.0" layoutY="402.0" stroke="WHITE" strokeType="INSIDE" width="127.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="377.0" layoutY="33.0" stroke="WHITE" strokeType="INSIDE" width="330.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="72.0" layoutX="67.0" layoutY="43.0" stroke="WHITE" strokeType="INSIDE" width="193.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="254.0" layoutX="67.0" layoutY="22.0" stroke="WHITE" strokeType="INSIDE" width="390.0" />
             <Text layoutX="109.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select You'a Rolle">
                <font>
                   <Font name="System Bold" size="27.0" />
@@ -58,6 +58,12 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="120.0" layoutX="188.0" layoutY="124.0" stroke="WHITE" strokeType="INSIDE" width="390.0" />
+            <ImageView fitHeight="298.0" fitWidth="356.0" layoutX="248.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/5912558_2953982.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

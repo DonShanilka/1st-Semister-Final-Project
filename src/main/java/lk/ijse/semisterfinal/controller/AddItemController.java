@@ -51,7 +51,8 @@ public class AddItemController implements Initializable {
     @FXML
     public Label lblTotalItem;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
+        totalItem();
         setCellValueFactory();
         tableListener();
         loadAllItem();
