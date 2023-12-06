@@ -9,15 +9,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.CartTm;
 import lk.ijse.semisterfinal.dto.*;
 import lk.ijse.semisterfinal.model.*;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import org.controlsfx.control.Notifications;
 
 
 import java.io.InputStream;
@@ -27,6 +28,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
+
+import static java.awt.SystemColor.text;
+import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.title;
 
 public class CashierController {
     @FXML
@@ -56,13 +61,13 @@ public class CashierController {
     @FXML
     private TextField txtQty;
     @FXML
-    private TableView <CartTm> tblOrderCart;
+    private TableView<CartTm> tblOrderCart;
     @FXML
     private TableColumn<?, ?> colItemCode;
     @FXML
     private TableColumn<?, ?> colDescription;
     @FXML
-    private TableColumn <?, ?> colUnitPrice;
+    private TableColumn<?, ?> colUnitPrice;
     @FXML
     private TableColumn<?, ?> colTotal;
     @FXML
@@ -72,7 +77,7 @@ public class CashierController {
     @FXML
     private Label lblNetTotal;
     @FXML
-    private TableColumn <?,?> colQty;
+    private TableColumn<?, ?> colQty;
 
     private ObservableList<CartTm> ObList = FXCollections.observableArrayList();
     private ItemModel itemModel = new ItemModel();
@@ -221,8 +226,8 @@ public class CashierController {
         String code = cmbItemCode.getValue();
         String description = lblItemName.getText();
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
-        int  qty = Integer.parseInt(txtQty.getText());
-        double discount =qty * Double.parseDouble(txtDiscount.getText());
+        int qty = Integer.parseInt(txtQty.getText());
+        double discount = qty * Double.parseDouble(txtDiscount.getText());
         double tot = (unitPrice * qty) - (discount * qty);
         System.out.println(discount);
         Button btn = new Button("Remove");
@@ -250,13 +255,13 @@ public class CashierController {
                 }
             }
         }
-        obList.add(new CartTm(code, description,unitPrice, qty, tot,discount, btn));
+        obList.add(new CartTm(code, description, unitPrice, qty, tot, discount, btn));
 
         tblOrderCart.setItems(obList);
         calculateTotal();
     }
 
-    private void calculateBalance(){
+    private void calculateBalance() {
         double payment = Double.parseDouble(paidAmount.getText());
         double total = 0;
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
@@ -276,21 +281,21 @@ public class CashierController {
     }
 
     private void setRemoveBtnAction(Button btn) {
-            btn.setOnAction((e) -> {
-                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+        btn.setOnAction((e) -> {
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
-                if (type.orElse(no) == yes) {
-                    int focusedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
+            if (type.orElse(no) == yes) {
+                int focusedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
 
-                    obList.remove(focusedIndex);
-                    tblOrderCart.refresh();
-                    calculateTotal();
-                }
-            });
-        }
+                obList.remove(focusedIndex);
+                tblOrderCart.refresh();
+                calculateTotal();
+            }
+        });
+    }
 
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
@@ -332,39 +337,63 @@ public class CashierController {
     }
 
 
-    public void reportOnAction(ActionEvent event) {
-        /*throws JRException, SQLException {
+    public void reportOnAction(ActionEvent event) throws JRException, SQLException {
+        /*HashMap map = new HashMap<>();
 
-            HashMap map = new HashMap<>();
+        map.put("fee", tm.getParkingFee());
+        map.put("space", tm.getSpaceNum());
+        map.put("type", tm.getType());
 
-            map.put("fee", tm.getParkingFee());
-            map.put("space",tm.getSpaceNum());
-            map.put("type", tm.getType());
+        InputStream resourceAsStream =
+                getClass().getResourceAsStream("../report/parkingticket.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport compileReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        compileReport,
+                        map,
+                        new JREmptyDataSource()
+                );
+        JasperViewer.viewReport(jasperPrint, false);
 
-            InputStream resourceAsStream =
-                    getClass().getResourceAsStream("../report/parkingticket.jrxml");
-            JasperDesign load = JRXmlLoader.load(resourceAsStream);
-            JasperReport compileReport = JasperCompileManager.compileReport(load);
-            JasperPrint jasperPrint =
-                    JasperFillManager.fillReport(
-                            compileReport,
-                            map,
-                            new JREmptyDataSource()
-                    );
-            JasperViewer.viewReport(jasperPrint, false);
+    }
 
+    public void mouseClicakAction(MouseEvent mouseEvent) {
+        Integer index = customerModel.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
         }
+        tm.setDate(LocalDate.parse(parkingdate_txt.getCellData(index).toString()));
+        tm.setParkingFee(Double.parseDouble(parkingfee_txt.getCellData(index).toString()));
+        tm.setType(parkingtype_txt.getCellData(index).toString());
+        tm.setSpaceNum(parkingspace_txt.getCellData(index).toString());
+    }*/
 
-        public void mouseClicakAction(MouseEvent mouseEvent) {
-            Integer index  = parkingmain_txt.getSelectionModel().getSelectedIndex() ;
-            if(index <=-1){
-                return;
-            }
-            tm.setDate(LocalDate.parse(parkingdate_txt.getCellData(index).toString()));
-            tm.setParkingFee(Double.parseDouble(parkingfee_txt.getCellData(index).toString()));
-            tm.setType(parkingtype_txt.getCellData(index).toString());
-            tm.setSpaceNum(parkingspace_txt.getCellData(index).toString());
-*/
+}
+
+    private void showErrorNotification(String title, String txtt) {
+        Notifications.create()
+                .title(title)
+                .text(String.valueOf(text))
+                .showError();
+    }
+
+    private boolean validateCustomer() {
+        boolean isValidate = true;
+        boolean address = Pattern.matches("[A-Za-z]{0,}",lblCustomerName.getText());
+        if (!address){
+            showErrorNotification("Invalid Address", "The Address you entered is invalid");
+            isValidate = false;
+        }
+        /*boolean mobile = Pattern.matches("^([0-9]{9}|[0-9]{10})$",txtCustMobile.getText());
+        if (!mobile){
+            showErrorNotification("Invalid Mobile", "The Mobile Number you entered is invalid");
+            isValidate = false;
+
+        }*/
+        return isValidate;
     }
 }
+
+
 

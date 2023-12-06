@@ -1,7 +1,6 @@
 package lk.ijse.semisterfinal.model;
 
 import lk.ijse.semisterfinal.DB.DbConnetion;
-
 import java.sql.*;
 import java.time.LocalDate;
 

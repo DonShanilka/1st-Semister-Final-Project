@@ -266,6 +266,7 @@ public class AddItemController implements Initializable {
             setCellValueFactory();
             tableListener();
             loadAllItem();
+            itemSerachOnAction();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

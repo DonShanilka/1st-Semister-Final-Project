@@ -16,7 +16,21 @@
 
 <AnchorPane fx:id="root" prefHeight="766.0" prefWidth="1171.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.semisterfinal.controller.AttendanceController">
    <children>
-      <Pane accessibleRole="LIST_VIEW" layoutX="10.0" layoutY="13.0" prefHeight="738.0" prefWidth="1149.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;" />
+      <Pane accessibleRole="LIST_VIEW" layoutX="10.0" layoutY="13.0" prefHeight="738.0" prefWidth="1149.0" style="-fx-background-color: #e6e6ff; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="374.0" fitWidth="364.0" layoutX="771.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/confiromAtendance.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="808.0" layoutY="562.0" onAction="#BackOnAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: orange;" text="&lt; Back" />
+            <Pane layoutX="753.0" layoutY="462.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e6ff;" />
+            <Label fx:id="newCustomer" layoutX="14.0" layoutY="14.0" text="Attendance">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
       <DatePicker fx:id="date" layoutX="16.0" layoutY="120.0" style="-fx-background-color: #00004DFF;" />
       <Label layoutX="16.0" layoutY="97.0" text="Date :">
          <font>
@@ -46,11 +60,5 @@
         </columns>
       </TableView>
       <JFXButton layoutX="224.0" layoutY="294.0" onAction="#markAtendanseOnAction" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: orange;" text="Mark" />
-      <ImageView fitHeight="374.0" fitWidth="364.0" layoutX="491.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/confiromAtendance.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="791.0" layoutY="578.0" onAction="#BackOnAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: orange;" text="&lt; Back" />
    </children>
 </AnchorPane>

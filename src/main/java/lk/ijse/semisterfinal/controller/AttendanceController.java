@@ -11,14 +11,14 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.semisterfinal.Tm.AtendanceTm;
 import lk.ijse.semisterfinal.dto.AddEmployeeDTO;
 import lk.ijse.semisterfinal.dto.AtendanceDTO;
+import lk.ijse.semisterfinal.dto.ItemDTO;
 import lk.ijse.semisterfinal.model.AddEmployeeModel;
 import lk.ijse.semisterfinal.model.AtendanceModel;
+import lk.ijse.semisterfinal.model.ItemModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class AttendanceController {
 
@@ -125,28 +125,23 @@ public class AttendanceController {
     }
 
     public void markAtendanseOnAction(ActionEvent event) {
-        String empId = (String) comEmpId.getValue();
-        String empName = lblName.getText();
-        Button btn = new Button("Remove");
+        String date = colDate.getText();
+        String id = String.valueOf(comEmpId.getValue());
+        String name = lblName.getText();
 
-        btn.setCursor(Cursor.HAND);
+        var dto = new AtendanceDTO(date,id,name);
 
-        if (!obList.isEmpty()) {
-            for (int i = 0; i < atendanceTm.getItems().size(); i++) {
-                if (colId.getCellData(i).equals(empId)) {
-
-                    atendanceTm.refresh();
-                    return;
-                }
+        try {
+            boolean isaddite = AtendanceModel.addAttendance(dto);
+            if (isaddite) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Add Successful").show();
+                loadAllEmployee();
             }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
-
-        var incomeTm = new AtendanceTm(empId, empName, btn);
-
-        obList.add(incomeTm);
-
-        atendanceTm.setItems(obList);
     }
+
 
     public void cmbEmpIdOnAction(ActionEvent event) {
         String id = (String) comEmpId.getValue();
@@ -159,5 +154,7 @@ public class AttendanceController {
     }
 
     public void BackOnAction(ActionEvent event) {
+
     }
+
 }
